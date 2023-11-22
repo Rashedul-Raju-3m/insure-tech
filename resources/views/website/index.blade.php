@@ -12,6 +12,7 @@
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                         <a class="btn btn-primary py-3 px-4 fw-bold border-2 shadow border-radius-10 wow animate__fadeInLeft" data-wow-delay="1s" href="{{ isset($pageData->get_started_link) ? $pageData->get_started_link : '#' }}">{{ isset($pageData->get_started_text) ? $pageData->get_started_text : _lang('Get Started') }} <i class="bi bi-arrow-right ms-2"></i></a>
                         <a class="btn btn-outline-primary py-3 px-4 fw-bold border-2 border-radius-10 wow animate__fadeInRight" data-wow-delay="1s" href="{{ route('login') }}">{{ _lang('Sign In') }} <i class="bi bi-box-arrow-in-right ms-2"></i></a>
+                        <a class="btn btn-outline-primary py-3 px-4 fw-bold border-2 border-radius-10 wow animate__fadeInRight" data-wow-delay="1s" href="{{ route('ins_start','health-insurance') }}">{{ _lang('Health Insurance') }} <i class="bi bi-box-arrow-in-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -36,11 +37,11 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row gx-5">
             <div class="col-lg-12">
-                <div class="row">      
-                    @foreach($features as $feature)                                             
+                <div class="row">
+                    @foreach($features as $feature)
                     <div class="col-lg-4 mb-5 h-100">
                         <div class="feature wow animate__zoomIn" data-wow-delay=".2s">
                             <div class="icon text-primary fw-bold mb-4">
@@ -108,7 +109,7 @@
                         @else
                         <h4><span>{{ decimalPlace($package->cost, currency_symbol()) }}</span> / {{ ucwords($package->package_type) }}</h4>
                         @endif
-                        
+
                         @if($package->trial_days > 0)
                         <h6 class="mt-2 text-danger">{{ $package->trial_days.' '._lang('Days Free Trial') }}</h6>
                         @else
@@ -194,7 +195,7 @@
 
                     <div class="px-4">
                         <p class="lead fw-bolder mb-4 mt-4 text-dark">{{ $testimonial->translation->name }}</p>
-                        
+
                         <p class="font-weight-normal mb-4"><i>"{{ $testimonial->translation->testimonial }}"</i></p>
 
                         <span class="ratings">
@@ -206,7 +207,7 @@
                         </span>
                     </div>
                 </div>
-            </div>                     
+            </div>
             @endforeach
         </div>
     </div>
@@ -227,7 +228,7 @@
                 </div>
             </div>
         </div>
-   
+
         <div class="row justify-content-center wow animate__zoomIn" data-wow-duration="1s">
             <div class="col-lg-6">
                 <form action="{{ url('/email_subscription') }}" id="email_subscription" method="post">

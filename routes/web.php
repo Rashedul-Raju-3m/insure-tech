@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmailSubscriberController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\Insurance\InsuranceController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MembershipController;
 use App\Http\Controllers\NotificationTemplateController;
@@ -396,6 +397,8 @@ Route::group(['middleware' => ['install']], function () use ($ev) {
     Route::post('/send_message', 'Website\WebsiteController@send_message');
     Route::post('/post_comment', 'Website\WebsiteController@post_comment');
     Route::post('/email_subscription', 'Website\WebsiteController@email_subscription');
+
+    include 'insure_tech_route.php';
 
     if (env('APP_INSTALLED', true)) {
         Route::get('/{slug?}', [WebsiteController::class, 'index']);
