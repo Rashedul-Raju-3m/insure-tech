@@ -11288,7 +11288,7 @@ html {
     top: 6px;
     left: -10px;
   }
-  
+
 }
 
 .border-radius-10{
@@ -11829,7 +11829,7 @@ html {
   margin-left: 50px;
 }
 
-.comments .single-comment .comment_author_img img{ 
+.comments .single-comment .comment_author_img img{
   width: 80px;
   height: 80px;
 }
@@ -11962,7 +11962,7 @@ html {
 .faq-item .accordion-button:not(.collapsed) {
   color: #FFF;
   background-color: var(--bs-primary);
-  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%); 
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
 .faq-item .accordion-button:not(.collapsed)::after {

@@ -121,9 +121,9 @@ class InsuranceController extends Controller {
 
     public function InsuranceQuery($slug,$session){
         $sessionUser = InsUserSession::where('code',$session)->first();
+        $page = InsCategory::where('slug', $slug)->where('is_active', 1)->first();
         if ('health-insurance' == $slug){
-            dd('health');
-            return view('website.insurance.health', compact('page','sessionUser'));
+            return view('website.insurance.health.query-form', compact('page','sessionUser'));
         }
     }
 

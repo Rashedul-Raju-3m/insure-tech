@@ -22,6 +22,8 @@
         <link href="{{ asset('public/website/vendors/slick/slick.css') }}" rel="stylesheet" />
         <link href="{{ asset('public/website/vendors/slick/slick-theme.css') }}" rel="stylesheet" />
         <link href="{{ asset('public/backend/plugins/jquery-toast-plugin/jquery.toast.min.css') }}" rel="stylesheet" />
+{{--        <link href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-main.css" rel="stylesheet" />--}}
+        <link href="{{ asset('public/website/css/steeper-styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('public/website/css/styles.css') }}" rel="stylesheet" />
         @php $header_footer_settings = json_decode(get_trans_option('header_footer_page')); @endphp
         @php $header_footer_media = json_decode(get_trans_option('header_footer_page_media')); @endphp
@@ -47,18 +49,18 @@
                                     @foreach(get_language_list() as $language)
                                     <li class="nav-item">
                                         <a class="nav-link d-flex align-items-center" href="{{ route('switch_language') }}?language={{ $language }}">
-                                            <img class="avatar avatar-xss avatar-circle me-2" src="{{ asset('public/backend/plugins/flag-icon-css/flags/1x1/'.explode('---', $language)[1].'.svg') }}"> 
+                                            <img class="avatar avatar-xss avatar-circle me-2" src="{{ asset('public/backend/plugins/flag-icon-css/flags/1x1/'.explode('---', $language)[1].'.svg') }}">
                                             <span>{{ explode('---', $language)[0] }}</span>
                                         </a>
-                                    </li> 
+                                    </li>
                                     @endforeach
                                 </ul>
-                            </li> 
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-         
+
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg fkr-navbar" id="main_navbar">
                 <div class="container">
@@ -71,9 +73,9 @@
                         <ul class="navbar-nav ms-auto d-flex">
                             <li class="nav-item"><a class="nav-link {{ url()->current() == url('/') ? 'active' : '' }}" href="{{ url('/') }}">{{ _lang('Home') }}</a></li>
                             <li class="nav-item"><a class="nav-link {{ url()->current() == url('/about') ? 'active' : '' }}" href="{{ url('/about') }}">{{ _lang('About') }}</a></li>
-                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/features') ? 'active' : '' }}" href="{{ url('/features') }}">{{ _lang('Features') }}</a></li> 
-                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/pricing') ? 'active' : '' }}" href="{{ url('/pricing') }}">{{ _lang('Pricing') }}</a></li> 
-                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/blogs') ? 'active' : '' }}" href="{{ url('/blogs') }}">{{ _lang('Blogs') }}</a></li> 
+                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/features') ? 'active' : '' }}" href="{{ url('/features') }}">{{ _lang('Features') }}</a></li>
+                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/pricing') ? 'active' : '' }}" href="{{ url('/pricing') }}">{{ _lang('Pricing') }}</a></li>
+                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/blogs') ? 'active' : '' }}" href="{{ url('/blogs') }}">{{ _lang('Blogs') }}</a></li>
                             <li class="nav-item">
                                 <a class="nav-link has-submenu" href="#">{{ _lang('Pages') }}</a>
                                 <ul class="submenu">
@@ -81,9 +83,9 @@
                                     <li class="nav-item"><a class="nav-link" href="{{ url('/'.$d_page->slug) }}">{{ $d_page->translation->title }}</a></li>
                                     @endforeach
                                 </ul>
-                            </li>   
-                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/faq') ? 'active' : '' }}" href="{{ url('/faq') }}">{{ _lang('FAQ') }}</a></li> 
-                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/contact') ? 'active' : '' }}" href="{{ url('/contact') }}">{{ _lang('Contact') }}</a></li> 
+                            </li>
+                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/faq') ? 'active' : '' }}" href="{{ url('/faq') }}">{{ _lang('FAQ') }}</a></li>
+                            <li class="nav-item"><a class="nav-link {{ url()->current() == url('/contact') ? 'active' : '' }}" href="{{ url('/contact') }}">{{ _lang('Contact') }}</a></li>
                         </ul>
 
                         <ul class="navbar-nav ms-auto d-flex">
@@ -94,7 +96,7 @@
 
                             @guest
                                 <li class="nav-item"><a class="nav-link me-2 btn-login py-2 text-nowrap" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right me-2 d-none d-lg-inline"></i>{{ _lang('Sign In') }}</a></li>
-                                <li class="nav-item"><a class="nav-link btn-register py-2 text-nowrap" href="{{ route('register') }}"><i class="bi bi-person-plus me-2 d-none d-lg-inline"></i>{{ _lang('Sign Up') }}</a></li>                        
+                                <li class="nav-item"><a class="nav-link btn-register py-2 text-nowrap" href="{{ route('register') }}"><i class="bi bi-person-plus me-2 d-none d-lg-inline"></i>{{ _lang('Sign Up') }}</a></li>
                             @endguest
                         </ul>
                     </div>
@@ -104,12 +106,12 @@
             @yield('content')
 
             @php $gdpr_cookie_consent = json_decode(get_trans_option('gdpr_cookie_consent_page')) @endphp
-            
+
             @if(isset($gdpr_cookie_consent->cookie_consent_status) && $gdpr_cookie_consent->cookie_consent_status == 1)
             @include('cookie-consent::index')
             @endif
         </main>
-        
+
         <!-- Footer-->
         <footer class="footer">
             <!-- Footer Top -->
@@ -124,7 +126,7 @@
                                 </div>
 
                                 <p class="text">{{ isset($header_footer_settings->widget_1_content) ? $header_footer_settings->widget_1_content : '' }}</p>
-                                
+
                             </div>
                             <!-- End Single Widget -->
                         </div>
@@ -179,12 +181,52 @@
                 </div>
             </div>
         </footer>
-        
+
         <script src="{{ asset('public/website/js/jquery-3.6.3.min.js') }}"></script>
+{{--        <script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>--}}
         <script src="{{ asset('public/website/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('public/website/js/steeper-scripts.js') }}"></script>
         <script src="{{ asset('public/website/vendors/slick/slick.min.js') }}"></script>
         <script src="{{ asset('public/backend/plugins/jquery-toast-plugin/jquery.toast.min.js') }}"></script>
         <script src="{{ asset('public/website/js/wow.min.js') }}"></script>
+        <script>
+            /*$(document).ready(function () {
+                $("#stepper").kendoStepper({
+                    linear:true,
+                    steps: [{
+                        label: "Personal Info",
+                        icon:"user"
+                    },{
+                        label: "Education",
+                        icon:"book",
+                        error: true
+                    },{
+                        label: "Experience",
+                        icon:"flip-vertical",
+                        selected: true
+                    },{
+                        label: "Attachments",
+                        icon: "paperclip"
+                    },{
+                        label: "Review",
+                        icon:"eye",
+                        enabled: true
+                    },{
+                        label: "Submit",
+                        icon: "file-add"
+                    }]
+                });
+            });*/
+
+            var form = $("#example-form");
+
+            form.steps({
+                headerTag: "h6",
+                bodyTag: "section",
+                transitionEffect: "fade",
+                titleTemplate: '<span class="step">#index#</span> #title#'
+            });
+        </script>
 
         <!-- Core theme JS-->
         <script src="{{ asset('public/website/js/scripts.js') }}"></script>
