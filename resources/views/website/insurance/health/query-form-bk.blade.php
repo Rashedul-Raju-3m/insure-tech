@@ -329,403 +329,109 @@
                                     <div class="row" style="padding-top: 8px">
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
-{{--                                            <div class="card">--}}
-{{--                                                <div class="card-body">--}}
+                                            <div class="card">
+                                                <div class="card-body">
         <section id="pricing-table" style="padding: 0px !important;">
-            <div class=" justify-content-center">
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                         {{ ucwords('Yearly') }}
-                                    </h4>
+            <div class="container my-3">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-4 mb-5 monthly-plan" style="padding-right: 0px !important;">
+                        <div class="pricing-plan popular h-100 wow animate__zoomIn"
+                            data-wow-delay=".6s">
+                            <div class="pricing-plan-header">
+                                <span>{{ _lang('Most popular') }}</span>
+                                <h5>Standard</h5>
+                                <p class="d-inline-block">
+                                    <small>
+                                        <del>{{ decimalPlace(20, currency_symbol()) }}</del>
+                                    </small>
+                                    <span
+                                        class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
+                                </p>
+                                <h4>
+                                    <span>{{ decimalPlace('999', currency_symbol()) }}</span>
+                                    / {{ ucwords('Yearly') }}</h4>
 
-                                </div>
+                                <h6 class="mt-2 text-dark">{{ _lang('No Trial Available') }}</h6>
                             </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
+                            <div class="pricing-plan-body">
+                                <ul>
+                                    <li>
+                                        <i class="bi bi-check2-circle me-2"></i>{{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
+                                    </li>
 
+                                </ul>
+                                <a href="">{{ _lang('Buy') }} <i
+                                        class="bi bi-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="{{route('ins_insurance_details',['health-insurance',$sessionUser->code])}}">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                         {{ ucwords('Yearly') }}
-                                    </h4>
-                                </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
+                    <div class="col-lg-4 mb-5 monthly-plan" style="padding-right: 0px !important;">
+                        <div class="pricing-plan popular h-100 wow animate__zoomIn"
+                            data-wow-delay=".6s">
+                            <div class="pricing-plan-header">
+                                <span>{{ _lang('Most popular') }}</span>
+                                <h5>Standard</h5>
+                                <p class="d-inline-block">
+                                    <small>
+                                        <del>{{ decimalPlace(20, currency_symbol()) }}</del>
+                                    </small>
+                                    <span
+                                        class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
+                                </p>
+                                <h4>
+                                    <span>{{ decimalPlace('999', currency_symbol()) }}</span>
+                                    / {{ ucwords('Yearly') }}</h4>
 
+                                <h6 class="mt-2 text-dark">{{ _lang('No Trial Available') }}</h6>
+                            </div>
+                            <div class="pricing-plan-body">
+                                <ul>
+                                    <li>
+                                        <i class="bi bi-check2-circle me-2"></i>{{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
+                                    </li>
+
+                                </ul>
+                                <a href="">{{ _lang('Buy') }} <i
+                                        class="bi bi-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                        {{ ucwords('Yearly') }}
-                                    </h4>
+                    <div class="col-lg-4 mb-5 monthly-plan" style="padding-right: 0px !important;">
+                        <div class="pricing-plan popular h-100 wow animate__zoomIn"
+                            data-wow-delay=".6s">
+                            <div class="pricing-plan-header">
+                                <span>{{ _lang('Most popular') }}</span>
+                                <h5>Standard</h5>
+                                <p class="d-inline-block">
+                                    <small>
+                                        <del>{{ decimalPlace(20, currency_symbol()) }}</del>
+                                    </small>
+                                    <span
+                                        class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
+                                </p>
+                                <h4>
+                                    <span>{{ decimalPlace('999', currency_symbol()) }}</span>
+                                    / {{ ucwords('Yearly') }}</h4>
 
-                                </div>
+                                <h6 class="mt-2 text-dark">{{ _lang('No Trial Available') }}</h6>
                             </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
+                            <div class="pricing-plan-body">
+                                <ul>
+                                    <li>
+                                        <i class="bi bi-check2-circle me-2"></i>{{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
+                                    </li>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                        {{ ucwords('Yearly') }}
-                                    </h4>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                        {{ ucwords('Yearly') }}
-                                    </h4>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                        {{ ucwords('Yearly') }}
-                                    </h4>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                        {{ ucwords('Yearly') }}
-                                    </h4>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                        {{ ucwords('Yearly') }}
-                                    </h4>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mb-5 monthly-plan">
-                    <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                    <h5>Standard</h5>
-                                    <p class="d-inline-block">
-                                        <small>
-                                            <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                        </small>
-                                        <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-header">
-                                    <h4>
-                                        <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                        {{ ucwords('Yearly') }}
-                                    </h4>
-
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="pricing-plan-body">
-                                    <ul>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                        <li>
-                                            <i class="bi bi-check2-circle me-2"></i>
-                                            {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                        </li>
-                                    </ul>
-                                    <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                </div>
-
+                                </ul>
+                                <a href="">{{ _lang('Buy') }} <i
+                                        class="bi bi-arrow-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 

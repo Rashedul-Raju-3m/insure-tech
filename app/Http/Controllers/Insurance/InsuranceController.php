@@ -127,4 +127,11 @@ class InsuranceController extends Controller {
         }
     }
 
+    public function InsuranceQueryDetails($slug,$session){
+        $sessionUser = InsUserSession::where('code',$session)->first();
+        $page = InsCategory::where('slug', $slug)->where('is_active', 1)->first();
+        if ('health-insurance' == $slug){
+            return view('website.insurance.health.query-form-details', compact('page','sessionUser'));
+        }    }
+
 }
