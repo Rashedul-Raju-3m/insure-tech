@@ -61,8 +61,16 @@
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <div class="faq-item">
-                                        <h3 class="accordion-header" id="heading1"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1"><i class="bi bi-question-circle me-2"></i>What is your name ? </button></h3>
-                                        <div class="accordion-collapse collapse" id="collapse1" aria-labelledby="heading1" data-bs-parent="#faqAccordion">
+                                        <h3 class="accordion-header" id="heading2"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1"><i class="bi bi-question-circle me-2"></i>What is your name ? </button></h3>
+                                        <div class="accordion-collapse collapse" id="collapse1" aria-labelledby="heading2" data-bs-parent="#faqAccordion">
+                                            <div class="accordion-body">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis similique tempora. Accusantium amet atque, beatae consectetur dignissimos distinctio error exercitationem hic illum molestias obcaecati, omnis quasi recusandae reiciendis?
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="faq-item">
+                                        <h3 class="accordion-header" id="heading1"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2"><i class="bi bi-question-circle me-2"></i>What is your name ? </button></h3>
+                                        <div class="accordion-collapse collapse" id="collapse2" aria-labelledby="heading1" data-bs-parent="#faqAccordion">
                                             <div class="accordion-body">
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae debitis similique tempora. Accusantium amet atque, beatae consectetur dignissimos distinctio error exercitationem hic illum molestias obcaecati, omnis quasi recusandae reiciendis?
                                             </div>

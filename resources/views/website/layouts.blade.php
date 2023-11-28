@@ -190,34 +190,6 @@
         <script src="{{ asset('public/backend/plugins/jquery-toast-plugin/jquery.toast.min.js') }}"></script>
         <script src="{{ asset('public/website/js/wow.min.js') }}"></script>
         <script>
-            /*$(document).ready(function () {
-                $("#stepper").kendoStepper({
-                    linear:true,
-                    steps: [{
-                        label: "Personal Info",
-                        icon:"user"
-                    },{
-                        label: "Education",
-                        icon:"book",
-                        error: true
-                    },{
-                        label: "Experience",
-                        icon:"flip-vertical",
-                        selected: true
-                    },{
-                        label: "Attachments",
-                        icon: "paperclip"
-                    },{
-                        label: "Review",
-                        icon:"eye",
-                        enabled: true
-                    },{
-                        label: "Submit",
-                        icon: "file-add"
-                    }]
-                });
-            });*/
-
             var form = $("#example-form");
 
             form.steps({
@@ -226,6 +198,29 @@
                 transitionEffect: "fade",
                 titleTemplate: '<span class="step">#index#</span> #title#'
             });
+
+
+            $(document).delegate('.health-insurance-holder','click',function () {
+                let fieldValue = $(this).val();
+                if($(this).prop('checked') == true){
+                    let checkValue = []
+                    checkValue.push(fieldValue);
+                    console.log(checkValue)
+                    // localStorage.setItem("check-value", checkValue);
+                }else{
+                    let checkValue = localStorage.getItem("check-value")
+                    alert(checkValue)
+                }
+            })
+            $(document).delegate('#getDetailsFeature','click',function () {
+                $('#hideFeature').hide()
+                $('#showFeature').show()
+            })
+            $(document).delegate('#reverse','click',function () {
+                $('#hideFeature').show()
+                $('#showFeature').hide()
+            })
+
         </script>
 
         <!-- Core theme JS-->
