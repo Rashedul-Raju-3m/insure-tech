@@ -42,10 +42,22 @@
                         </div>
 
                         <div class="panel-body wizard-content">
-                            <form id="example-form" action="#" class="tab-wizard wizard-circle wizard clearfix">
-                                <h6>Basic Details</h6>
+{{--                            <form id="example-form" action="#" class="tab-wizard wizard-circle wizard clearfix">--}}
+{{--                                <h6>yyy</h6>--}}
+{{--                            <a href="{{route('ins_insurance_details',['health-insurance',$sessionUser->code])}}">--}}
+
+                            <form action="{{route('ins_insurance_submit_1',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
+                                {{ csrf_field() }}
                                 <section>
                                     <br/>
+                                    <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-10">
+                                            <h4><img src="{{asset('public/website/assets/icons/step-1.png') }}" alt="" style="width: 60px;
+    margin-left: -16px;"><b> Basic Details</b></h4>
+                                        </div>
+                                        <div class="col-lg-1"></div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
@@ -57,37 +69,37 @@
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-5">
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Self" id="Self">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Self" id="Self">
                                                 <label class="form-check-label" for="Self">Self</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Spouse" id="Spouse">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Spouse" id="Spouse">
                                                 <label class="form-check-label" for="Spouse">Spouse</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Son" id="Son">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Son" id="Son">
                                                 <label class="form-check-label" for="Son">Son</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Daughter" id="Daughter">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Daughter" id="Daughter">
                                                 <label class="form-check-label" for="Daughter">Daughter</label>
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Father" id="Father">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Father" id="Father">
                                                 <label class="form-check-label" for="Father">Father</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Mother" id="Mother">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Mother" id="Mother">
                                                 <label class="form-check-label" for="Mother">Mother</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Father In Law" id="FatherInLaw">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Father In Law" id="FatherInLaw">
                                                 <label class="form-check-label" for="FatherInLaw">Father In Law</label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input health-insurance-holder" type="checkbox" value="Mother In Law" id="MotherInLaw">
+                                                <input class="form-check-input insurance-holder" name="insurance-holder[]" type="checkbox" value="Mother In Law" id="MotherInLaw">
                                                 <label class="form-check-label" for="MotherInLaw">Mother In Law</label>
                                             </div>
                                         </div>
@@ -97,7 +109,7 @@
                                         <div class="col-lg-5">
                                             <div class="form-group">
                                                 <label for="MaritalStatus"><b>Select your Marital Status</b></label>
-                                                <select name="MaritalStatus" id="MaritalStatus" class="wow animate__zoomIn form-select" data-wow-delay=".4s">
+                                                <select name="MaritalStatus" id="MaritalStatus" class="wow animate__zoomIn form-select" data-wow-delay=".4s" required>
                                                     <option value="">Select</option>
                                                     <option value="Unmarried">Unmarried</option>
                                                     <option value="Married">Married</option>
@@ -110,9 +122,18 @@
 
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-10">
+                                            {{--                                            <h6><b>Who would you like to insure today?</b></h6>--}}
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button class="btn btn-success step-1-submit" type="submit">Next</button>
+                                        </div>
+                                    </div>
                                 </section>
 
-                                <h6>Your Plan</h6>
+                                {{--<h6>Your Plan</h6>
                                 <section>
                                     <br/>
                                     <div id="showFeature" style="display: none">
@@ -631,11 +652,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </section>--}}
 
 
 
-                                <h6>Warning</h6>
+                                {{--<h6>Warning</h6>
                                 <section>
                                     <div class="row">
                                         <div class="col-sm-2"></div>
@@ -693,13 +714,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                </section>
+                                </section>--}}
 
-                                <h6>Finish</h6>
+                                {{--<h6>Finish</h6>
                                 <section>
 
                                     <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class=""> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
-                                </section>
+                                </section>--}}
+
                             </form>
                         </div>
                     </div>

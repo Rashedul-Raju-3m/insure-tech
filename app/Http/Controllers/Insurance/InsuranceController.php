@@ -15,6 +15,7 @@ use App\Models\Testimonial;
 use App\Utilities\Overrider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class InsuranceController extends Controller {
@@ -132,6 +133,46 @@ class InsuranceController extends Controller {
         $page = InsCategory::where('slug', $slug)->where('is_active', 1)->first();
         if ('health-insurance' == $slug){
             return view('website.insurance.health.query-form-details', compact('page','sessionUser'));
-        }    }
+        }
+    }
+
+    public function InsuranceSubmit1(Request $request,$slug,$session){
+        $page = InsCategory::where('slug',$slug)->where('is_active', 1)->first();
+        $sessionUser = InsUserSession::where('code',$session)->first();
+        if (!$page || !$sessionUser){
+            abort(404);
+        }
+        Session::put('healthBasicInfo', $request->all());
+//        $basicInfo = Session::get('healthBasicInfo');
+        return view('website.insurance.health.query-form-2', compact('page','sessionUser'));
+    }
+
+    public function InsuranceSubmit2(Request $request,$slug,$session){
+        $page = InsCategory::where('slug',$slug)->where('is_active', 1)->first();
+        $sessionUser = InsUserSession::where('code',$session)->first();
+        if (!$page || !$sessionUser){
+            abort(404);
+        }
+        Session::put('healthPlanInfo', $request->all());
+        $basicInfo = Session::get('healthBasicInfo');
+        $planInfo = Session::get('healthPlanInfo');
+        return view('website.insurance.health.query-form-3', compact('page','sessionUser'));
+    }
+
+    public function InsuranceSubmit3(Request $request,$slug,$session){
+        $page = InsCategory::where('slug',$slug)->where('is_active', 1)->first();
+        $sessionUser = InsUserSession::where('code',$session)->first();
+        if (!$page || !$sessionUser){
+            abort(404);
+        }
+
+        Session::put('healthMemberInfo', $request->all());
+        $basicInfo = Session::get('healthBasicInfo');
+        $planInfo = Session::get('healthPlanInfo');
+        $memberInfo = Session::get('healthMemberInfo');
+
+//        dd($basicInfo,$planInfo,$memberInfo);
+        return view('website.insurance.health.query-form-4', compact('page','sessionUser'));
+    }
 
 }

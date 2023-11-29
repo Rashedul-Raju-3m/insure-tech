@@ -199,8 +199,19 @@
                 titleTemplate: '<span class="step">#index#</span> #title#'
             });
 
+            $(document).ready(function () {
+                $('.step-1-submit').click(function(e) {
+                    checked = $("input[type=checkbox]:checked").length;
 
-            $(document).delegate('.health-insurance-holder','click',function () {
+                    if(!checked) {
+                        alert("You must check at least one checkbox.");
+                        return false;
+                    }
+                });
+            });
+
+
+            /*$(document).delegate('.health-insurance-holder','click',function () {
                 let fieldValue = $(this).val();
                 if($(this).prop('checked') == true){
                     let checkValue = []
@@ -211,7 +222,7 @@
                     let checkValue = localStorage.getItem("check-value")
                     alert(checkValue)
                 }
-            })
+            })*/
             $(document).delegate('#getDetailsFeature','click',function () {
                 $('#hideFeature').hide()
                 $('#showFeature').show()
@@ -219,6 +230,12 @@
             $(document).delegate('#reverse','click',function () {
                 $('#hideFeature').show()
                 $('#showFeature').hide()
+            })
+            $(document).delegate('.package','click',function () {
+                // alert($(this).val())
+                $('#hideFeature').show()
+                $('#showFeature').hide()
+                $("#SumInsured").val($(this).val()).change();
             })
 
         </script>

@@ -19,4 +19,7 @@ Route::post('/ins/session-store', [InsuranceController::class, 'InsuranceSession
 Route::post('/ins/otp-check', [InsuranceController::class, 'InsuranceOtpCheck'])->name('ins_opt_check');
 Route::get('/ins/{slug}/{session}', [InsuranceController::class, 'InsuranceQuery'])->name('ins_insurance_query');
 Route::get('/ins/{slug}/details/{session}', [InsuranceController::class, 'InsuranceQueryDetails'])->name('ins_insurance_details');
+Route::post('/ins/{slug}/step1/{session}', [InsuranceController::class, 'InsuranceSubmit1'])->name('ins_insurance_submit_1');
+Route::post('/ins/{slug}/step2/{session}', [InsuranceController::class, 'InsuranceSubmit2'])->name('ins_insurance_submit_2');
+Route::post('/ins/{slug}/step3/{session}', [InsuranceController::class, 'InsuranceSubmit3'])->name('ins_insurance_submit_3');
 
