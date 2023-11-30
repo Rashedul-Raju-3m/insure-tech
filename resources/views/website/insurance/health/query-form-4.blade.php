@@ -2,6 +2,14 @@
 
 @section('content')
 
+    @php
+        use App\Models\Country;use App\Models\District;use App\Models\Division;use App\Models\Upazila;
+        $country = Country::GetAllCountry();
+        $divisions = Division::GetAllDivisionDropdownData();
+        $districts = District::GetAllDivisionWiseDistrictDropdownData(isset($user->division)?$user->division:'');
+        $upazilas = Upazila::GetAllDistrictWiseUpazilaDropdownData(isset($user->district)?$user->district:'');
+    @endphp
+
 <!--Contact Us Section-->
 <section class="contact-us" style="padding-top: 25px !important;">
     <div class="container px-4">
@@ -43,19 +51,14 @@
 
                         <div class="panel-body wizard-content">
 
-                            <form action="{{route('ins_insurance_submit_3',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
+                            <form action="{{route('ins_insurance_submit_4',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
                                 {{ csrf_field() }}
                                 <section>
                                     <br/>
                                     <div class="row">
-                                        <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
-                                            <h4>
-{{--                                                <img src="{{asset('public/website/assets/icons/step-1.png') }}" alt="" style="width: 60px;--}}
-{{--    margin-left: -16px;">--}}
-                                                <b> Payment Form</b></h4>
+                                            <h4><b> Payment Form</b></h4>
                                         </div>
-                                        <div class="col-lg-1"></div>
                                     </div>
 
                                     @php
@@ -63,7 +66,7 @@
                                         $healthPlanInfo = Session::get('healthPlanInfo');
                                         $healthMemberInfo = Session::get('healthMemberInfo');
 
-                                        echo "<pre>";
+                                        /*echo "<pre>";
                                         var_dump($healthBasicInfo);
                                         echo "<br>";
                                         echo "<pre>";
@@ -71,118 +74,155 @@
                                         echo "<br>";
                                         echo "<pre>";
                                         var_dump($healthMemberInfo);
-                                        echo "<br>";
+                                        echo "<br>";*/
                                     @endphp
-                                    <div class="row">
-                                        <div class="col-lg-1"></div>
-                                        <div class="col-lg-10"><h6><b>Tell us about your family members </b></h6></div>
-                                        <div class="col-lg-1"></div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-1"></div>
-                                        <div class="col-lg-10">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    {{--@if(sizeof($basicInfo['insurance-holder'])>0)
-                                                        @foreach($basicInfo['insurance-holder'] as $value)
-                                                            @php
-                                                                $label = '';
-                                                                $name = '';
-                                                                if ($value == 'Self'){
-                                                                    $label = 'Your Details';
-                                                                    $name = 'self';
-                                                                }elseif ($value == 'Spouse'){
-                                                                    $label = 'Spouse Details';
-                                                                    $name = 'spouse';
-                                                                }elseif ($value == 'Son'){
-                                                                    $label = 'Son Details';
-                                                                    $name = 'son';
-                                                                }elseif ($value == 'Daughter'){
-                                                                    $label = 'Daughter Details';
-                                                                    $name = 'daughter';
-                                                                }elseif ($value == 'Father'){
-                                                                    $label = 'Father Details';
-                                                                    $name = 'father';
-                                                                }elseif ($value == 'Mother'){
-                                                                    $label = 'Mother Details';
-                                                                    $name = 'mother';
-                                                                }elseif ($value == 'Father In Law'){
-                                                                    $label = 'Father In Law Details';
-                                                                    $name = 'father_in_law';
-                                                                }elseif ($value == 'Mother In Law'){
-                                                                    $label = 'Mother In Law Details';
-                                                                    $name = 'mother_in_law';
-                                                                }
-                                                            @endphp
-                        <div class="row">
-                            <h6><b><u>{{$label}}</u></b></h6>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Full Name">Full Name</label>
-                                    <input type="text" name="{{$name}}_name" class="form-control" placeholder="Full Name" required>
+                                    <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                                        <div class="card-body p-0">
+                                            <div class="row g-0">
+                                                <div class="col-lg-8">
+                                                    <div class="p-5">
 
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Date of birth">Date of birth</label>
-                                    <input type="date" name="{{$name}}_dob" class="form-control" placeholder="Date of birth" required>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="Weight">Weight</label>
-                                    <input type="text" name="{{$name}}_weight" class="form-control" placeholder="Weight" required>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="Height">Height</label>
-                                    <select name="{{$name}}_height_ft" class="form-select" required>
-                                        <option value="4">4 ft </option>
-                                        <option value="5">5 ft </option>
-                                        <option value="6">6 ft </option>
-                                        <option value="7">7 ft </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="Height"></label>
-                                    <select name="{{$name}}_height_in" class="form-select" required>
-                                        <option value="0">0 In </option>
-                                        <option value="1">1 In </option>
-                                        <option value="2">2 In </option>
-                                        <option value="3">3 In </option>
-                                        <option value="4">4 In </option>
-                                        <option value="5">5 In </option>
-                                        <option value="6">6 In </option>
-                                        <option value="7">7 In </option>
-                                        <option value="8">8 In </option>
-                                        <option value="9">9 In </option>
-                                        <option value="10">10 In </option>
-                                        <option value="11">11 In </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                                                        @endforeach
-                                                    @endif--}}
+                                                        @csrf
+                                                        <div class="">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="Email">Email</label>
+                                                                        <input type="text" name="email" class="form-control" placeholder="Email" required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for=Phone">Phone</label>
+                                                                        <input type="text" name="phone" class="form-control" placeholder="Phone" required>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for=Name">First Name</label>
+                                                                        <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for=Name">Last Name</label>
+                                                                        <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for=Name">Address</label>
+                                                                        <textarea type="text" name="address" class="form-control" placeholder="Address" required></textarea>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for=Name">Country</label>
+                                                                        <select required name="country" class="form-control select2">
+                                                                            <option value="">Choose Country</option>
+                                                                            @foreach ($country as $val)
+                                                                                <option value="{{$val->id}}"
+                                                                                    {{$val->id==18?'Selected' : ''}}>{{$val->name}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for=Name">Division</label>
+                                                                        <select required name="division" class="form-control division select2">
+                                                                            <option value="">Choose Division</option>
+                                                                            @foreach ($divisions as $val)
+                                                                                <option value="{{$val->id}}">{{$val->name}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for=Name">District</label>
+                                                                        <a data-href="{{route('get_division_wise_district_user')}}" style="display: none" id="getDistrictRoute"></a>
+                                                                        <select required name="district" class="form-control district select2" id="district">
+                                                                            <option value="">Choose District</option>
+                                                                            @foreach ($districts as $val)
+                                                                                <option value="{{$val->id}}"
+{{--                                                                                    {{$val->id==18?'Selected' : ''}}>{{$val->name}}</option>--}}
+                                                                                    >{{$val->name}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for=Name">Upazila</label>
+                                                                        <a data-href="{{route('get_district_wise_upazila_user')}}" style="display: none" id="getUpazilaRoute"></a>
+                                                                        <select required name="upazila" class="form-control upazila select2" id="upazila">
+                                                                            <option value="">Choose Upazila</option>
+                                                                            @foreach ($upazilas as $val)
+                                                                                <option value="{{$val->id}}"
+{{--                                                                                    {{$val->id==18?'Selected' : ''}}>{{$val->name}}</option>--}}
+                                                                                    >{{$val->name}}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 bg-grey">
+                                                    <div class="" style="padding: 10px">
+                                                        <h3 class="fw-bold mb-1 mt-2 pt-1">Summary</h3>
+                                                        <hr class="my-4">
+
+                                                        <div class="d-flex justify-content-between mb-1">
+                                                            <h5 class="text-uppercase" style="font-size: 15px !important;">Total price</h5>
+                                                            <h5 style="font-size: 15px !important;" class="total-amount-tk">Tk. {{number_format(2000,2)}}</h5>
+                                                        </div>
+
+                                                        <div class="card checkout-right">
+                                                            <div class="card-body">
+                                                                <h5 class="mb-4">Payment Method</h5>
+                                                                <div class="payments">
+                                                                    <label class="">Debit / Credit Card / Mobile Payment
+                                                                        <input type="radio" name="payment_type" class="" value="PAYPAL" checked>
+
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+
+                                                        <span style="font-weight: bold;">SSLCommerz</span>
+                                                        <p style="text-align: justify;background: #dadbdb;padding: 8px;">
+                                                            Pay securely by Credit/Debit card, Internet banking or Mobile banking through SSLCommerz.
+                                                        </p>
+                                                        <hr>
+
+                                                        <p style="text-align: justify;">
+                                                            Your personal data will be used to process your order, support your experience through out this website, and for other purposes described in our
+                                                            {{--                                                        <a href="{{route('cms_page','privacy_policy')}}">privacy policy.</a>--}}
+                                                            <a href="">privacy policy.</a>
+                                                        </p>
+
+                                                        <p style="text-align: justify;">
+                                                            <input type="checkbox" required>
+                                                            {{--                                                        I have read and agree to the website <a href="{{route('cms_page','terms_conditions')}}">terms and conditions</a>,--}}
+                                                            I have read and agree to the website <a href="">terms and conditions</a>,
+                                                            {{--                                                        <a href="{{route('cms_page','privacy_policy')}}">Privacy policy</a>, <a href="{{route('cms_page','refund_policy')}}">Refund Policy</a>--}}
+                                                            <a href="">Privacy policy</a>, <a href="">Refund Policy</a>
+                                                        </p>
+                                                        <br>
+
+                                                        <button class="btn btn-success step-2-submit" type="submit">Submit</button>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-1"></div>
-                                    </div>
-
-
-
-                                    <div class="row">
-                                        <div class="col-lg-1"></div>
-                                        <div class="col-lg-10">
-                                        </div>
-                                        <div class="col-lg-1">
-{{--                                            <button class="btn btn-success step-2-submit" type="submit">Next</button>--}}
                                         </div>
                                     </div>
                                 </section>

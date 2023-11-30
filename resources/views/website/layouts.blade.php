@@ -24,6 +24,7 @@
         <link href="{{ asset('public/backend/plugins/jquery-toast-plugin/jquery.toast.min.css') }}" rel="stylesheet" />
 {{--        <link href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-main.css" rel="stylesheet" />--}}
         <link href="{{ asset('public/website/css/steeper-styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('public/website/css/select2.css') }}" rel="stylesheet" />
         <link href="{{ asset('public/website/css/styles.css') }}" rel="stylesheet" />
         @php $header_footer_settings = json_decode(get_trans_option('header_footer_page')); @endphp
         @php $header_footer_media = json_decode(get_trans_option('header_footer_page_media')); @endphp
@@ -200,6 +201,7 @@
             });
 
             $(document).ready(function () {
+                $(".select2").select2();
                 $('.step-1-submit').click(function(e) {
                     checked = $("input[type=checkbox]:checked").length;
 
@@ -238,10 +240,64 @@
                 $("#SumInsured").val($(this).val()).change();
             })
 
+            $(document).delegate('.division','change',function () {
+                let divisionID = $(this).val();
+                let route = $('#getDistrictRoute').attr('data-href');
+                jQuery('#district').html([]);
+                jQuery('#upazila').html([]);
+                $.ajax({
+                    url: route,
+                    method: "GET",
+                    dataType: "json",
+                    data: {divisionID: divisionID},
+                    beforeSend: function( xhr ) {
+
+                    }
+                }).done(function( response ) {
+                    let allDistricts = response;
+                    let districtsDataOption = '';
+                    districtsDataOption='<option value="">Choose District</option>';
+                    jQuery.each(allDistricts, function(i, item) {
+                        districtsDataOption += '<option value="'+item.id+'">'+item.name+'</option>';
+                    });
+                    jQuery('#district').html(districtsDataOption);
+                    jQuery('#district').prop('disabled', false);
+                }).fail(function( jqXHR, textStatus ) {
+
+                });
+            });
+
+            $(document).delegate('.district','change',function () {
+                let districtID = $(this).val();
+                let route = $('#getUpazilaRoute').attr('data-href');
+                jQuery('#upazila').html([]);
+                $.ajax({
+                    url: route,
+                    method: "GET",
+                    dataType: "json",
+                    data: {districtID: districtID},
+                    beforeSend: function( xhr ) {
+
+                    }
+                }).done(function( response ) {
+                    let allUpazilas = response;
+                    let upazilasDataOption = '';
+                    upazilasDataOption='<option value="">Choose Upazila</option>';
+                    jQuery.each(allUpazilas, function(i, item) {
+                        upazilasDataOption += '<option value="'+item.id+'">'+item.name+'</option>';
+                    });
+                    jQuery('#upazila').html(upazilasDataOption);
+                    jQuery('#upazila').prop('disabled', false);
+                }).fail(function( jqXHR, textStatus ) {
+
+                });
+            });
+
         </script>
 
         <!-- Core theme JS-->
         <script src="{{ asset('public/website/js/scripts.js') }}"></script>
+        <script src="{{ asset('public/website/js/select2.js') }}"></script>
         @include('website.custom-js')
     </body>
 </html>

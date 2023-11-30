@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Insurance;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\District;
 use App\Models\Feature;
 use App\Models\InsCategory;
 use App\Models\InsUserSession;
@@ -12,6 +13,7 @@ use App\Models\Page;
 use App\Models\Post;
 use App\Models\Team;
 use App\Models\Testimonial;
+use App\Models\Upazila;
 use App\Utilities\Overrider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -173,6 +175,35 @@ class InsuranceController extends Controller {
 
 //        dd($basicInfo,$planInfo,$memberInfo);
         return view('website.insurance.health.query-form-4', compact('page','sessionUser'));
+    }
+
+    public function InsuranceSubmit4(Request $request,$slug,$session){
+        $page = InsCategory::where('slug',$slug)->where('is_active', 1)->first();
+        $sessionUser = InsUserSession::where('code',$session)->first();
+        if (!$page || !$sessionUser){
+            abort(404);
+        }
+
+//        Session::put('healthMemberInfo', $request->all());
+        $basicInfo = Session::get('healthBasicInfo');
+        $planInfo = Session::get('healthPlanInfo');
+        $memberInfo = Session::get('healthMemberInfo');
+//        dd($request->all());
+
+//        dd($basicInfo,$planInfo,$memberInfo);
+        return view('website.insurance.health.online-payment', compact('page','sessionUser'));
+    }
+
+    public function getDivisionWiseDistrictDropdown(){
+        $divisionID = $_GET['divisionID'];
+        $districts = District::GetAllDivisionWiseDistrictDropdownData($divisionID);
+        return $districts;
+    }
+
+    public function getDistrictWiseUpazilaDropdown(){
+        $districtID = $_GET['districtID'];
+        $upazilas = Upazila::GetAllDistrictWiseUpazilaDropdownData($districtID);
+        return $upazilas;
     }
 
 }
