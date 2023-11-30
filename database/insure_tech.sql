@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2023 at 08:05 PM
+-- Generation Time: Nov 30, 2023 at 08:02 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dot_account`
+-- Database: `insure_tech`
 --
 
 -- --------------------------------------------------------
@@ -154,6 +154,267 @@ CREATE TABLE `business_users` (
 
 INSERT INTO `business_users` (`id`, `business_id`, `user_id`, `role_id`, `owner_id`, `is_active`, `created_at`, `updated_at`) VALUES
 (1, 1, 3, NULL, 3, 1, '2023-07-30 18:39:12', '2023-07-30 18:39:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `country`
+--
+
+CREATE TABLE `country` (
+  `id` int(11) NOT NULL,
+  `iso` char(2) NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `nicename` varchar(80) NOT NULL,
+  `iso3` char(3) DEFAULT NULL,
+  `numcode` smallint(6) DEFAULT NULL,
+  `phonecode` int(5) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`id`, `iso`, `name`, `nicename`, `iso3`, `numcode`, `phonecode`) VALUES
+(1, 'AF', 'AFGHANISTAN', 'Afghanistan', 'AFG', 4, 93),
+(2, 'AL', 'ALBANIA', 'Albania', 'ALB', 8, 355),
+(3, 'DZ', 'ALGERIA', 'Algeria', 'DZA', 12, 213),
+(4, 'AS', 'AMERICAN SAMOA', 'American Samoa', 'ASM', 16, 1684),
+(5, 'AD', 'ANDORRA', 'Andorra', 'AND', 20, 376),
+(6, 'AO', 'ANGOLA', 'Angola', 'AGO', 24, 244),
+(7, 'AI', 'ANGUILLA', 'Anguilla', 'AIA', 660, 1264),
+(8, 'AQ', 'ANTARCTICA', 'Antarctica', NULL, NULL, 0),
+(9, 'AG', 'ANTIGUA AND BARBUDA', 'Antigua and Barbuda', 'ATG', 28, 1268),
+(10, 'AR', 'ARGENTINA', 'Argentina', 'ARG', 32, 54),
+(11, 'AM', 'ARMENIA', 'Armenia', 'ARM', 51, 374),
+(12, 'AW', 'ARUBA', 'Aruba', 'ABW', 533, 297),
+(13, 'AU', 'AUSTRALIA', 'Australia', 'AUS', 36, 61),
+(14, 'AT', 'AUSTRIA', 'Austria', 'AUT', 40, 43),
+(15, 'AZ', 'AZERBAIJAN', 'Azerbaijan', 'AZE', 31, 994),
+(16, 'BS', 'BAHAMAS', 'Bahamas', 'BHS', 44, 1242),
+(17, 'BH', 'BAHRAIN', 'Bahrain', 'BHR', 48, 973),
+(18, 'BD', 'BANGLADESH', 'Bangladesh', 'BGD', 50, 880),
+(19, 'BB', 'BARBADOS', 'Barbados', 'BRB', 52, 1246),
+(20, 'BY', 'BELARUS', 'Belarus', 'BLR', 112, 375),
+(21, 'BE', 'BELGIUM', 'Belgium', 'BEL', 56, 32),
+(22, 'BZ', 'BELIZE', 'Belize', 'BLZ', 84, 501),
+(23, 'BJ', 'BENIN', 'Benin', 'BEN', 204, 229),
+(24, 'BM', 'BERMUDA', 'Bermuda', 'BMU', 60, 1441),
+(25, 'BT', 'BHUTAN', 'Bhutan', 'BTN', 64, 975),
+(26, 'BO', 'BOLIVIA', 'Bolivia', 'BOL', 68, 591),
+(27, 'BA', 'BOSNIA AND HERZEGOVINA', 'Bosnia and Herzegovina', 'BIH', 70, 387),
+(28, 'BW', 'BOTSWANA', 'Botswana', 'BWA', 72, 267),
+(29, 'BV', 'BOUVET ISLAND', 'Bouvet Island', NULL, NULL, 0),
+(30, 'BR', 'BRAZIL', 'Brazil', 'BRA', 76, 55),
+(31, 'IO', 'BRITISH INDIAN OCEAN TERRITORY', 'British Indian Ocean Territory', NULL, NULL, 246),
+(32, 'BN', 'BRUNEI DARUSSALAM', 'Brunei Darussalam', 'BRN', 96, 673),
+(33, 'BG', 'BULGARIA', 'Bulgaria', 'BGR', 100, 359),
+(34, 'BF', 'BURKINA FASO', 'Burkina Faso', 'BFA', 854, 226),
+(35, 'BI', 'BURUNDI', 'Burundi', 'BDI', 108, 257),
+(36, 'KH', 'CAMBODIA', 'Cambodia', 'KHM', 116, 855),
+(37, 'CM', 'CAMEROON', 'Cameroon', 'CMR', 120, 237),
+(38, 'CA', 'CANADA', 'Canada', 'CAN', 124, 1),
+(39, 'CV', 'CAPE VERDE', 'Cape Verde', 'CPV', 132, 238),
+(40, 'KY', 'CAYMAN ISLANDS', 'Cayman Islands', 'CYM', 136, 1345),
+(41, 'CF', 'CENTRAL AFRICAN REPUBLIC', 'Central African Republic', 'CAF', 140, 236),
+(42, 'TD', 'CHAD', 'Chad', 'TCD', 148, 235),
+(43, 'CL', 'CHILE', 'Chile', 'CHL', 152, 56),
+(44, 'CN', 'CHINA', 'China', 'CHN', 156, 86),
+(45, 'CX', 'CHRISTMAS ISLAND', 'Christmas Island', NULL, NULL, 61),
+(46, 'CC', 'COCOS (KEELING) ISLANDS', 'Cocos (Keeling) Islands', NULL, NULL, 672),
+(47, 'CO', 'COLOMBIA', 'Colombia', 'COL', 170, 57),
+(48, 'KM', 'COMOROS', 'Comoros', 'COM', 174, 269),
+(49, 'CG', 'CONGO', 'Congo', 'COG', 178, 242),
+(50, 'CD', 'CONGO, THE DEMOCRATIC REPUBLIC OF THE', 'Congo, the Democratic Republic of the', 'COD', 180, 242),
+(51, 'CK', 'COOK ISLANDS', 'Cook Islands', 'COK', 184, 682),
+(52, 'CR', 'COSTA RICA', 'Costa Rica', 'CRI', 188, 506),
+(53, 'CI', 'COTE D\'IVOIRE', 'Cote D\'Ivoire', 'CIV', 384, 225),
+(54, 'HR', 'CROATIA', 'Croatia', 'HRV', 191, 385),
+(55, 'CU', 'CUBA', 'Cuba', 'CUB', 192, 53),
+(56, 'CY', 'CYPRUS', 'Cyprus', 'CYP', 196, 357),
+(57, 'CZ', 'CZECH REPUBLIC', 'Czech Republic', 'CZE', 203, 420),
+(58, 'DK', 'DENMARK', 'Denmark', 'DNK', 208, 45),
+(59, 'DJ', 'DJIBOUTI', 'Djibouti', 'DJI', 262, 253),
+(60, 'DM', 'DOMINICA', 'Dominica', 'DMA', 212, 1767),
+(61, 'DO', 'DOMINICAN REPUBLIC', 'Dominican Republic', 'DOM', 214, 1809),
+(62, 'EC', 'ECUADOR', 'Ecuador', 'ECU', 218, 593),
+(63, 'EG', 'EGYPT', 'Egypt', 'EGY', 818, 20),
+(64, 'SV', 'EL SALVADOR', 'El Salvador', 'SLV', 222, 503),
+(65, 'GQ', 'EQUATORIAL GUINEA', 'Equatorial Guinea', 'GNQ', 226, 240),
+(66, 'ER', 'ERITREA', 'Eritrea', 'ERI', 232, 291),
+(67, 'EE', 'ESTONIA', 'Estonia', 'EST', 233, 372),
+(68, 'ET', 'ETHIOPIA', 'Ethiopia', 'ETH', 231, 251),
+(69, 'FK', 'FALKLAND ISLANDS (MALVINAS)', 'Falkland Islands (Malvinas)', 'FLK', 238, 500),
+(70, 'FO', 'FAROE ISLANDS', 'Faroe Islands', 'FRO', 234, 298),
+(71, 'FJ', 'FIJI', 'Fiji', 'FJI', 242, 679),
+(72, 'FI', 'FINLAND', 'Finland', 'FIN', 246, 358),
+(73, 'FR', 'FRANCE', 'France', 'FRA', 250, 33),
+(74, 'GF', 'FRENCH GUIANA', 'French Guiana', 'GUF', 254, 594),
+(75, 'PF', 'FRENCH POLYNESIA', 'French Polynesia', 'PYF', 258, 689),
+(76, 'TF', 'FRENCH SOUTHERN TERRITORIES', 'French Southern Territories', NULL, NULL, 0),
+(77, 'GA', 'GABON', 'Gabon', 'GAB', 266, 241),
+(78, 'GM', 'GAMBIA', 'Gambia', 'GMB', 270, 220),
+(79, 'GE', 'GEORGIA', 'Georgia', 'GEO', 268, 995),
+(80, 'DE', 'GERMANY', 'Germany', 'DEU', 276, 49),
+(81, 'GH', 'GHANA', 'Ghana', 'GHA', 288, 233),
+(82, 'GI', 'GIBRALTAR', 'Gibraltar', 'GIB', 292, 350),
+(83, 'GR', 'GREECE', 'Greece', 'GRC', 300, 30),
+(84, 'GL', 'GREENLAND', 'Greenland', 'GRL', 304, 299),
+(85, 'GD', 'GRENADA', 'Grenada', 'GRD', 308, 1473),
+(86, 'GP', 'GUADELOUPE', 'Guadeloupe', 'GLP', 312, 590),
+(87, 'GU', 'GUAM', 'Guam', 'GUM', 316, 1671),
+(88, 'GT', 'GUATEMALA', 'Guatemala', 'GTM', 320, 502),
+(89, 'GN', 'GUINEA', 'Guinea', 'GIN', 324, 224),
+(90, 'GW', 'GUINEA-BISSAU', 'Guinea-Bissau', 'GNB', 624, 245),
+(91, 'GY', 'GUYANA', 'Guyana', 'GUY', 328, 592),
+(92, 'HT', 'HAITI', 'Haiti', 'HTI', 332, 509),
+(93, 'HM', 'HEARD ISLAND AND MCDONALD ISLANDS', 'Heard Island and Mcdonald Islands', NULL, NULL, 0),
+(94, 'VA', 'HOLY SEE (VATICAN CITY STATE)', 'Holy See (Vatican City State)', 'VAT', 336, 39),
+(95, 'HN', 'HONDURAS', 'Honduras', 'HND', 340, 504),
+(96, 'HK', 'HONG KONG', 'Hong Kong', 'HKG', 344, 852),
+(97, 'HU', 'HUNGARY', 'Hungary', 'HUN', 348, 36),
+(98, 'IS', 'ICELAND', 'Iceland', 'ISL', 352, 354),
+(99, 'IN', 'INDIA', 'India', 'IND', 356, 91),
+(100, 'ID', 'INDONESIA', 'Indonesia', 'IDN', 360, 62),
+(101, 'IR', 'IRAN, ISLAMIC REPUBLIC OF', 'Iran, Islamic Republic of', 'IRN', 364, 98),
+(102, 'IQ', 'IRAQ', 'Iraq', 'IRQ', 368, 964),
+(103, 'IE', 'IRELAND', 'Ireland', 'IRL', 372, 353),
+(104, 'IL', 'ISRAEL', 'Israel', 'ISR', 376, 972),
+(105, 'IT', 'ITALY', 'Italy', 'ITA', 380, 39),
+(106, 'JM', 'JAMAICA', 'Jamaica', 'JAM', 388, 1876),
+(107, 'JP', 'JAPAN', 'Japan', 'JPN', 392, 81),
+(108, 'JO', 'JORDAN', 'Jordan', 'JOR', 400, 962),
+(109, 'KZ', 'KAZAKHSTAN', 'Kazakhstan', 'KAZ', 398, 7),
+(110, 'KE', 'KENYA', 'Kenya', 'KEN', 404, 254),
+(111, 'KI', 'KIRIBATI', 'Kiribati', 'KIR', 296, 686),
+(112, 'KP', 'KOREA, DEMOCRATIC PEOPLE\'S REPUBLIC OF', 'Korea, Democratic People\'s Republic of', 'PRK', 408, 850),
+(113, 'KR', 'KOREA, REPUBLIC OF', 'Korea, Republic of', 'KOR', 410, 82),
+(114, 'KW', 'KUWAIT', 'Kuwait', 'KWT', 414, 965),
+(115, 'KG', 'KYRGYZSTAN', 'Kyrgyzstan', 'KGZ', 417, 996),
+(116, 'LA', 'LAO PEOPLE\'S DEMOCRATIC REPUBLIC', 'Lao People\'s Democratic Republic', 'LAO', 418, 856),
+(117, 'LV', 'LATVIA', 'Latvia', 'LVA', 428, 371),
+(118, 'LB', 'LEBANON', 'Lebanon', 'LBN', 422, 961),
+(119, 'LS', 'LESOTHO', 'Lesotho', 'LSO', 426, 266),
+(120, 'LR', 'LIBERIA', 'Liberia', 'LBR', 430, 231),
+(121, 'LY', 'LIBYAN ARAB JAMAHIRIYA', 'Libyan Arab Jamahiriya', 'LBY', 434, 218),
+(122, 'LI', 'LIECHTENSTEIN', 'Liechtenstein', 'LIE', 438, 423),
+(123, 'LT', 'LITHUANIA', 'Lithuania', 'LTU', 440, 370),
+(124, 'LU', 'LUXEMBOURG', 'Luxembourg', 'LUX', 442, 352),
+(125, 'MO', 'MACAO', 'Macao', 'MAC', 446, 853),
+(126, 'MK', 'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF', 'Macedonia, the Former Yugoslav Republic of', 'MKD', 807, 389),
+(127, 'MG', 'MADAGASCAR', 'Madagascar', 'MDG', 450, 261),
+(128, 'MW', 'MALAWI', 'Malawi', 'MWI', 454, 265),
+(129, 'MY', 'MALAYSIA', 'Malaysia', 'MYS', 458, 60),
+(130, 'MV', 'MALDIVES', 'Maldives', 'MDV', 462, 960),
+(131, 'ML', 'MALI', 'Mali', 'MLI', 466, 223),
+(132, 'MT', 'MALTA', 'Malta', 'MLT', 470, 356),
+(133, 'MH', 'MARSHALL ISLANDS', 'Marshall Islands', 'MHL', 584, 692),
+(134, 'MQ', 'MARTINIQUE', 'Martinique', 'MTQ', 474, 596),
+(135, 'MR', 'MAURITANIA', 'Mauritania', 'MRT', 478, 222),
+(136, 'MU', 'MAURITIUS', 'Mauritius', 'MUS', 480, 230),
+(137, 'YT', 'MAYOTTE', 'Mayotte', NULL, NULL, 269),
+(138, 'MX', 'MEXICO', 'Mexico', 'MEX', 484, 52),
+(139, 'FM', 'MICRONESIA, FEDERATED STATES OF', 'Micronesia, Federated States of', 'FSM', 583, 691),
+(140, 'MD', 'MOLDOVA, REPUBLIC OF', 'Moldova, Republic of', 'MDA', 498, 373),
+(141, 'MC', 'MONACO', 'Monaco', 'MCO', 492, 377),
+(142, 'MN', 'MONGOLIA', 'Mongolia', 'MNG', 496, 976),
+(143, 'MS', 'MONTSERRAT', 'Montserrat', 'MSR', 500, 1664),
+(144, 'MA', 'MOROCCO', 'Morocco', 'MAR', 504, 212),
+(145, 'MZ', 'MOZAMBIQUE', 'Mozambique', 'MOZ', 508, 258),
+(146, 'MM', 'MYANMAR', 'Myanmar', 'MMR', 104, 95),
+(147, 'NA', 'NAMIBIA', 'Namibia', 'NAM', 516, 264),
+(148, 'NR', 'NAURU', 'Nauru', 'NRU', 520, 674),
+(149, 'NP', 'NEPAL', 'Nepal', 'NPL', 524, 977),
+(150, 'NL', 'NETHERLANDS', 'Netherlands', 'NLD', 528, 31),
+(151, 'AN', 'NETHERLANDS ANTILLES', 'Netherlands Antilles', 'ANT', 530, 599),
+(152, 'NC', 'NEW CALEDONIA', 'New Caledonia', 'NCL', 540, 687),
+(153, 'NZ', 'NEW ZEALAND', 'New Zealand', 'NZL', 554, 64),
+(154, 'NI', 'NICARAGUA', 'Nicaragua', 'NIC', 558, 505),
+(155, 'NE', 'NIGER', 'Niger', 'NER', 562, 227),
+(156, 'NG', 'NIGERIA', 'Nigeria', 'NGA', 566, 234),
+(157, 'NU', 'NIUE', 'Niue', 'NIU', 570, 683),
+(158, 'NF', 'NORFOLK ISLAND', 'Norfolk Island', 'NFK', 574, 672),
+(159, 'MP', 'NORTHERN MARIANA ISLANDS', 'Northern Mariana Islands', 'MNP', 580, 1670),
+(160, 'NO', 'NORWAY', 'Norway', 'NOR', 578, 47),
+(161, 'OM', 'OMAN', 'Oman', 'OMN', 512, 968),
+(162, 'PK', 'PAKISTAN', 'Pakistan', 'PAK', 586, 92),
+(163, 'PW', 'PALAU', 'Palau', 'PLW', 585, 680),
+(164, 'PS', 'PALESTINIAN TERRITORY, OCCUPIED', 'Palestinian Territory, Occupied', NULL, NULL, 970),
+(165, 'PA', 'PANAMA', 'Panama', 'PAN', 591, 507),
+(166, 'PG', 'PAPUA NEW GUINEA', 'Papua New Guinea', 'PNG', 598, 675),
+(167, 'PY', 'PARAGUAY', 'Paraguay', 'PRY', 600, 595),
+(168, 'PE', 'PERU', 'Peru', 'PER', 604, 51),
+(169, 'PH', 'PHILIPPINES', 'Philippines', 'PHL', 608, 63),
+(170, 'PN', 'PITCAIRN', 'Pitcairn', 'PCN', 612, 0),
+(171, 'PL', 'POLAND', 'Poland', 'POL', 616, 48),
+(172, 'PT', 'PORTUGAL', 'Portugal', 'PRT', 620, 351),
+(173, 'PR', 'PUERTO RICO', 'Puerto Rico', 'PRI', 630, 1787),
+(174, 'QA', 'QATAR', 'Qatar', 'QAT', 634, 974),
+(175, 'RE', 'REUNION', 'Reunion', 'REU', 638, 262),
+(176, 'RO', 'ROMANIA', 'Romania', 'ROM', 642, 40),
+(177, 'RU', 'RUSSIAN FEDERATION', 'Russian Federation', 'RUS', 643, 70),
+(178, 'RW', 'RWANDA', 'Rwanda', 'RWA', 646, 250),
+(179, 'SH', 'SAINT HELENA', 'Saint Helena', 'SHN', 654, 290),
+(180, 'KN', 'SAINT KITTS AND NEVIS', 'Saint Kitts and Nevis', 'KNA', 659, 1869),
+(181, 'LC', 'SAINT LUCIA', 'Saint Lucia', 'LCA', 662, 1758),
+(182, 'PM', 'SAINT PIERRE AND MIQUELON', 'Saint Pierre and Miquelon', 'SPM', 666, 508),
+(183, 'VC', 'SAINT VINCENT AND THE GRENADINES', 'Saint Vincent and the Grenadines', 'VCT', 670, 1784),
+(184, 'WS', 'SAMOA', 'Samoa', 'WSM', 882, 684),
+(185, 'SM', 'SAN MARINO', 'San Marino', 'SMR', 674, 378),
+(186, 'ST', 'SAO TOME AND PRINCIPE', 'Sao Tome and Principe', 'STP', 678, 239),
+(187, 'SA', 'SAUDI ARABIA', 'Saudi Arabia', 'SAU', 682, 966),
+(188, 'SN', 'SENEGAL', 'Senegal', 'SEN', 686, 221),
+(189, 'CS', 'SERBIA AND MONTENEGRO', 'Serbia and Montenegro', NULL, NULL, 381),
+(190, 'SC', 'SEYCHELLES', 'Seychelles', 'SYC', 690, 248),
+(191, 'SL', 'SIERRA LEONE', 'Sierra Leone', 'SLE', 694, 232),
+(192, 'SG', 'SINGAPORE', 'Singapore', 'SGP', 702, 65),
+(193, 'SK', 'SLOVAKIA', 'Slovakia', 'SVK', 703, 421),
+(194, 'SI', 'SLOVENIA', 'Slovenia', 'SVN', 705, 386),
+(195, 'SB', 'SOLOMON ISLANDS', 'Solomon Islands', 'SLB', 90, 677),
+(196, 'SO', 'SOMALIA', 'Somalia', 'SOM', 706, 252),
+(197, 'ZA', 'SOUTH AFRICA', 'South Africa', 'ZAF', 710, 27),
+(198, 'GS', 'SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS', 'South Georgia and the South Sandwich Islands', NULL, NULL, 0),
+(199, 'ES', 'SPAIN', 'Spain', 'ESP', 724, 34),
+(200, 'LK', 'SRI LANKA', 'Sri Lanka', 'LKA', 144, 94),
+(201, 'SD', 'SUDAN', 'Sudan', 'SDN', 736, 249),
+(202, 'SR', 'SURINAME', 'Suriname', 'SUR', 740, 597),
+(203, 'SJ', 'SVALBARD AND JAN MAYEN', 'Svalbard and Jan Mayen', 'SJM', 744, 47),
+(204, 'SZ', 'SWAZILAND', 'Swaziland', 'SWZ', 748, 268),
+(205, 'SE', 'SWEDEN', 'Sweden', 'SWE', 752, 46),
+(206, 'CH', 'SWITZERLAND', 'Switzerland', 'CHE', 756, 41),
+(207, 'SY', 'SYRIAN ARAB REPUBLIC', 'Syrian Arab Republic', 'SYR', 760, 963),
+(208, 'TW', 'TAIWAN, PROVINCE OF CHINA', 'Taiwan, Province of China', 'TWN', 158, 886),
+(209, 'TJ', 'TAJIKISTAN', 'Tajikistan', 'TJK', 762, 992),
+(210, 'TZ', 'TANZANIA, UNITED REPUBLIC OF', 'Tanzania, United Republic of', 'TZA', 834, 255),
+(211, 'TH', 'THAILAND', 'Thailand', 'THA', 764, 66),
+(212, 'TL', 'TIMOR-LESTE', 'Timor-Leste', NULL, NULL, 670),
+(213, 'TG', 'TOGO', 'Togo', 'TGO', 768, 228),
+(214, 'TK', 'TOKELAU', 'Tokelau', 'TKL', 772, 690),
+(215, 'TO', 'TONGA', 'Tonga', 'TON', 776, 676),
+(216, 'TT', 'TRINIDAD AND TOBAGO', 'Trinidad and Tobago', 'TTO', 780, 1868),
+(217, 'TN', 'TUNISIA', 'Tunisia', 'TUN', 788, 216),
+(218, 'TR', 'TURKEY', 'Turkey', 'TUR', 792, 90),
+(219, 'TM', 'TURKMENISTAN', 'Turkmenistan', 'TKM', 795, 7370),
+(220, 'TC', 'TURKS AND CAICOS ISLANDS', 'Turks and Caicos Islands', 'TCA', 796, 1649),
+(221, 'TV', 'TUVALU', 'Tuvalu', 'TUV', 798, 688),
+(222, 'UG', 'UGANDA', 'Uganda', 'UGA', 800, 256),
+(223, 'UA', 'UKRAINE', 'Ukraine', 'UKR', 804, 380),
+(224, 'AE', 'UNITED ARAB EMIRATES', 'United Arab Emirates', 'ARE', 784, 971),
+(225, 'GB', 'UNITED KINGDOM', 'United Kingdom', 'GBR', 826, 44),
+(226, 'US', 'UNITED STATES', 'United States', 'USA', 840, 1),
+(227, 'UM', 'UNITED STATES MINOR OUTLYING ISLANDS', 'United States Minor Outlying Islands', NULL, NULL, 1),
+(228, 'UY', 'URUGUAY', 'Uruguay', 'URY', 858, 598),
+(229, 'UZ', 'UZBEKISTAN', 'Uzbekistan', 'UZB', 860, 998),
+(230, 'VU', 'VANUATU', 'Vanuatu', 'VUT', 548, 678),
+(231, 'VE', 'VENEZUELA', 'Venezuela', 'VEN', 862, 58),
+(232, 'VN', 'VIET NAM', 'Viet Nam', 'VNM', 704, 84),
+(233, 'VG', 'VIRGIN ISLANDS, BRITISH', 'Virgin Islands, British', 'VGB', 92, 1284),
+(234, 'VI', 'VIRGIN ISLANDS, U.S.', 'Virgin Islands, U.s.', 'VIR', 850, 1340),
+(235, 'WF', 'WALLIS AND FUTUNA', 'Wallis and Futuna', 'WLF', 876, 681),
+(236, 'EH', 'WESTERN SAHARA', 'Western Sahara', 'ESH', 732, 212),
+(237, 'YE', 'YEMEN', 'Yemen', 'YEM', 887, 967),
+(238, 'ZM', 'ZAMBIA', 'Zambia', 'ZMB', 894, 260),
+(239, 'ZW', 'ZIMBABWE', 'Zimbabwe', 'ZWE', 716, 263);
 
 -- --------------------------------------------------------
 
@@ -1121,6 +1382,119 @@ CREATE TABLE `delegation_approval_limit` (
 
 INSERT INTO `delegation_approval_limit` (`id`, `user_id`, `business_id`, `module_id`, `lower_limit`, `higher_limit`, `assign_by`, `created_at`, `updated_at`) VALUES
 (1, 3, 1, 1, 1.00, 5000.00, 1, '2023-08-13 15:52:38', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `districts`
+--
+
+CREATE TABLE `districts` (
+  `id` int(2) NOT NULL,
+  `division_id` int(1) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `bn_name` varchar(25) NOT NULL,
+  `lat` varchar(15) DEFAULT NULL,
+  `lon` varchar(15) DEFAULT NULL,
+  `url` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `districts`
+--
+
+INSERT INTO `districts` (`id`, `division_id`, `name`, `bn_name`, `lat`, `lon`, `url`) VALUES
+(1, 1, 'Comilla', 'কুমিল্লা', '23.4682747', '91.1788135', 'www.comilla.gov.bd'),
+(2, 1, 'Feni', 'ফেনী', '23.023231', '91.3840844', 'www.feni.gov.bd'),
+(3, 1, 'Brahmanbaria', 'ব্রাহ্মণবাড়িয়া', '23.9570904', '91.1119286', 'www.brahmanbaria.gov.bd'),
+(4, 1, 'Rangamati', 'রাঙ্গামাটি', '22.65561018', '92.17541121', 'www.rangamati.gov.bd'),
+(5, 1, 'Noakhali', 'নোয়াখালী', '22.869563', '91.099398', 'www.noakhali.gov.bd'),
+(6, 1, 'Chandpur', 'চাঁদপুর', '23.2332585', '90.6712912', 'www.chandpur.gov.bd'),
+(7, 1, 'Lakshmipur', 'লক্ষ্মীপুর', '22.942477', '90.841184', 'www.lakshmipur.gov.bd'),
+(8, 1, 'Chattogram', 'চট্টগ্রাম', '22.335109', '91.834073', 'www.chittagong.gov.bd'),
+(9, 1, 'Coxsbazar', 'কক্সবাজার', '21.44315751', '91.97381741', 'www.coxsbazar.gov.bd'),
+(10, 1, 'Khagrachhari', 'খাগড়াছড়ি', '23.119285', '91.984663', 'www.khagrachhari.gov.bd'),
+(11, 1, 'Bandarban', 'বান্দরবান', '22.1953275', '92.2183773', 'www.bandarban.gov.bd'),
+(12, 2, 'Sirajganj', 'সিরাজগঞ্জ', '24.4533978', '89.7006815', 'www.sirajganj.gov.bd'),
+(13, 2, 'Pabna', 'পাবনা', '23.998524', '89.233645', 'www.pabna.gov.bd'),
+(14, 2, 'Bogura', 'বগুড়া', '24.8465228', '89.377755', 'www.bogra.gov.bd'),
+(15, 2, 'Rajshahi', 'রাজশাহী', '24.37230298', '88.56307623', 'www.rajshahi.gov.bd'),
+(16, 2, 'Natore', 'নাটোর', '24.420556', '89.000282', 'www.natore.gov.bd'),
+(17, 2, 'Joypurhat', 'জয়পুরহাট', '25.09636876', '89.04004280', 'www.joypurhat.gov.bd'),
+(18, 2, 'Chapainawabganj', 'চাঁপাইনবাবগঞ্জ', '24.5965034', '88.2775122', 'www.chapainawabganj.gov.bd'),
+(19, 2, 'Naogaon', 'নওগাঁ', '24.83256191', '88.92485205', 'www.naogaon.gov.bd'),
+(20, 3, 'Jashore', 'যশোর', '23.16643', '89.2081126', 'www.jessore.gov.bd'),
+(21, 3, 'Satkhira', 'সাতক্ষীরা', '22.7180905', '89.0687033', 'www.satkhira.gov.bd'),
+(22, 3, 'Meherpur', 'মেহেরপুর', '23.762213', '88.631821', 'www.meherpur.gov.bd'),
+(23, 3, 'Narail', 'নড়াইল', '23.172534', '89.512672', 'www.narail.gov.bd'),
+(24, 3, 'Chuadanga', 'চুয়াডাঙ্গা', '23.6401961', '88.841841', 'www.chuadanga.gov.bd'),
+(25, 3, 'Kushtia', 'কুষ্টিয়া', '23.901258', '89.120482', 'www.kushtia.gov.bd'),
+(26, 3, 'Magura', 'মাগুরা', '23.487337', '89.419956', 'www.magura.gov.bd'),
+(27, 3, 'Khulna', 'খুলনা', '22.815774', '89.568679', 'www.khulna.gov.bd'),
+(28, 3, 'Bagerhat', 'বাগেরহাট', '22.651568', '89.785938', 'www.bagerhat.gov.bd'),
+(29, 3, 'Jhenaidah', 'ঝিনাইদহ', '23.5448176', '89.1539213', 'www.jhenaidah.gov.bd'),
+(30, 4, 'Jhalakathi', 'ঝালকাঠি', '22.6422689', '90.2003932', 'www.jhalakathi.gov.bd'),
+(31, 4, 'Patuakhali', 'পটুয়াখালী', '22.3596316', '90.3298712', 'www.patuakhali.gov.bd'),
+(32, 4, 'Pirojpur', 'পিরোজপুর', '22.5781398', '89.9983909', 'www.pirojpur.gov.bd'),
+(33, 4, 'Barisal', 'বরিশাল', '22.7004179', '90.3731568', 'www.barisal.gov.bd'),
+(34, 4, 'Bhola', 'ভোলা', '22.685923', '90.648179', 'www.bhola.gov.bd'),
+(35, 4, 'Barguna', 'বরগুনা', '22.159182', '90.125581', 'www.barguna.gov.bd'),
+(36, 5, 'Sylhet', 'সিলেট', '24.8897956', '91.8697894', 'www.sylhet.gov.bd'),
+(37, 5, 'Moulvibazar', 'মৌলভীবাজার', '24.482934', '91.777417', 'www.moulvibazar.gov.bd'),
+(38, 5, 'Habiganj', 'হবিগঞ্জ', '24.374945', '91.41553', 'www.habiganj.gov.bd'),
+(39, 5, 'Sunamganj', 'সুনামগঞ্জ', '25.0658042', '91.3950115', 'www.sunamganj.gov.bd'),
+(40, 6, 'Narsingdi', 'নরসিংদী', '23.932233', '90.71541', 'www.narsingdi.gov.bd'),
+(41, 6, 'Gazipur', 'গাজীপুর', '24.0022858', '90.4264283', 'www.gazipur.gov.bd'),
+(42, 6, 'Shariatpur', 'শরীয়তপুর', '23.2060195', '90.3477725', 'www.shariatpur.gov.bd'),
+(43, 6, 'Narayanganj', 'নারায়ণগঞ্জ', '23.63366', '90.496482', 'www.narayanganj.gov.bd'),
+(44, 6, 'Tangail', 'টাঙ্গাইল', '24.264145', '89.918029', 'www.tangail.gov.bd'),
+(45, 6, 'Kishoreganj', 'কিশোরগঞ্জ', '24.444937', '90.776575', 'www.kishoreganj.gov.bd'),
+(46, 6, 'Manikganj', 'মানিকগঞ্জ', '23.8602262', '90.0018293', 'www.manikganj.gov.bd'),
+(47, 6, 'Dhaka', 'ঢাকা', '23.7115253', '90.4111451', 'www.dhaka.gov.bd'),
+(48, 6, 'Munshiganj', 'মুন্সিগঞ্জ', '23.5435742', '90.5354327', 'www.munshiganj.gov.bd'),
+(49, 6, 'Rajbari', 'রাজবাড়ী', '23.7574305', '89.6444665', 'www.rajbari.gov.bd'),
+(50, 6, 'Madaripur', 'মাদারীপুর', '23.164102', '90.1896805', 'www.madaripur.gov.bd'),
+(51, 6, 'Gopalganj', 'গোপালগঞ্জ', '23.0050857', '89.8266059', 'www.gopalganj.gov.bd'),
+(52, 6, 'Faridpur', 'ফরিদপুর', '23.6070822', '89.8429406', 'www.faridpur.gov.bd'),
+(53, 7, 'Panchagarh', 'পঞ্চগড়', '26.3411', '88.5541606', 'www.panchagarh.gov.bd'),
+(54, 7, 'Dinajpur', 'দিনাজপুর', '25.6217061', '88.6354504', 'www.dinajpur.gov.bd'),
+(55, 7, 'Lalmonirhat', 'লালমনিরহাট', '25.9165451', '89.4532409', 'www.lalmonirhat.gov.bd'),
+(56, 7, 'Nilphamari', 'নীলফামারী', '25.931794', '88.856006', 'www.nilphamari.gov.bd'),
+(57, 7, 'Gaibandha', 'গাইবান্ধা', '25.328751', '89.528088', 'www.gaibandha.gov.bd'),
+(58, 7, 'Thakurgaon', 'ঠাকুরগাঁও', '26.0336945', '88.4616834', 'www.thakurgaon.gov.bd'),
+(59, 7, 'Rangpur', 'রংপুর', '25.7558096', '89.244462', 'www.rangpur.gov.bd'),
+(60, 7, 'Kurigram', 'কুড়িগ্রাম', '25.805445', '89.636174', 'www.kurigram.gov.bd'),
+(61, 8, 'Sherpur', 'শেরপুর', '25.0204933', '90.0152966', 'www.sherpur.gov.bd'),
+(62, 8, 'Mymensingh', 'ময়মনসিংহ', '24.7465670', '90.4072093', 'www.mymensingh.gov.bd'),
+(63, 8, 'Jamalpur', 'জামালপুর', '24.937533', '89.937775', 'www.jamalpur.gov.bd'),
+(64, 8, 'Netrokona', 'নেত্রকোণা', '24.870955', '90.727887', 'www.netrokona.gov.bd');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `divisions`
+--
+
+CREATE TABLE `divisions` (
+  `id` int(1) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `bn_name` varchar(25) NOT NULL,
+  `url` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `divisions`
+--
+
+INSERT INTO `divisions` (`id`, `name`, `bn_name`, `url`) VALUES
+(1, 'Chattagram', 'চট্টগ্রাম', 'www.chittagongdiv.gov.bd'),
+(2, 'Rajshahi', 'রাজশাহী', 'www.rajshahidiv.gov.bd'),
+(3, 'Khulna', 'খুলনা', 'www.khulnadiv.gov.bd'),
+(4, 'Barisal', 'বরিশাল', 'www.barisaldiv.gov.bd'),
+(5, 'Sylhet', 'সিলেট', 'www.sylhetdiv.gov.bd'),
+(6, 'Dhaka', 'ঢাকা', 'www.dhakadiv.gov.bd'),
+(7, 'Rangpur', 'রংপুর', 'www.rangpurdiv.gov.bd'),
+(8, 'Mymensingh', 'ময়মনসিংহ', 'www.mymensinghdiv.gov.bd');
 
 -- --------------------------------------------------------
 
@@ -25305,6 +25679,208 @@ INSERT INTO `groups` (`id`, `parent_id`, `name`, `code`, `_sort`, `notes`, `affe
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ins_category`
+--
+
+CREATE TABLE `ins_category` (
+  `id` int(10) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `image` varchar(20) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `statement` varchar(100) DEFAULT NULL COMMENT '96 %  Claim settlement ratio'
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+--
+-- Dumping data for table `ins_category`
+--
+
+INSERT INTO `ins_category` (`id`, `name`, `slug`, `image`, `is_active`, `statement`) VALUES
+(1, 'Health Insurance\r\n', 'health-insurance', NULL, 1, NULL),
+(2, 'Car Insurance\r\n', 'car-insurance\r\n', NULL, 1, NULL),
+(3, 'Travel Insurance\r\n', 'travel-insurance', NULL, 1, NULL),
+(4, 'Accident Insurance', 'accident-insurance', NULL, 1, NULL),
+(5, 'Motorcycle Insurance', 'motorcycle-insurance', NULL, 1, NULL),
+(6, 'Life Insurance', 'life-insurance', NULL, 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_insurance_provider`
+--
+
+CREATE TABLE `ins_insurance_provider` (
+  `id` int(10) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+--
+-- Dumping data for table `ins_insurance_provider`
+--
+
+INSERT INTO `ins_insurance_provider` (`id`, `name`, `slug`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Guardian Life Insurance', 'guardian-life-insurance', 1, '2023-11-25 17:59:36', NULL),
+(2, 'Chartered Life Insurance', 'chartered-life-insurance', 1, '2023-11-25 18:00:12', NULL),
+(3, 'Pragati Life Insurance', 'pragati-life-insurance', 1, '2023-11-25 18:00:48', NULL),
+(4, 'Green Delta Insurance', 'green-delta-insurance', 1, '2023-11-25 18:01:23', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_page`
+--
+
+CREATE TABLE `ins_page` (
+  `id` int(11) NOT NULL,
+  `plan_id` int(10) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_plan`
+--
+
+CREATE TABLE `ins_plan` (
+  `id` int(10) NOT NULL,
+  `category_id` int(10) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `premium_amount` double(10,2) NOT NULL,
+  `duration` varchar(10) NOT NULL,
+  `short_description` varchar(255) DEFAULT NULL,
+  `premium_breakdown` varchar(50) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `is_recommended` tinyint(1) NOT NULL DEFAULT 0,
+  `recommended_img` varchar(30) DEFAULT NULL,
+  `amount` double(10,2) NOT NULL DEFAULT 0.00,
+  `general_discount` double(10,2) DEFAULT NULL,
+  `cupon_discount` double(10,2) DEFAULT NULL,
+  `plan_image` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+--
+-- Dumping data for table `ins_plan`
+--
+
+INSERT INTO `ins_plan` (`id`, `category_id`, `name`, `slug`, `premium_amount`, `duration`, `short_description`, `premium_breakdown`, `is_active`, `is_recommended`, `recommended_img`, `amount`, `general_discount`, `cupon_discount`, `plan_image`) VALUES
+(1, 1, '10 Lakhs', '10-lakhs', 0.00, '', NULL, NULL, 1, 0, NULL, 1000000.00, NULL, NULL, NULL),
+(2, 1, '5 Lakhs', '5-lakhs', 0.00, '', NULL, NULL, 1, 1, 'abc.jpg', 500000.00, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_plan_details`
+--
+
+CREATE TABLE `ins_plan_details` (
+  `id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `plan_details_type_id` int(11) NOT NULL,
+  `description_heading` varchar(255) DEFAULT NULL,
+  `description_details` varchar(255) DEFAULT NULL,
+  `description_feature` varchar(50) DEFAULT NULL,
+  `tooltip` varchar(255) DEFAULT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT 9999
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_plan_details_type`
+--
+
+CREATE TABLE `ins_plan_details_type` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+--
+-- Dumping data for table `ins_plan_details_type`
+--
+
+INSERT INTO `ins_plan_details_type` (`id`, `name`, `slug`, `is_active`) VALUES
+(1, 'General Information', 'general-information', 1),
+(2, 'IMPORTANT FEATURES', 'importent-features', 1),
+(3, 'OTHER FEATURES', 'other-features', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_plan_extra_discount`
+--
+
+CREATE TABLE `ins_plan_extra_discount` (
+  `id` int(10) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `discount_heading` varchar(100) NOT NULL,
+  `short_discription` varchar(100) NOT NULL,
+  `percentage` double(10,2) NOT NULL,
+  `amount_variations` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_plan_service_center`
+--
+
+CREATE TABLE `ins_plan_service_center` (
+  `id` int(11) NOT NULL,
+  `category_id` int(10) NOT NULL,
+  `name` int(11) NOT NULL,
+  `address` int(11) NOT NULL,
+  `go_location` int(11) NOT NULL,
+  `city` int(11) NOT NULL,
+  `upozila` int(11) NOT NULL,
+  `district` int(11) NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ins_user_session`
+--
+
+CREATE TABLE `ins_user_session` (
+  `id` int(10) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `otp` int(4) DEFAULT NULL,
+  `code` varchar(20) DEFAULT NULL,
+  `ins_slug` varchar(20) DEFAULT NULL,
+  `is_cart` tinyint(1) NOT NULL DEFAULT 0,
+  `is_purchase` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
+
+--
+-- Dumping data for table `ins_user_session`
+--
+
+INSERT INTO `ins_user_session` (`id`, `mobile`, `otp`, `code`, `ins_slug`, `is_cart`, `is_purchase`, `created_at`, `updated_at`) VALUES
+(18, '0172976234', 19, NULL, 'health-insurance', 0, 0, '2023-11-22 19:03:58', '2023-11-22 19:03:58'),
+(19, '0172976234', NULL, '021ea9211c', 'health-insurance', 0, 0, '2023-11-22 19:08:57', '2023-11-22 19:44:46'),
+(20, '0172976234', NULL, 'b554cb2fd8', 'health-insurance', 0, 0, '2023-11-22 19:52:50', '2023-11-22 19:53:46'),
+(21, '0172976234', NULL, '07778942ee', 'health-insurance', 0, 0, '2023-11-23 16:55:15', '2023-11-23 16:55:43'),
+(22, '0172976234', NULL, '114a6fdd46', 'health-insurance', 0, 0, '2023-11-25 16:43:39', '2023-11-25 16:44:09'),
+(23, '0172976234', NULL, 'a523ff1c6c', 'health-insurance', 0, 0, '2023-11-28 16:16:42', '2023-11-28 16:17:02'),
+(24, '0172976234', NULL, '807c6730dc', 'health-insurance', 0, 0, '2023-11-28 16:42:48', '2023-11-28 16:43:26'),
+(25, '0172976234', NULL, '2895106df0', 'health-insurance', 0, 0, '2023-11-28 16:51:55', '2023-11-28 16:52:12'),
+(26, '0172976234', NULL, 'cb64f47cb7', 'health-insurance', 0, 0, '2023-11-30 18:58:28', '2023-11-30 18:58:55');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `invoices`
 --
 
@@ -27145,6 +27721,520 @@ CREATE TABLE `transaction_methods` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `upazilas`
+--
+
+CREATE TABLE `upazilas` (
+  `id` int(3) NOT NULL,
+  `district_id` int(2) NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `bn_name` varchar(25) NOT NULL,
+  `url` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `upazilas`
+--
+
+INSERT INTO `upazilas` (`id`, `district_id`, `name`, `bn_name`, `url`) VALUES
+(1, 1, 'Debidwar', 'দেবিদ্বার', 'debidwar.comilla.gov.bd'),
+(2, 1, 'Barura', 'বরুড়া', 'barura.comilla.gov.bd'),
+(3, 1, 'Brahmanpara', 'ব্রাহ্মণপাড়া', 'brahmanpara.comilla.gov.bd'),
+(4, 1, 'Chandina', 'চান্দিনা', 'chandina.comilla.gov.bd'),
+(5, 1, 'Chauddagram', 'চৌদ্দগ্রাম', 'chauddagram.comilla.gov.bd'),
+(6, 1, 'Daudkandi', 'দাউদকান্দি', 'daudkandi.comilla.gov.bd'),
+(7, 1, 'Homna', 'হোমনা', 'homna.comilla.gov.bd'),
+(8, 1, 'Laksam', 'লাকসাম', 'laksam.comilla.gov.bd'),
+(9, 1, 'Muradnagar', 'মুরাদনগর', 'muradnagar.comilla.gov.bd'),
+(10, 1, 'Nangalkot', 'নাঙ্গলকোট', 'nangalkot.comilla.gov.bd'),
+(11, 1, 'Comilla Sadar', 'কুমিল্লা সদর', 'comillasadar.comilla.gov.bd'),
+(12, 1, 'Meghna', 'মেঘনা', 'meghna.comilla.gov.bd'),
+(13, 1, 'Monohargonj', 'মনোহরগঞ্জ', 'monohargonj.comilla.gov.bd'),
+(14, 1, 'Sadarsouth', 'সদর দক্ষিণ', 'sadarsouth.comilla.gov.bd'),
+(15, 1, 'Titas', 'তিতাস', 'titas.comilla.gov.bd'),
+(16, 1, 'Burichang', 'বুড়িচং', 'burichang.comilla.gov.bd'),
+(17, 1, 'Lalmai', 'লালমাই', 'lalmai.comilla.gov.bd'),
+(18, 2, 'Chhagalnaiya', 'ছাগলনাইয়া', 'chhagalnaiya.feni.gov.bd'),
+(19, 2, 'Feni Sadar', 'ফেনী সদর', 'sadar.feni.gov.bd'),
+(20, 2, 'Sonagazi', 'সোনাগাজী', 'sonagazi.feni.gov.bd'),
+(21, 2, 'Fulgazi', 'ফুলগাজী', 'fulgazi.feni.gov.bd'),
+(22, 2, 'Parshuram', 'পরশুরাম', 'parshuram.feni.gov.bd'),
+(23, 2, 'Daganbhuiyan', 'দাগনভূঞা', 'daganbhuiyan.feni.gov.bd'),
+(24, 3, 'Brahmanbaria Sadar', 'ব্রাহ্মণবাড়িয়া সদর', 'sadar.brahmanbaria.gov.bd'),
+(25, 3, 'Kasba', 'কসবা', 'kasba.brahmanbaria.gov.bd'),
+(26, 3, 'Nasirnagar', 'নাসিরনগর', 'nasirnagar.brahmanbaria.gov.bd'),
+(27, 3, 'Sarail', 'সরাইল', 'sarail.brahmanbaria.gov.bd'),
+(28, 3, 'Ashuganj', 'আশুগঞ্জ', 'ashuganj.brahmanbaria.gov.bd'),
+(29, 3, 'Akhaura', 'আখাউড়া', 'akhaura.brahmanbaria.gov.bd'),
+(30, 3, 'Nabinagar', 'নবীনগর', 'nabinagar.brahmanbaria.gov.bd'),
+(31, 3, 'Bancharampur', 'বাঞ্ছারামপুর', 'bancharampur.brahmanbaria.gov.bd'),
+(32, 3, 'Bijoynagar', 'বিজয়নগর', 'bijoynagar.brahmanbaria.gov.bd    '),
+(33, 4, 'Rangamati Sadar', 'রাঙ্গামাটি সদর', 'sadar.rangamati.gov.bd'),
+(34, 4, 'Kaptai', 'কাপ্তাই', 'kaptai.rangamati.gov.bd'),
+(35, 4, 'Kawkhali', 'কাউখালী', 'kawkhali.rangamati.gov.bd'),
+(36, 4, 'Baghaichari', 'বাঘাইছড়ি', 'baghaichari.rangamati.gov.bd'),
+(37, 4, 'Barkal', 'বরকল', 'barkal.rangamati.gov.bd'),
+(38, 4, 'Langadu', 'লংগদু', 'langadu.rangamati.gov.bd'),
+(39, 4, 'Rajasthali', 'রাজস্থলী', 'rajasthali.rangamati.gov.bd'),
+(40, 4, 'Belaichari', 'বিলাইছড়ি', 'belaichari.rangamati.gov.bd'),
+(41, 4, 'Juraichari', 'জুরাছড়ি', 'juraichari.rangamati.gov.bd'),
+(42, 4, 'Naniarchar', 'নানিয়ারচর', 'naniarchar.rangamati.gov.bd'),
+(43, 5, 'Noakhali Sadar', 'নোয়াখালী সদর', 'sadar.noakhali.gov.bd'),
+(44, 5, 'Companiganj', 'কোম্পানীগঞ্জ', 'companiganj.noakhali.gov.bd'),
+(45, 5, 'Begumganj', 'বেগমগঞ্জ', 'begumganj.noakhali.gov.bd'),
+(46, 5, 'Hatia', 'হাতিয়া', 'hatia.noakhali.gov.bd'),
+(47, 5, 'Subarnachar', 'সুবর্ণচর', 'subarnachar.noakhali.gov.bd'),
+(48, 5, 'Kabirhat', 'কবিরহাট', 'kabirhat.noakhali.gov.bd'),
+(49, 5, 'Senbug', 'সেনবাগ', 'senbug.noakhali.gov.bd'),
+(50, 5, 'Chatkhil', 'চাটখিল', 'chatkhil.noakhali.gov.bd'),
+(51, 5, 'Sonaimori', 'সোনাইমুড়ী', 'sonaimori.noakhali.gov.bd'),
+(52, 6, 'Haimchar', 'হাইমচর', 'haimchar.chandpur.gov.bd'),
+(53, 6, 'Kachua', 'কচুয়া', 'kachua.chandpur.gov.bd'),
+(54, 6, 'Shahrasti', 'শাহরাস্তি	', 'shahrasti.chandpur.gov.bd'),
+(55, 6, 'Chandpur Sadar', 'চাঁদপুর সদর', 'sadar.chandpur.gov.bd'),
+(56, 6, 'Matlab South', 'মতলব দক্ষিণ', 'matlabsouth.chandpur.gov.bd'),
+(57, 6, 'Hajiganj', 'হাজীগঞ্জ', 'hajiganj.chandpur.gov.bd'),
+(58, 6, 'Matlab North', 'মতলব উত্তর', 'matlabnorth.chandpur.gov.bd'),
+(59, 6, 'Faridgonj', 'ফরিদগঞ্জ', 'faridgonj.chandpur.gov.bd'),
+(60, 7, 'Lakshmipur Sadar', 'লক্ষ্মীপুর সদর', 'sadar.lakshmipur.gov.bd'),
+(61, 7, 'Kamalnagar', 'কমলনগর', 'kamalnagar.lakshmipur.gov.bd'),
+(62, 7, 'Raipur', 'রায়পুর', 'raipur.lakshmipur.gov.bd'),
+(63, 7, 'Ramgati', 'রামগতি', 'ramgati.lakshmipur.gov.bd'),
+(64, 7, 'Ramganj', 'রামগঞ্জ', 'ramganj.lakshmipur.gov.bd'),
+(65, 8, 'Rangunia', 'রাঙ্গুনিয়া', 'rangunia.chittagong.gov.bd'),
+(66, 8, 'Sitakunda', 'সীতাকুন্ড', 'sitakunda.chittagong.gov.bd'),
+(67, 8, 'Mirsharai', 'মীরসরাই', 'mirsharai.chittagong.gov.bd'),
+(68, 8, 'Patiya', 'পটিয়া', 'patiya.chittagong.gov.bd'),
+(69, 8, 'Sandwip', 'সন্দ্বীপ', 'sandwip.chittagong.gov.bd'),
+(70, 8, 'Banshkhali', 'বাঁশখালী', 'banshkhali.chittagong.gov.bd'),
+(71, 8, 'Boalkhali', 'বোয়ালখালী', 'boalkhali.chittagong.gov.bd'),
+(72, 8, 'Anwara', 'আনোয়ারা', 'anwara.chittagong.gov.bd'),
+(73, 8, 'Chandanaish', 'চন্দনাইশ', 'chandanaish.chittagong.gov.bd'),
+(74, 8, 'Satkania', 'সাতকানিয়া', 'satkania.chittagong.gov.bd'),
+(75, 8, 'Lohagara', 'লোহাগাড়া', 'lohagara.chittagong.gov.bd'),
+(76, 8, 'Hathazari', 'হাটহাজারী', 'hathazari.chittagong.gov.bd'),
+(77, 8, 'Fatikchhari', 'ফটিকছড়ি', 'fatikchhari.chittagong.gov.bd'),
+(78, 8, 'Raozan', 'রাউজান', 'raozan.chittagong.gov.bd'),
+(79, 8, 'Karnafuli', 'কর্ণফুলী', 'karnafuli.chittagong.gov.bd'),
+(80, 9, 'Coxsbazar Sadar', 'কক্সবাজার সদর', 'sadar.coxsbazar.gov.bd'),
+(81, 9, 'Chakaria', 'চকরিয়া', 'chakaria.coxsbazar.gov.bd'),
+(82, 9, 'Kutubdia', 'কুতুবদিয়া', 'kutubdia.coxsbazar.gov.bd'),
+(83, 9, 'Ukhiya', 'উখিয়া', 'ukhiya.coxsbazar.gov.bd'),
+(84, 9, 'Moheshkhali', 'মহেশখালী', 'moheshkhali.coxsbazar.gov.bd'),
+(85, 9, 'Pekua', 'পেকুয়া', 'pekua.coxsbazar.gov.bd'),
+(86, 9, 'Ramu', 'রামু', 'ramu.coxsbazar.gov.bd'),
+(87, 9, 'Teknaf', 'টেকনাফ', 'teknaf.coxsbazar.gov.bd'),
+(88, 10, 'Khagrachhari Sadar', 'খাগড়াছড়ি সদর', 'sadar.khagrachhari.gov.bd'),
+(89, 10, 'Dighinala', 'দিঘীনালা', 'dighinala.khagrachhari.gov.bd'),
+(90, 10, 'Panchari', 'পানছড়ি', 'panchari.khagrachhari.gov.bd'),
+(91, 10, 'Laxmichhari', 'লক্ষীছড়ি', 'laxmichhari.khagrachhari.gov.bd'),
+(92, 10, 'Mohalchari', 'মহালছড়ি', 'mohalchari.khagrachhari.gov.bd'),
+(93, 10, 'Manikchari', 'মানিকছড়ি', 'manikchari.khagrachhari.gov.bd'),
+(94, 10, 'Ramgarh', 'রামগড়', 'ramgarh.khagrachhari.gov.bd'),
+(95, 10, 'Matiranga', 'মাটিরাঙ্গা', 'matiranga.khagrachhari.gov.bd'),
+(96, 10, 'Guimara', 'গুইমারা', 'guimara.khagrachhari.gov.bd'),
+(97, 11, 'Bandarban Sadar', 'বান্দরবান সদর', 'sadar.bandarban.gov.bd'),
+(98, 11, 'Alikadam', 'আলীকদম', 'alikadam.bandarban.gov.bd'),
+(99, 11, 'Naikhongchhari', 'নাইক্ষ্যংছড়ি', 'naikhongchhari.bandarban.gov.bd'),
+(100, 11, 'Rowangchhari', 'রোয়াংছড়ি', 'rowangchhari.bandarban.gov.bd'),
+(101, 11, 'Lama', 'লামা', 'lama.bandarban.gov.bd'),
+(102, 11, 'Ruma', 'রুমা', 'ruma.bandarban.gov.bd'),
+(103, 11, 'Thanchi', 'থানচি', 'thanchi.bandarban.gov.bd'),
+(104, 12, 'Belkuchi', 'বেলকুচি', 'belkuchi.sirajganj.gov.bd'),
+(105, 12, 'Chauhali', 'চৌহালি', 'chauhali.sirajganj.gov.bd'),
+(106, 12, 'Kamarkhand', 'কামারখন্দ', 'kamarkhand.sirajganj.gov.bd'),
+(107, 12, 'Kazipur', 'কাজীপুর', 'kazipur.sirajganj.gov.bd'),
+(108, 12, 'Raigonj', 'রায়গঞ্জ', 'raigonj.sirajganj.gov.bd'),
+(109, 12, 'Shahjadpur', 'শাহজাদপুর', 'shahjadpur.sirajganj.gov.bd'),
+(110, 12, 'Sirajganj Sadar', 'সিরাজগঞ্জ সদর', 'sirajganjsadar.sirajganj.gov.bd'),
+(111, 12, 'Tarash', 'তাড়াশ', 'tarash.sirajganj.gov.bd'),
+(112, 12, 'Ullapara', 'উল্লাপাড়া', 'ullapara.sirajganj.gov.bd'),
+(113, 13, 'Sujanagar', 'সুজানগর', 'sujanagar.pabna.gov.bd'),
+(114, 13, 'Ishurdi', 'ঈশ্বরদী', 'ishurdi.pabna.gov.bd'),
+(115, 13, 'Bhangura', 'ভাঙ্গুড়া', 'bhangura.pabna.gov.bd'),
+(116, 13, 'Pabna Sadar', 'পাবনা সদর', 'pabnasadar.pabna.gov.bd'),
+(117, 13, 'Bera', 'বেড়া', 'bera.pabna.gov.bd'),
+(118, 13, 'Atghoria', 'আটঘরিয়া', 'atghoria.pabna.gov.bd'),
+(119, 13, 'Chatmohar', 'চাটমোহর', 'chatmohar.pabna.gov.bd'),
+(120, 13, 'Santhia', 'সাঁথিয়া', 'santhia.pabna.gov.bd'),
+(121, 13, 'Faridpur', 'ফরিদপুর', 'faridpur.pabna.gov.bd'),
+(122, 14, 'Kahaloo', 'কাহালু', 'kahaloo.bogra.gov.bd'),
+(123, 14, 'Bogra Sadar', 'বগুড়া সদর', 'sadar.bogra.gov.bd'),
+(124, 14, 'Shariakandi', 'সারিয়াকান্দি', 'shariakandi.bogra.gov.bd'),
+(125, 14, 'Shajahanpur', 'শাজাহানপুর', 'shajahanpur.bogra.gov.bd'),
+(126, 14, 'Dupchanchia', 'দুপচাচিঁয়া', 'dupchanchia.bogra.gov.bd'),
+(127, 14, 'Adamdighi', 'আদমদিঘি', 'adamdighi.bogra.gov.bd'),
+(128, 14, 'Nondigram', 'নন্দিগ্রাম', 'nondigram.bogra.gov.bd'),
+(129, 14, 'Sonatala', 'সোনাতলা', 'sonatala.bogra.gov.bd'),
+(130, 14, 'Dhunot', 'ধুনট', 'dhunot.bogra.gov.bd'),
+(131, 14, 'Gabtali', 'গাবতলী', 'gabtali.bogra.gov.bd'),
+(132, 14, 'Sherpur', 'শেরপুর', 'sherpur.bogra.gov.bd'),
+(133, 14, 'Shibganj', 'শিবগঞ্জ', 'shibganj.bogra.gov.bd'),
+(134, 15, 'Paba', 'পবা', 'paba.rajshahi.gov.bd'),
+(135, 15, 'Durgapur', 'দুর্গাপুর', 'durgapur.rajshahi.gov.bd'),
+(136, 15, 'Mohonpur', 'মোহনপুর', 'mohonpur.rajshahi.gov.bd'),
+(137, 15, 'Charghat', 'চারঘাট', 'charghat.rajshahi.gov.bd'),
+(138, 15, 'Puthia', 'পুঠিয়া', 'puthia.rajshahi.gov.bd'),
+(139, 15, 'Bagha', 'বাঘা', 'bagha.rajshahi.gov.bd'),
+(140, 15, 'Godagari', 'গোদাগাড়ী', 'godagari.rajshahi.gov.bd'),
+(141, 15, 'Tanore', 'তানোর', 'tanore.rajshahi.gov.bd'),
+(142, 15, 'Bagmara', 'বাগমারা', 'bagmara.rajshahi.gov.bd'),
+(143, 16, 'Natore Sadar', 'নাটোর সদর', 'natoresadar.natore.gov.bd'),
+(144, 16, 'Singra', 'সিংড়া', 'singra.natore.gov.bd'),
+(145, 16, 'Baraigram', 'বড়াইগ্রাম', 'baraigram.natore.gov.bd'),
+(146, 16, 'Bagatipara', 'বাগাতিপাড়া', 'bagatipara.natore.gov.bd'),
+(147, 16, 'Lalpur', 'লালপুর', 'lalpur.natore.gov.bd'),
+(148, 16, 'Gurudaspur', 'গুরুদাসপুর', 'gurudaspur.natore.gov.bd'),
+(149, 16, 'Naldanga', 'নলডাঙ্গা', 'naldanga.natore.gov.bd'),
+(150, 17, 'Akkelpur', 'আক্কেলপুর', 'akkelpur.joypurhat.gov.bd'),
+(151, 17, 'Kalai', 'কালাই', 'kalai.joypurhat.gov.bd'),
+(152, 17, 'Khetlal', 'ক্ষেতলাল', 'khetlal.joypurhat.gov.bd'),
+(153, 17, 'Panchbibi', 'পাঁচবিবি', 'panchbibi.joypurhat.gov.bd'),
+(154, 17, 'Joypurhat Sadar', 'জয়পুরহাট সদর', 'joypurhatsadar.joypurhat.gov.bd'),
+(155, 18, 'Chapainawabganj Sadar', 'চাঁপাইনবাবগঞ্জ সদর', 'chapainawabganjsadar.chapainawabganj.gov.bd'),
+(156, 18, 'Gomostapur', 'গোমস্তাপুর', 'gomostapur.chapainawabganj.gov.bd'),
+(157, 18, 'Nachol', 'নাচোল', 'nachol.chapainawabganj.gov.bd'),
+(158, 18, 'Bholahat', 'ভোলাহাট', 'bholahat.chapainawabganj.gov.bd'),
+(159, 18, 'Shibganj', 'শিবগঞ্জ', 'shibganj.chapainawabganj.gov.bd'),
+(160, 19, 'Mohadevpur', 'মহাদেবপুর', 'mohadevpur.naogaon.gov.bd'),
+(161, 19, 'Badalgachi', 'বদলগাছী', 'badalgachi.naogaon.gov.bd'),
+(162, 19, 'Patnitala', 'পত্নিতলা', 'patnitala.naogaon.gov.bd'),
+(163, 19, 'Dhamoirhat', 'ধামইরহাট', 'dhamoirhat.naogaon.gov.bd'),
+(164, 19, 'Niamatpur', 'নিয়ামতপুর', 'niamatpur.naogaon.gov.bd'),
+(165, 19, 'Manda', 'মান্দা', 'manda.naogaon.gov.bd'),
+(166, 19, 'Atrai', 'আত্রাই', 'atrai.naogaon.gov.bd'),
+(167, 19, 'Raninagar', 'রাণীনগর', 'raninagar.naogaon.gov.bd'),
+(168, 19, 'Naogaon Sadar', 'নওগাঁ সদর', 'naogaonsadar.naogaon.gov.bd'),
+(169, 19, 'Porsha', 'পোরশা', 'porsha.naogaon.gov.bd'),
+(170, 19, 'Sapahar', 'সাপাহার', 'sapahar.naogaon.gov.bd'),
+(171, 20, 'Manirampur', 'মণিরামপুর', 'manirampur.jessore.gov.bd'),
+(172, 20, 'Abhaynagar', 'অভয়নগর', 'abhaynagar.jessore.gov.bd'),
+(173, 20, 'Bagherpara', 'বাঘারপাড়া', 'bagherpara.jessore.gov.bd'),
+(174, 20, 'Chougachha', 'চৌগাছা', 'chougachha.jessore.gov.bd'),
+(175, 20, 'Jhikargacha', 'ঝিকরগাছা', 'jhikargacha.jessore.gov.bd'),
+(176, 20, 'Keshabpur', 'কেশবপুর', 'keshabpur.jessore.gov.bd'),
+(177, 20, 'Jessore Sadar', 'যশোর সদর', 'sadar.jessore.gov.bd'),
+(178, 20, 'Sharsha', 'শার্শা', 'sharsha.jessore.gov.bd'),
+(179, 21, 'Assasuni', 'আশাশুনি', 'assasuni.satkhira.gov.bd'),
+(180, 21, 'Debhata', 'দেবহাটা', 'debhata.satkhira.gov.bd'),
+(181, 21, 'Kalaroa', 'কলারোয়া', 'kalaroa.satkhira.gov.bd'),
+(182, 21, 'Satkhira Sadar', 'সাতক্ষীরা সদর', 'satkhirasadar.satkhira.gov.bd'),
+(183, 21, 'Shyamnagar', 'শ্যামনগর', 'shyamnagar.satkhira.gov.bd'),
+(184, 21, 'Tala', 'তালা', 'tala.satkhira.gov.bd'),
+(185, 21, 'Kaliganj', 'কালিগঞ্জ', 'kaliganj.satkhira.gov.bd'),
+(186, 22, 'Mujibnagar', 'মুজিবনগর', 'mujibnagar.meherpur.gov.bd'),
+(187, 22, 'Meherpur Sadar', 'মেহেরপুর সদর', 'meherpursadar.meherpur.gov.bd'),
+(188, 22, 'Gangni', 'গাংনী', 'gangni.meherpur.gov.bd'),
+(189, 23, 'Narail Sadar', 'নড়াইল সদর', 'narailsadar.narail.gov.bd'),
+(190, 23, 'Lohagara', 'লোহাগড়া', 'lohagara.narail.gov.bd'),
+(191, 23, 'Kalia', 'কালিয়া', 'kalia.narail.gov.bd'),
+(192, 24, 'Chuadanga Sadar', 'চুয়াডাঙ্গা সদর', 'chuadangasadar.chuadanga.gov.bd'),
+(193, 24, 'Alamdanga', 'আলমডাঙ্গা', 'alamdanga.chuadanga.gov.bd'),
+(194, 24, 'Damurhuda', 'দামুড়হুদা', 'damurhuda.chuadanga.gov.bd'),
+(195, 24, 'Jibannagar', 'জীবননগর', 'jibannagar.chuadanga.gov.bd'),
+(196, 25, 'Kushtia Sadar', 'কুষ্টিয়া সদর', 'kushtiasadar.kushtia.gov.bd'),
+(197, 25, 'Kumarkhali', 'কুমারখালী', 'kumarkhali.kushtia.gov.bd'),
+(198, 25, 'Khoksa', 'খোকসা', 'khoksa.kushtia.gov.bd'),
+(199, 25, 'Mirpur', 'মিরপুর', 'mirpurkushtia.kushtia.gov.bd'),
+(200, 25, 'Daulatpur', 'দৌলতপুর', 'daulatpur.kushtia.gov.bd'),
+(201, 25, 'Bheramara', 'ভেড়ামারা', 'bheramara.kushtia.gov.bd'),
+(202, 26, 'Shalikha', 'শালিখা', 'shalikha.magura.gov.bd'),
+(203, 26, 'Sreepur', 'শ্রীপুর', 'sreepur.magura.gov.bd'),
+(204, 26, 'Magura Sadar', 'মাগুরা সদর', 'magurasadar.magura.gov.bd'),
+(205, 26, 'Mohammadpur', 'মহম্মদপুর', 'mohammadpur.magura.gov.bd'),
+(206, 27, 'Paikgasa', 'পাইকগাছা', 'paikgasa.khulna.gov.bd'),
+(207, 27, 'Fultola', 'ফুলতলা', 'fultola.khulna.gov.bd'),
+(208, 27, 'Digholia', 'দিঘলিয়া', 'digholia.khulna.gov.bd'),
+(209, 27, 'Rupsha', 'রূপসা', 'rupsha.khulna.gov.bd'),
+(210, 27, 'Terokhada', 'তেরখাদা', 'terokhada.khulna.gov.bd'),
+(211, 27, 'Dumuria', 'ডুমুরিয়া', 'dumuria.khulna.gov.bd'),
+(212, 27, 'Botiaghata', 'বটিয়াঘাটা', 'botiaghata.khulna.gov.bd'),
+(213, 27, 'Dakop', 'দাকোপ', 'dakop.khulna.gov.bd'),
+(214, 27, 'Koyra', 'কয়রা', 'koyra.khulna.gov.bd'),
+(215, 28, 'Fakirhat', 'ফকিরহাট', 'fakirhat.bagerhat.gov.bd'),
+(216, 28, 'Bagerhat Sadar', 'বাগেরহাট সদর', 'sadar.bagerhat.gov.bd'),
+(217, 28, 'Mollahat', 'মোল্লাহাট', 'mollahat.bagerhat.gov.bd'),
+(218, 28, 'Sarankhola', 'শরণখোলা', 'sarankhola.bagerhat.gov.bd'),
+(219, 28, 'Rampal', 'রামপাল', 'rampal.bagerhat.gov.bd'),
+(220, 28, 'Morrelganj', 'মোড়েলগঞ্জ', 'morrelganj.bagerhat.gov.bd'),
+(221, 28, 'Kachua', 'কচুয়া', 'kachua.bagerhat.gov.bd'),
+(222, 28, 'Mongla', 'মোংলা', 'mongla.bagerhat.gov.bd'),
+(223, 28, 'Chitalmari', 'চিতলমারী', 'chitalmari.bagerhat.gov.bd'),
+(224, 29, 'Jhenaidah Sadar', 'ঝিনাইদহ সদর', 'sadar.jhenaidah.gov.bd'),
+(225, 29, 'Shailkupa', 'শৈলকুপা', 'shailkupa.jhenaidah.gov.bd'),
+(226, 29, 'Harinakundu', 'হরিণাকুন্ডু', 'harinakundu.jhenaidah.gov.bd'),
+(227, 29, 'Kaliganj', 'কালীগঞ্জ', 'kaliganj.jhenaidah.gov.bd'),
+(228, 29, 'Kotchandpur', 'কোটচাঁদপুর', 'kotchandpur.jhenaidah.gov.bd'),
+(229, 29, 'Moheshpur', 'মহেশপুর', 'moheshpur.jhenaidah.gov.bd'),
+(230, 30, 'Jhalakathi Sadar', 'ঝালকাঠি সদর', 'sadar.jhalakathi.gov.bd'),
+(231, 30, 'Kathalia', 'কাঠালিয়া', 'kathalia.jhalakathi.gov.bd'),
+(232, 30, 'Nalchity', 'নলছিটি', 'nalchity.jhalakathi.gov.bd'),
+(233, 30, 'Rajapur', 'রাজাপুর', 'rajapur.jhalakathi.gov.bd'),
+(234, 31, 'Bauphal', 'বাউফল', 'bauphal.patuakhali.gov.bd'),
+(235, 31, 'Patuakhali Sadar', 'পটুয়াখালী সদর', 'sadar.patuakhali.gov.bd'),
+(236, 31, 'Dumki', 'দুমকি', 'dumki.patuakhali.gov.bd'),
+(237, 31, 'Dashmina', 'দশমিনা', 'dashmina.patuakhali.gov.bd'),
+(238, 31, 'Kalapara', 'কলাপাড়া', 'kalapara.patuakhali.gov.bd'),
+(239, 31, 'Mirzaganj', 'মির্জাগঞ্জ', 'mirzaganj.patuakhali.gov.bd'),
+(240, 31, 'Galachipa', 'গলাচিপা', 'galachipa.patuakhali.gov.bd'),
+(241, 31, 'Rangabali', 'রাঙ্গাবালী', 'rangabali.patuakhali.gov.bd'),
+(242, 32, 'Pirojpur Sadar', 'পিরোজপুর সদর', 'sadar.pirojpur.gov.bd'),
+(243, 32, 'Nazirpur', 'নাজিরপুর', 'nazirpur.pirojpur.gov.bd'),
+(244, 32, 'Kawkhali', 'কাউখালী', 'kawkhali.pirojpur.gov.bd'),
+(245, 32, 'Zianagar', 'জিয়ানগর', 'zianagar.pirojpur.gov.bd'),
+(246, 32, 'Bhandaria', 'ভান্ডারিয়া', 'bhandaria.pirojpur.gov.bd'),
+(247, 32, 'Mathbaria', 'মঠবাড়ীয়া', 'mathbaria.pirojpur.gov.bd'),
+(248, 32, 'Nesarabad', 'নেছারাবাদ', 'nesarabad.pirojpur.gov.bd'),
+(249, 33, 'Barisal Sadar', 'বরিশাল সদর', 'barisalsadar.barisal.gov.bd'),
+(250, 33, 'Bakerganj', 'বাকেরগঞ্জ', 'bakerganj.barisal.gov.bd'),
+(251, 33, 'Babuganj', 'বাবুগঞ্জ', 'babuganj.barisal.gov.bd'),
+(252, 33, 'Wazirpur', 'উজিরপুর', 'wazirpur.barisal.gov.bd'),
+(253, 33, 'Banaripara', 'বানারীপাড়া', 'banaripara.barisal.gov.bd'),
+(254, 33, 'Gournadi', 'গৌরনদী', 'gournadi.barisal.gov.bd'),
+(255, 33, 'Agailjhara', 'আগৈলঝাড়া', 'agailjhara.barisal.gov.bd'),
+(256, 33, 'Mehendiganj', 'মেহেন্দিগঞ্জ', 'mehendiganj.barisal.gov.bd'),
+(257, 33, 'Muladi', 'মুলাদী', 'muladi.barisal.gov.bd'),
+(258, 33, 'Hizla', 'হিজলা', 'hizla.barisal.gov.bd'),
+(259, 34, 'Bhola Sadar', 'ভোলা সদর', 'sadar.bhola.gov.bd'),
+(260, 34, 'Borhan Sddin', 'বোরহান উদ্দিন', 'borhanuddin.bhola.gov.bd'),
+(261, 34, 'Charfesson', 'চরফ্যাশন', 'charfesson.bhola.gov.bd'),
+(262, 34, 'Doulatkhan', 'দৌলতখান', 'doulatkhan.bhola.gov.bd'),
+(263, 34, 'Monpura', 'মনপুরা', 'monpura.bhola.gov.bd'),
+(264, 34, 'Tazumuddin', 'তজুমদ্দিন', 'tazumuddin.bhola.gov.bd'),
+(265, 34, 'Lalmohan', 'লালমোহন', 'lalmohan.bhola.gov.bd'),
+(266, 35, 'Amtali', 'আমতলী', 'amtali.barguna.gov.bd'),
+(267, 35, 'Barguna Sadar', 'বরগুনা সদর', 'sadar.barguna.gov.bd'),
+(268, 35, 'Betagi', 'বেতাগী', 'betagi.barguna.gov.bd'),
+(269, 35, 'Bamna', 'বামনা', 'bamna.barguna.gov.bd'),
+(270, 35, 'Pathorghata', 'পাথরঘাটা', 'pathorghata.barguna.gov.bd'),
+(271, 35, 'Taltali', 'তালতলি', 'taltali.barguna.gov.bd'),
+(272, 36, 'Balaganj', 'বালাগঞ্জ', 'balaganj.sylhet.gov.bd'),
+(273, 36, 'Beanibazar', 'বিয়ানীবাজার', 'beanibazar.sylhet.gov.bd'),
+(274, 36, 'Bishwanath', 'বিশ্বনাথ', 'bishwanath.sylhet.gov.bd'),
+(275, 36, 'Companiganj', 'কোম্পানীগঞ্জ', 'companiganj.sylhet.gov.bd'),
+(276, 36, 'Fenchuganj', 'ফেঞ্চুগঞ্জ', 'fenchuganj.sylhet.gov.bd'),
+(277, 36, 'Golapganj', 'গোলাপগঞ্জ', 'golapganj.sylhet.gov.bd'),
+(278, 36, 'Gowainghat', 'গোয়াইনঘাট', 'gowainghat.sylhet.gov.bd'),
+(279, 36, 'Jaintiapur', 'জৈন্তাপুর', 'jaintiapur.sylhet.gov.bd'),
+(280, 36, 'Kanaighat', 'কানাইঘাট', 'kanaighat.sylhet.gov.bd'),
+(281, 36, 'Sylhet Sadar', 'সিলেট সদর', 'sylhetsadar.sylhet.gov.bd'),
+(282, 36, 'Zakiganj', 'জকিগঞ্জ', 'zakiganj.sylhet.gov.bd'),
+(283, 36, 'Dakshinsurma', 'দক্ষিণ সুরমা', 'dakshinsurma.sylhet.gov.bd'),
+(284, 36, 'Osmaninagar', 'ওসমানী নগর', 'osmaninagar.sylhet.gov.bd'),
+(285, 37, 'Barlekha', 'বড়লেখা', 'barlekha.moulvibazar.gov.bd'),
+(286, 37, 'Kamolganj', 'কমলগঞ্জ', 'kamolganj.moulvibazar.gov.bd'),
+(287, 37, 'Kulaura', 'কুলাউড়া', 'kulaura.moulvibazar.gov.bd'),
+(288, 37, 'Moulvibazar Sadar', 'মৌলভীবাজার সদর', 'moulvibazarsadar.moulvibazar.gov.bd'),
+(289, 37, 'Rajnagar', 'রাজনগর', 'rajnagar.moulvibazar.gov.bd'),
+(290, 37, 'Sreemangal', 'শ্রীমঙ্গল', 'sreemangal.moulvibazar.gov.bd'),
+(291, 37, 'Juri', 'জুড়ী', 'juri.moulvibazar.gov.bd'),
+(292, 38, 'Nabiganj', 'নবীগঞ্জ', 'nabiganj.habiganj.gov.bd'),
+(293, 38, 'Bahubal', 'বাহুবল', 'bahubal.habiganj.gov.bd'),
+(294, 38, 'Ajmiriganj', 'আজমিরীগঞ্জ', 'ajmiriganj.habiganj.gov.bd'),
+(295, 38, 'Baniachong', 'বানিয়াচং', 'baniachong.habiganj.gov.bd'),
+(296, 38, 'Lakhai', 'লাখাই', 'lakhai.habiganj.gov.bd'),
+(297, 38, 'Chunarughat', 'চুনারুঘাট', 'chunarughat.habiganj.gov.bd'),
+(298, 38, 'Habiganj Sadar', 'হবিগঞ্জ সদর', 'habiganjsadar.habiganj.gov.bd'),
+(299, 38, 'Madhabpur', 'মাধবপুর', 'madhabpur.habiganj.gov.bd'),
+(300, 39, 'Sunamganj Sadar', 'সুনামগঞ্জ সদর', 'sadar.sunamganj.gov.bd'),
+(301, 39, 'South Sunamganj', 'দক্ষিণ সুনামগঞ্জ', 'southsunamganj.sunamganj.gov.bd'),
+(302, 39, 'Bishwambarpur', 'বিশ্বম্ভরপুর', 'bishwambarpur.sunamganj.gov.bd'),
+(303, 39, 'Chhatak', 'ছাতক', 'chhatak.sunamganj.gov.bd'),
+(304, 39, 'Jagannathpur', 'জগন্নাথপুর', 'jagannathpur.sunamganj.gov.bd'),
+(305, 39, 'Dowarabazar', 'দোয়ারাবাজার', 'dowarabazar.sunamganj.gov.bd'),
+(306, 39, 'Tahirpur', 'তাহিরপুর', 'tahirpur.sunamganj.gov.bd'),
+(307, 39, 'Dharmapasha', 'ধর্মপাশা', 'dharmapasha.sunamganj.gov.bd'),
+(308, 39, 'Jamalganj', 'জামালগঞ্জ', 'jamalganj.sunamganj.gov.bd'),
+(309, 39, 'Shalla', 'শাল্লা', 'shalla.sunamganj.gov.bd'),
+(310, 39, 'Derai', 'দিরাই', 'derai.sunamganj.gov.bd'),
+(311, 40, 'Belabo', 'বেলাবো', 'belabo.narsingdi.gov.bd'),
+(312, 40, 'Monohardi', 'মনোহরদী', 'monohardi.narsingdi.gov.bd'),
+(313, 40, 'Narsingdi Sadar', 'নরসিংদী সদর', 'narsingdisadar.narsingdi.gov.bd'),
+(314, 40, 'Palash', 'পলাশ', 'palash.narsingdi.gov.bd'),
+(315, 40, 'Raipura', 'রায়পুরা', 'raipura.narsingdi.gov.bd'),
+(316, 40, 'Shibpur', 'শিবপুর', 'shibpur.narsingdi.gov.bd'),
+(317, 41, 'Kaliganj', 'কালীগঞ্জ', 'kaliganj.gazipur.gov.bd'),
+(318, 41, 'Kaliakair', 'কালিয়াকৈর', 'kaliakair.gazipur.gov.bd'),
+(319, 41, 'Kapasia', 'কাপাসিয়া', 'kapasia.gazipur.gov.bd'),
+(320, 41, 'Gazipur Sadar', 'গাজীপুর সদর', 'sadar.gazipur.gov.bd'),
+(321, 41, 'Sreepur', 'শ্রীপুর', 'sreepur.gazipur.gov.bd'),
+(322, 42, 'Shariatpur Sadar', 'শরিয়তপুর সদর', 'sadar.shariatpur.gov.bd'),
+(323, 42, 'Naria', 'নড়িয়া', 'naria.shariatpur.gov.bd'),
+(324, 42, 'Zajira', 'জাজিরা', 'zajira.shariatpur.gov.bd'),
+(325, 42, 'Gosairhat', 'গোসাইরহাট', 'gosairhat.shariatpur.gov.bd'),
+(326, 42, 'Bhedarganj', 'ভেদরগঞ্জ', 'bhedarganj.shariatpur.gov.bd'),
+(327, 42, 'Damudya', 'ডামুড্যা', 'damudya.shariatpur.gov.bd'),
+(328, 43, 'Araihazar', 'আড়াইহাজার', 'araihazar.narayanganj.gov.bd'),
+(329, 43, 'Bandar', 'বন্দর', 'bandar.narayanganj.gov.bd'),
+(330, 43, 'Narayanganj Sadar', 'নারায়নগঞ্জ সদর', 'narayanganjsadar.narayanganj.gov.bd'),
+(331, 43, 'Rupganj', 'রূপগঞ্জ', 'rupganj.narayanganj.gov.bd'),
+(332, 43, 'Sonargaon', 'সোনারগাঁ', 'sonargaon.narayanganj.gov.bd'),
+(333, 44, 'Basail', 'বাসাইল', 'basail.tangail.gov.bd'),
+(334, 44, 'Bhuapur', 'ভুয়াপুর', 'bhuapur.tangail.gov.bd'),
+(335, 44, 'Delduar', 'দেলদুয়ার', 'delduar.tangail.gov.bd'),
+(336, 44, 'Ghatail', 'ঘাটাইল', 'ghatail.tangail.gov.bd'),
+(337, 44, 'Gopalpur', 'গোপালপুর', 'gopalpur.tangail.gov.bd'),
+(338, 44, 'Madhupur', 'মধুপুর', 'madhupur.tangail.gov.bd'),
+(339, 44, 'Mirzapur', 'মির্জাপুর', 'mirzapur.tangail.gov.bd'),
+(340, 44, 'Nagarpur', 'নাগরপুর', 'nagarpur.tangail.gov.bd'),
+(341, 44, 'Sakhipur', 'সখিপুর', 'sakhipur.tangail.gov.bd'),
+(342, 44, 'Tangail Sadar', 'টাঙ্গাইল সদর', 'tangailsadar.tangail.gov.bd'),
+(343, 44, 'Kalihati', 'কালিহাতী', 'kalihati.tangail.gov.bd'),
+(344, 44, 'Dhanbari', 'ধনবাড়ী', 'dhanbari.tangail.gov.bd'),
+(345, 45, 'Itna', 'ইটনা', 'itna.kishoreganj.gov.bd'),
+(346, 45, 'Katiadi', 'কটিয়াদী', 'katiadi.kishoreganj.gov.bd'),
+(347, 45, 'Bhairab', 'ভৈরব', 'bhairab.kishoreganj.gov.bd'),
+(348, 45, 'Tarail', 'তাড়াইল', 'tarail.kishoreganj.gov.bd'),
+(349, 45, 'Hossainpur', 'হোসেনপুর', 'hossainpur.kishoreganj.gov.bd'),
+(350, 45, 'Pakundia', 'পাকুন্দিয়া', 'pakundia.kishoreganj.gov.bd'),
+(351, 45, 'Kuliarchar', 'কুলিয়ারচর', 'kuliarchar.kishoreganj.gov.bd'),
+(352, 45, 'Kishoreganj Sadar', 'কিশোরগঞ্জ সদর', 'kishoreganjsadar.kishoreganj.gov.bd'),
+(353, 45, 'Karimgonj', 'করিমগঞ্জ', 'karimgonj.kishoreganj.gov.bd'),
+(354, 45, 'Bajitpur', 'বাজিতপুর', 'bajitpur.kishoreganj.gov.bd'),
+(355, 45, 'Austagram', 'অষ্টগ্রাম', 'austagram.kishoreganj.gov.bd'),
+(356, 45, 'Mithamoin', 'মিঠামইন', 'mithamoin.kishoreganj.gov.bd'),
+(357, 45, 'Nikli', 'নিকলী', 'nikli.kishoreganj.gov.bd'),
+(358, 46, 'Harirampur', 'হরিরামপুর', 'harirampur.manikganj.gov.bd'),
+(359, 46, 'Saturia', 'সাটুরিয়া', 'saturia.manikganj.gov.bd'),
+(360, 46, 'Manikganj Sadar', 'মানিকগঞ্জ সদর', 'sadar.manikganj.gov.bd'),
+(361, 46, 'Gior', 'ঘিওর', 'gior.manikganj.gov.bd'),
+(362, 46, 'Shibaloy', 'শিবালয়', 'shibaloy.manikganj.gov.bd'),
+(363, 46, 'Doulatpur', 'দৌলতপুর', 'doulatpur.manikganj.gov.bd'),
+(364, 46, 'Singiar', 'সিংগাইর', 'singiar.manikganj.gov.bd'),
+(365, 47, 'Savar', 'সাভার', 'savar.dhaka.gov.bd'),
+(366, 47, 'Dhamrai', 'ধামরাই', 'dhamrai.dhaka.gov.bd'),
+(367, 47, 'Keraniganj', 'কেরাণীগঞ্জ', 'keraniganj.dhaka.gov.bd'),
+(368, 47, 'Nawabganj', 'নবাবগঞ্জ', 'nawabganj.dhaka.gov.bd'),
+(369, 47, 'Dohar', 'দোহার', 'dohar.dhaka.gov.bd'),
+(370, 48, 'Munshiganj Sadar', 'মুন্সিগঞ্জ সদর', 'sadar.munshiganj.gov.bd'),
+(371, 48, 'Sreenagar', 'শ্রীনগর', 'sreenagar.munshiganj.gov.bd'),
+(372, 48, 'Sirajdikhan', 'সিরাজদিখান', 'sirajdikhan.munshiganj.gov.bd'),
+(373, 48, 'Louhajanj', 'লৌহজং', 'louhajanj.munshiganj.gov.bd'),
+(374, 48, 'Gajaria', 'গজারিয়া', 'gajaria.munshiganj.gov.bd'),
+(375, 48, 'Tongibari', 'টংগীবাড়ি', 'tongibari.munshiganj.gov.bd'),
+(376, 49, 'Rajbari Sadar', 'রাজবাড়ী সদর', 'sadar.rajbari.gov.bd'),
+(377, 49, 'Goalanda', 'গোয়ালন্দ', 'goalanda.rajbari.gov.bd'),
+(378, 49, 'Pangsa', 'পাংশা', 'pangsa.rajbari.gov.bd'),
+(379, 49, 'Baliakandi', 'বালিয়াকান্দি', 'baliakandi.rajbari.gov.bd'),
+(380, 49, 'Kalukhali', 'কালুখালী', 'kalukhali.rajbari.gov.bd'),
+(381, 50, 'Madaripur Sadar', 'মাদারীপুর সদর', 'sadar.madaripur.gov.bd'),
+(382, 50, 'Shibchar', 'শিবচর', 'shibchar.madaripur.gov.bd'),
+(383, 50, 'Kalkini', 'কালকিনি', 'kalkini.madaripur.gov.bd'),
+(384, 50, 'Rajoir', 'রাজৈর', 'rajoir.madaripur.gov.bd'),
+(385, 51, 'Gopalganj Sadar', 'গোপালগঞ্জ সদর', 'sadar.gopalganj.gov.bd'),
+(386, 51, 'Kashiani', 'কাশিয়ানী', 'kashiani.gopalganj.gov.bd'),
+(387, 51, 'Tungipara', 'টুংগীপাড়া', 'tungipara.gopalganj.gov.bd'),
+(388, 51, 'Kotalipara', 'কোটালীপাড়া', 'kotalipara.gopalganj.gov.bd'),
+(389, 51, 'Muksudpur', 'মুকসুদপুর', 'muksudpur.gopalganj.gov.bd'),
+(390, 52, 'Faridpur Sadar', 'ফরিদপুর সদর', 'sadar.faridpur.gov.bd'),
+(391, 52, 'Alfadanga', 'আলফাডাঙ্গা', 'alfadanga.faridpur.gov.bd'),
+(392, 52, 'Boalmari', 'বোয়ালমারী', 'boalmari.faridpur.gov.bd'),
+(393, 52, 'Sadarpur', 'সদরপুর', 'sadarpur.faridpur.gov.bd'),
+(394, 52, 'Nagarkanda', 'নগরকান্দা', 'nagarkanda.faridpur.gov.bd'),
+(395, 52, 'Bhanga', 'ভাঙ্গা', 'bhanga.faridpur.gov.bd'),
+(396, 52, 'Charbhadrasan', 'চরভদ্রাসন', 'charbhadrasan.faridpur.gov.bd'),
+(397, 52, 'Madhukhali', 'মধুখালী', 'madhukhali.faridpur.gov.bd'),
+(398, 52, 'Saltha', 'সালথা', 'saltha.faridpur.gov.bd'),
+(399, 53, 'Panchagarh Sadar', 'পঞ্চগড় সদর', 'panchagarhsadar.panchagarh.gov.bd'),
+(400, 53, 'Debiganj', 'দেবীগঞ্জ', 'debiganj.panchagarh.gov.bd'),
+(401, 53, 'Boda', 'বোদা', 'boda.panchagarh.gov.bd'),
+(402, 53, 'Atwari', 'আটোয়ারী', 'atwari.panchagarh.gov.bd'),
+(403, 53, 'Tetulia', 'তেতুলিয়া', 'tetulia.panchagarh.gov.bd'),
+(404, 54, 'Nawabganj', 'নবাবগঞ্জ', 'nawabganj.dinajpur.gov.bd'),
+(405, 54, 'Birganj', 'বীরগঞ্জ', 'birganj.dinajpur.gov.bd'),
+(406, 54, 'Ghoraghat', 'ঘোড়াঘাট', 'ghoraghat.dinajpur.gov.bd'),
+(407, 54, 'Birampur', 'বিরামপুর', 'birampur.dinajpur.gov.bd'),
+(408, 54, 'Parbatipur', 'পার্বতীপুর', 'parbatipur.dinajpur.gov.bd'),
+(409, 54, 'Bochaganj', 'বোচাগঞ্জ', 'bochaganj.dinajpur.gov.bd'),
+(410, 54, 'Kaharol', 'কাহারোল', 'kaharol.dinajpur.gov.bd'),
+(411, 54, 'Fulbari', 'ফুলবাড়ী', 'fulbari.dinajpur.gov.bd'),
+(412, 54, 'Dinajpur Sadar', 'দিনাজপুর সদর', 'dinajpursadar.dinajpur.gov.bd'),
+(413, 54, 'Hakimpur', 'হাকিমপুর', 'hakimpur.dinajpur.gov.bd'),
+(414, 54, 'Khansama', 'খানসামা', 'khansama.dinajpur.gov.bd'),
+(415, 54, 'Birol', 'বিরল', 'birol.dinajpur.gov.bd'),
+(416, 54, 'Chirirbandar', 'চিরিরবন্দর', 'chirirbandar.dinajpur.gov.bd'),
+(417, 55, 'Lalmonirhat Sadar', 'লালমনিরহাট সদর', 'sadar.lalmonirhat.gov.bd'),
+(418, 55, 'Kaliganj', 'কালীগঞ্জ', 'kaliganj.lalmonirhat.gov.bd'),
+(419, 55, 'Hatibandha', 'হাতীবান্ধা', 'hatibandha.lalmonirhat.gov.bd'),
+(420, 55, 'Patgram', 'পাটগ্রাম', 'patgram.lalmonirhat.gov.bd'),
+(421, 55, 'Aditmari', 'আদিতমারী', 'aditmari.lalmonirhat.gov.bd'),
+(422, 56, 'Syedpur', 'সৈয়দপুর', 'syedpur.nilphamari.gov.bd'),
+(423, 56, 'Domar', 'ডোমার', 'domar.nilphamari.gov.bd'),
+(424, 56, 'Dimla', 'ডিমলা', 'dimla.nilphamari.gov.bd'),
+(425, 56, 'Jaldhaka', 'জলঢাকা', 'jaldhaka.nilphamari.gov.bd'),
+(426, 56, 'Kishorganj', 'কিশোরগঞ্জ', 'kishorganj.nilphamari.gov.bd'),
+(427, 56, 'Nilphamari Sadar', 'নীলফামারী সদর', 'nilphamarisadar.nilphamari.gov.bd'),
+(428, 57, 'Sadullapur', 'সাদুল্লাপুর', 'sadullapur.gaibandha.gov.bd'),
+(429, 57, 'Gaibandha Sadar', 'গাইবান্ধা সদর', 'gaibandhasadar.gaibandha.gov.bd'),
+(430, 57, 'Palashbari', 'পলাশবাড়ী', 'palashbari.gaibandha.gov.bd'),
+(431, 57, 'Saghata', 'সাঘাটা', 'saghata.gaibandha.gov.bd'),
+(432, 57, 'Gobindaganj', 'গোবিন্দগঞ্জ', 'gobindaganj.gaibandha.gov.bd'),
+(433, 57, 'Sundarganj', 'সুন্দরগঞ্জ', 'sundarganj.gaibandha.gov.bd'),
+(434, 57, 'Phulchari', 'ফুলছড়ি', 'phulchari.gaibandha.gov.bd'),
+(435, 58, 'Thakurgaon Sadar', 'ঠাকুরগাঁও সদর', 'thakurgaonsadar.thakurgaon.gov.bd'),
+(436, 58, 'Pirganj', 'পীরগঞ্জ', 'pirganj.thakurgaon.gov.bd'),
+(437, 58, 'Ranisankail', 'রাণীশংকৈল', 'ranisankail.thakurgaon.gov.bd'),
+(438, 58, 'Haripur', 'হরিপুর', 'haripur.thakurgaon.gov.bd'),
+(439, 58, 'Baliadangi', 'বালিয়াডাঙ্গী', 'baliadangi.thakurgaon.gov.bd'),
+(440, 59, 'Rangpur Sadar', 'রংপুর সদর', 'rangpursadar.rangpur.gov.bd'),
+(441, 59, 'Gangachara', 'গংগাচড়া', 'gangachara.rangpur.gov.bd'),
+(442, 59, 'Taragonj', 'তারাগঞ্জ', 'taragonj.rangpur.gov.bd'),
+(443, 59, 'Badargonj', 'বদরগঞ্জ', 'badargonj.rangpur.gov.bd'),
+(444, 59, 'Mithapukur', 'মিঠাপুকুর', 'mithapukur.rangpur.gov.bd'),
+(445, 59, 'Pirgonj', 'পীরগঞ্জ', 'pirgonj.rangpur.gov.bd'),
+(446, 59, 'Kaunia', 'কাউনিয়া', 'kaunia.rangpur.gov.bd'),
+(447, 59, 'Pirgacha', 'পীরগাছা', 'pirgacha.rangpur.gov.bd'),
+(448, 60, 'Kurigram Sadar', 'কুড়িগ্রাম সদর', 'kurigramsadar.kurigram.gov.bd'),
+(449, 60, 'Nageshwari', 'নাগেশ্বরী', 'nageshwari.kurigram.gov.bd'),
+(450, 60, 'Bhurungamari', 'ভুরুঙ্গামারী', 'bhurungamari.kurigram.gov.bd'),
+(451, 60, 'Phulbari', 'ফুলবাড়ী', 'phulbari.kurigram.gov.bd'),
+(452, 60, 'Rajarhat', 'রাজারহাট', 'rajarhat.kurigram.gov.bd'),
+(453, 60, 'Ulipur', 'উলিপুর', 'ulipur.kurigram.gov.bd'),
+(454, 60, 'Chilmari', 'চিলমারী', 'chilmari.kurigram.gov.bd'),
+(455, 60, 'Rowmari', 'রৌমারী', 'rowmari.kurigram.gov.bd'),
+(456, 60, 'Charrajibpur', 'চর রাজিবপুর', 'charrajibpur.kurigram.gov.bd'),
+(457, 61, 'Sherpur Sadar', 'শেরপুর সদর', 'sherpursadar.sherpur.gov.bd'),
+(458, 61, 'Nalitabari', 'নালিতাবাড়ী', 'nalitabari.sherpur.gov.bd'),
+(459, 61, 'Sreebordi', 'শ্রীবরদী', 'sreebordi.sherpur.gov.bd'),
+(460, 61, 'Nokla', 'নকলা', 'nokla.sherpur.gov.bd'),
+(461, 61, 'Jhenaigati', 'ঝিনাইগাতী', 'jhenaigati.sherpur.gov.bd'),
+(462, 62, 'Fulbaria', 'ফুলবাড়ীয়া', 'fulbaria.mymensingh.gov.bd'),
+(463, 62, 'Trishal', 'ত্রিশাল', 'trishal.mymensingh.gov.bd'),
+(464, 62, 'Bhaluka', 'ভালুকা', 'bhaluka.mymensingh.gov.bd'),
+(465, 62, 'Muktagacha', 'মুক্তাগাছা', 'muktagacha.mymensingh.gov.bd'),
+(466, 62, 'Mymensingh Sadar', 'ময়মনসিংহ সদর', 'mymensinghsadar.mymensingh.gov.bd'),
+(467, 62, 'Dhobaura', 'ধোবাউড়া', 'dhobaura.mymensingh.gov.bd'),
+(468, 62, 'Phulpur', 'ফুলপুর', 'phulpur.mymensingh.gov.bd'),
+(469, 62, 'Haluaghat', 'হালুয়াঘাট', 'haluaghat.mymensingh.gov.bd'),
+(470, 62, 'Gouripur', 'গৌরীপুর', 'gouripur.mymensingh.gov.bd'),
+(471, 62, 'Gafargaon', 'গফরগাঁও', 'gafargaon.mymensingh.gov.bd'),
+(472, 62, 'Iswarganj', 'ঈশ্বরগঞ্জ', 'iswarganj.mymensingh.gov.bd'),
+(473, 62, 'Nandail', 'নান্দাইল', 'nandail.mymensingh.gov.bd'),
+(474, 62, 'Tarakanda', 'তারাকান্দা', 'tarakanda.mymensingh.gov.bd'),
+(475, 63, 'Jamalpur Sadar', 'জামালপুর সদর', 'jamalpursadar.jamalpur.gov.bd'),
+(476, 63, 'Melandah', 'মেলান্দহ', 'melandah.jamalpur.gov.bd'),
+(477, 63, 'Islampur', 'ইসলামপুর', 'islampur.jamalpur.gov.bd'),
+(478, 63, 'Dewangonj', 'দেওয়ানগঞ্জ', 'dewangonj.jamalpur.gov.bd'),
+(479, 63, 'Sarishabari', 'সরিষাবাড়ী', 'sarishabari.jamalpur.gov.bd'),
+(480, 63, 'Madarganj', 'মাদারগঞ্জ', 'madarganj.jamalpur.gov.bd'),
+(481, 63, 'Bokshiganj', 'বকশীগঞ্জ', 'bokshiganj.jamalpur.gov.bd'),
+(482, 64, 'Barhatta', 'বারহাট্টা', 'barhatta.netrokona.gov.bd'),
+(483, 64, 'Durgapur', 'দুর্গাপুর', 'durgapur.netrokona.gov.bd'),
+(484, 64, 'Kendua', 'কেন্দুয়া', 'kendua.netrokona.gov.bd'),
+(485, 64, 'Atpara', 'আটপাড়া', 'atpara.netrokona.gov.bd'),
+(486, 64, 'Madan', 'মদন', 'madan.netrokona.gov.bd'),
+(487, 64, 'Khaliajuri', 'খালিয়াজুরী', 'khaliajuri.netrokona.gov.bd'),
+(488, 64, 'Kalmakanda', 'কলমাকান্দা', 'kalmakanda.netrokona.gov.bd'),
+(489, 64, 'Mohongonj', 'মোহনগঞ্জ', 'mohongonj.netrokona.gov.bd'),
+(490, 64, 'Purbadhala', 'পূর্বধলা', 'purbadhala.netrokona.gov.bd'),
+(491, 64, 'Netrokona Sadar', 'নেত্রকোণা সদর', 'netrokonasadar.netrokona.gov.bd'),
+(492, 9, 'Eidgaon', 'ঈদগাঁও', 'null'),
+(493, 39, 'Madhyanagar', 'মধ্যনগর', 'null'),
+(494, 50, 'Dasar', 'ডাসার', 'null');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -27183,7 +28273,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `user_type`, `membership_type`, `package_id`, `subscription_date`, `status`, `profile_picture`, `email_verified_at`, `password`, `phone`, `city`, `state`, `zip`, `address`, `valid_to`, `t_email_send_at`, `s_email_send_at`, `provider`, `provider_id`, `custom_fields`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@gmail.com', 'admin', NULL, NULL, NULL, 1, 'default.png', '2023-07-17 13:08:37', '$2y$10$NbgZ6Q2A0Wzt1ZeP/EAf1e3jjo4QMuX3VF.TOw6t8rFINqacwuOK6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'ZI6B1GFJ7gN0EBIdhgNNIhzSHz1HHIHaK8yPXVsfwkV4pkUtjuMgNzSFUHSR', '2023-07-17 13:08:37', '2023-07-17 13:08:37'),
 (2, 'Demo User', 'demo@gmail.com', 'user', 'member', 1, '2023-07-18', 1, 'default.png', NULL, '$2y$10$N0KhJJb4tE4XtRxFGr3nS.EdlBraMuKZ2WD87atVjncsYmOvYHhLS', NULL, NULL, NULL, NULL, NULL, '2023-08-18', NULL, NULL, NULL, NULL, NULL, NULL, '2023-07-18 17:29:44', '2023-07-18 17:29:44'),
-(3, 'User', 'user@user.com', 'user', 'member', 7, '2023-07-31', 1, 'default.png', '2023-06-30 18:40:01', '$2y$10$93xFTBzStCDNujPaBZfuO.f5sotUhFqZvLlO1VeUGqMb5OOSP2YMq', NULL, NULL, NULL, NULL, NULL, '2048-07-31', NULL, NULL, NULL, NULL, NULL, 'anNzTEDa5JvxlASlXZQvpzKXaDQXXGnUw7BAD5POE5Cb17bDmGVORGQrHbFw', '2023-07-30 18:38:33', '2023-07-30 18:38:33');
+(3, 'User', 'user@user.com', 'user', 'member', 7, '2023-07-31', 1, 'default.png', '2023-06-30 18:40:01', '$2y$10$93xFTBzStCDNujPaBZfuO.f5sotUhFqZvLlO1VeUGqMb5OOSP2YMq', NULL, NULL, NULL, NULL, NULL, '2048-07-31', NULL, NULL, NULL, NULL, NULL, 'sKaaNwr8ylfKsFBxP6GFxdDkvaYvxxnpouK57XKBKQn1FRKzFyxHE6hXqqA9', '2023-07-30 18:38:33', '2023-07-30 18:38:33');
 
 -- --------------------------------------------------------
 
@@ -27285,6 +28375,12 @@ ALTER TABLE `business_users`
   ADD KEY `business_users_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `country`
+--
+ALTER TABLE `country`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `credit_mnt_history`
 --
 ALTER TABLE `credit_mnt_history`
@@ -27332,6 +28428,19 @@ ALTER TABLE `database_backups`
 -- Indexes for table `delegation_approval_limit`
 --
 ALTER TABLE `delegation_approval_limit`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `districts`
+--
+ALTER TABLE `districts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `division_id` (`division_id`);
+
+--
+-- Indexes for table `divisions`
+--
+ALTER TABLE `divisions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -27438,6 +28547,68 @@ ALTER TABLE `groups`
   ADD UNIQUE KEY `code` (`code`),
   ADD KEY `id` (`id`),
   ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Indexes for table `ins_category`
+--
+ALTER TABLE `ins_category`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `slug` (`slug`);
+
+--
+-- Indexes for table `ins_insurance_provider`
+--
+ALTER TABLE `ins_insurance_provider`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ins_page`
+--
+ALTER TABLE `ins_page`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `plan_id` (`plan_id`);
+
+--
+-- Indexes for table `ins_plan`
+--
+ALTER TABLE `ins_plan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `ins_plan_details`
+--
+ALTER TABLE `ins_plan_details`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `plan_id` (`plan_id`),
+  ADD KEY `plan_details_type_id` (`plan_details_type_id`);
+
+--
+-- Indexes for table `ins_plan_details_type`
+--
+ALTER TABLE `ins_plan_details_type`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ins_plan_extra_discount`
+--
+ALTER TABLE `ins_plan_extra_discount`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `ins_plan_service_center`
+--
+ALTER TABLE `ins_plan_service_center`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `ins_user_session`
+--
+ALTER TABLE `ins_user_session`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `invoices`
@@ -27774,6 +28945,13 @@ ALTER TABLE `transaction_methods`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `upazilas`
+--
+ALTER TABLE `upazilas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `district_id` (`district_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -27835,6 +29013,12 @@ ALTER TABLE `business_users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `country`
+--
+ALTER TABLE `country`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
+
+--
 -- AUTO_INCREMENT for table `credit_mnt_history`
 --
 ALTER TABLE `credit_mnt_history`
@@ -27881,6 +29065,18 @@ ALTER TABLE `database_backups`
 --
 ALTER TABLE `delegation_approval_limit`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `districts`
+--
+ALTER TABLE `districts`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
+-- AUTO_INCREMENT for table `divisions`
+--
+ALTER TABLE `divisions`
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `email_subscribers`
@@ -27959,6 +29155,60 @@ ALTER TABLE `financial_year`
 --
 ALTER TABLE `groups`
   MODIFY `id` bigint(18) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+
+--
+-- AUTO_INCREMENT for table `ins_category`
+--
+ALTER TABLE `ins_category`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `ins_insurance_provider`
+--
+ALTER TABLE `ins_insurance_provider`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `ins_page`
+--
+ALTER TABLE `ins_page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ins_plan`
+--
+ALTER TABLE `ins_plan`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ins_plan_details`
+--
+ALTER TABLE `ins_plan_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ins_plan_details_type`
+--
+ALTER TABLE `ins_plan_details_type`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `ins_plan_extra_discount`
+--
+ALTER TABLE `ins_plan_extra_discount`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ins_plan_service_center`
+--
+ALTER TABLE `ins_plan_service_center`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ins_user_session`
+--
+ALTER TABLE `ins_user_session`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `invoices`
@@ -28213,6 +29463,12 @@ ALTER TABLE `transaction_methods`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `upazilas`
+--
+ALTER TABLE `upazilas`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=495;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -28270,6 +29526,12 @@ ALTER TABLE `customers`
   ADD CONSTRAINT `customers_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
+-- Constraints for table `districts`
+--
+ALTER TABLE `districts`
+  ADD CONSTRAINT `districts_ibfk_2` FOREIGN KEY (`division_id`) REFERENCES `divisions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `faq_translations`
 --
 ALTER TABLE `faq_translations`
@@ -28286,6 +29548,38 @@ ALTER TABLE `feature_translations`
 --
 ALTER TABLE `groups`
   ADD CONSTRAINT `groups_fk_check_parent_id` FOREIGN KEY (`parent_id`) REFERENCES `groups` (`id`);
+
+--
+-- Constraints for table `ins_page`
+--
+ALTER TABLE `ins_page`
+  ADD CONSTRAINT `ins_page_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `ins_plan` (`id`);
+
+--
+-- Constraints for table `ins_plan`
+--
+ALTER TABLE `ins_plan`
+  ADD CONSTRAINT `ins_plan_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `ins_category` (`id`),
+  ADD CONSTRAINT `ins_plan_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `ins_category` (`id`);
+
+--
+-- Constraints for table `ins_plan_details`
+--
+ALTER TABLE `ins_plan_details`
+  ADD CONSTRAINT `ins_plan_details_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `ins_plan` (`id`),
+  ADD CONSTRAINT `ins_plan_details_ibfk_2` FOREIGN KEY (`plan_details_type_id`) REFERENCES `ins_plan_details_type` (`id`);
+
+--
+-- Constraints for table `ins_plan_extra_discount`
+--
+ALTER TABLE `ins_plan_extra_discount`
+  ADD CONSTRAINT `ins_plan_extra_discount_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `ins_category` (`id`);
+
+--
+-- Constraints for table `ins_plan_service_center`
+--
+ALTER TABLE `ins_plan_service_center`
+  ADD CONSTRAINT `ins_plan_service_center_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `ins_category` (`id`);
 
 --
 -- Constraints for table `invoices`
@@ -28467,6 +29761,12 @@ ALTER TABLE `transactions`
 ALTER TABLE `transaction_categories`
   ADD CONSTRAINT `transaction_categories_business_id_foreign` FOREIGN KEY (`business_id`) REFERENCES `business` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `transaction_categories_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `upazilas`
+--
+ALTER TABLE `upazilas`
+  ADD CONSTRAINT `upazilas_ibfk_2` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `vendors`
