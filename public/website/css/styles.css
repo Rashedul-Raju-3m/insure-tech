@@ -12620,3 +12620,12 @@ html {
         border-bottom-right-radius: 16px;
     }
 }
+
+.select2-container--default .select2-selection--single{
+    height: 38px !important;
+    padding-top: 4px !important;
+}
+
+.select2-selection__arrow{
+    padding-top: 35px !important;
+}

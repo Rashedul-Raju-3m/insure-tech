@@ -43,17 +43,13 @@
 
                         <div class="panel-body wizard-content">
 
-                            <form action="{{route('ins_insurance_submit_2',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
-                                {{ csrf_field() }}
+
                                 <section>
                                     <br/>
                                     <div class="row">
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
-                                            <h4>
-{{--                                                <img src="{{asset('public/website/assets/icons/step-1.png') }}" alt="" style="width: 60px;--}}
-{{--    margin-left: -16px;">--}}
-                                                <b> Your Plan</b></h4>
+                                            <h4><b>2. Your Plans</b></h4>
                                         </div>
                                         <div class="col-lg-1"></div>
                                     </div>
@@ -108,54 +104,261 @@
                                                     <div class=" justify-content-center">
                                                         <div class="mb-5 monthly-plan">
                                                             <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
-                                                                <div class="row">
-                                                                    <div class="col-md-4">
-                                                                        <div class="pricing-plan-header">
-                                                                            <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
-                                                                            <h5>Standard</h5>
-                                                                            <p class="d-inline-block">
-                                                                                <small>
-                                                                                    <del>{{ decimalPlace(20, currency_symbol()) }}</del>
-                                                                                </small>
-                                                                                <span class="bg-primary d-inline-block text-white px-3 py-1 rounded-pill ms-1">{{ '20'.'% '._lang('Discount') }}</span>
-                                                                            </p>
+                                                                <div class="row" style="height: 160px">
+                                                                    <div class="col-md-3" style="border-right: 1px solid #cedddb">
+                                                                        <div class="pricing-plan-header" style="padding: 13px 15px;">
+                                                                            <span style="font-size: 10px !important;right: 105px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
+                                                                        </div>
+                                                                        <p class="d-inline-block">
+                                                                            <img src="{{ asset('public/website/assets/company/delta.png') }}" alt="" style="width: 200px;padding: 0px 12px;">
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-md-6" style="border-right: 1px solid #cedddb">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                    <span style="font-size: 15px !important;color: #000000;">Plan name</span>
+                                                                                </h3>
+                                                                                <h4 style="text-align: left !important;">
+                                                                                    <span style="font-size: 18px !important;color: #000000;"><b>GHI Starter</b> </span>
+                                                                                </h4>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col">
+                                                                            <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                    <span style="font-size: 15px !important;color: #000000;">Coverage</span>
+                                                                                </h3>
+                                                                                <h4 style="text-align: left !important;">
+                                                                                    <span style="font-size: 18px !important;color: #000000;"><b>TK. 10,000-20,000</b> </span>
+                                                                                </h4>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
-                                                                        <div class="pricing-plan-header">
-                                                                            <h4>
-                                                                                <span>{{ decimalPlace('999', currency_symbol()) }}</span>
-                                                                                {{ ucwords('Yearly') }}
-                                                                            </h4>
-                                                                            <p style="cursor: pointer" id="getDetailsFeature">Get Details Feature</p>
 
+                                                                    <br>
+
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                    <span style="font-size: 15px !important;color: #000000;">Insurance Provider</span>
+                                                                                </h3>
+                                                                                <h4 style="text-align: left !important;">
+                                                                                    <span style="font-size: 18px !important;color: #000000;"><b>Green Delta Insurance</b> </span>
+                                                                                </h4>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="col-md-4">
-                                                                        <div class="pricing-plan-body">
-                                                                            <ul>
-                                                                                <li>
-                                                                                    <i class="bi bi-check2-circle me-2"></i>
-                                                                                    {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                                                                </li>
-                                                                                <li>
-                                                                                    <i class="bi bi-check2-circle me-2"></i>
-                                                                                    {{ str_replace('-1',_lang('Unlimited'), 3).' '._lang('Business Account') }}
-                                                                                </li>
-                                                                            </ul>
-                                                                            <a href="" style="padding: 6px !important;margin-top: 10px !important;">{{ _lang('Buy') }} <i class="bi bi-arrow-right ms-2"></i></a>
-                                                                        </div>
 
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                <h3 style="text-align: center !important;margin-bottom: 0px !important;">
+                                                                                    <span style="font-size: 15px !important;color: #000000;">Premium</span>
+                                                                                </h3>
+                                                                                <h4 style="text-align: center !important;">
+                                                                                    <span style="font-size: 18px !important;color: #000000;"><b>TK. 490-1000 / Year</b> </span>
+                                                                                </h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                <h4 style="text-align: center !important;">
+                                                                                    <span style="font-size: 12px !important;color: #000000;">
+                                                                                        <p class="btn btn-success" style="cursor: pointer" id="getDetailsFeature">Select</p>
+                                                                                    </span>
+                                                                                </h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="mb-5 monthly-plan">
+                                                            <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
+                                                                <div class="row" style="height: 160px">
+                                                                    <div class="col-md-3" style="border-right: 1px solid #cedddb">
+                                                                        <div class="pricing-plan-header" style="padding: 13px 15px;">
+                                                                            <span style="font-size: 10px !important;right: 105px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
+                                                                        </div>
+                                                                        <p class="d-inline-block">
+                                                                            <img src="{{ asset('public/website/assets/company/life.png') }}" alt="" style="width: 200px;padding: 0px 12px;">
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-md-6" style="border-right: 1px solid #cedddb">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Plan name</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: left !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>Guardian Assurance</b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Coverage</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: left !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>TK. 10,000-20,000</b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <br>
+
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Insurance Provider</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: left !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>Guardian Life Insurance</b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: center !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Premium</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: center !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>TK. 500-1100 / Year</b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h4 style="text-align: center !important;">
+                                                                                    <span style="font-size: 12px !important;color: #000000;">
+                                                                                        <p class="btn btn-danger" style="cursor: pointer" id="getDetailsFeature">Details</p>
+                                                                                    </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mb-5 monthly-plan">
+                                                            <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
+                                                                <div class="row" style="height: 160px">
+                                                                    <div class="col-md-3" style="border-right: 1px solid #cedddb">
+                                                                        <div class="pricing-plan-header" style="padding: 13px 15px;">
+                                                                            <span style="font-size: 10px !important;right: 105px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
+                                                                        </div>
+                                                                        <p class="d-inline-block">
+                                                                            <img src="{{ asset('public/website/assets/company/pragati.png') }}" alt="" style="width: 200px;padding: 0px 12px;">
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="col-md-6" style="border-right: 1px solid #cedddb">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Plan name</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: left !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>Health Insurance </b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Coverage</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: left !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>TK. 10,000-20,000</b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <br>
+
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: left !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Insurance Provider</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: left !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>Pragati Life Insurance</b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h3 style="text-align: center !important;margin-bottom: 0px !important;">
+                                                                                        <span style="font-size: 15px !important;color: #000000;">Premium</span>
+                                                                                    </h3>
+                                                                                    <h4 style="text-align: center !important;">
+                                                                                        <span style="font-size: 18px !important;color: #000000;"><b>TK. 700-1200 / Year</b> </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h4 style="text-align: center !important;">
+                                                                                    <span style="font-size: 12px !important;color: #000000;">
+                                                                                        <p class="btn btn-success" style="cursor: pointer" id="getDetailsFeature">Select</p>
+                                                                                    </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <div class="pricing-plan-header" style="padding: 0px !important;">
+                                                                                    <h4 style="text-align: left !important;">
+                                                                                    <span style="font-size: 12px !important;color: #000000;">
+                                                                                        <p class="btn btn-danger" style="cursor: pointer" id="getDetailsFeature">Details</p>
+                                                                                    </span>
+                                                                                    </h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {{--<div class="mb-5 monthly-plan">
                                                             <div class="pricing-plan popular h-100 wow animate__zoomIn" data-wow-delay=".6s">
                                                                 <div class="row">
                                                                     <div class="col-md-4">
                                                                         <div class="pricing-plan-header">
-                                                                            <span style="font-size: 10px !important;right: 166px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
+                                                                            <span style="font-size: 10px !important;right: 177px !important;border-top-left-radius: 3px !important;border-bottom-right-radius: 10px !important;border-bottom-left-radius:0px !important;">{{ _lang('Most popular') }}</span>
                                                                             <h5>Standard</h5>
                                                                             <p class="d-inline-block">
                                                                                 <small>
@@ -166,7 +369,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-4">
-{{--                                                                        <a href="{{route('ins_insurance_details',['health-insurance',$sessionUser->code])}}">--}}
+                                                                        <a href="{{route('ins_insurance_details',['health-insurance',$sessionUser->code])}}">
                                                                             <div class="pricing-plan-header">
                                                                                 <h4>
                                                                                     <span>{{ decimalPlace('999', currency_symbol()) }}</span>
@@ -175,7 +378,7 @@
                                                                                 <p style="cursor: pointer" id="getDetailsFeature">Get Details Feature</p>
 
                                                                             </div>
-{{--                                                                        </a>--}}
+                                                                        </a>
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <div class="pricing-plan-body">
@@ -195,7 +398,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div>--}}
                                                     </div>
 
                                                 </section>
@@ -205,7 +408,7 @@
 
                                     <div id="showFeature" style="display: none">
                                         <div class="row">
-                                            <div class="col-lg-1" id="reverse" style="cursor: pointer">Back</div>
+                                            <div class="col-lg-1" id="reverse" style="cursor: pointer"></div>
                                             <div class="col-lg-10"><h6><b> Compare plans </b></h6></div>
                                             <div class="col-lg-1"></div>
                                         </div>
@@ -265,16 +468,25 @@
                                                     <tr class="align-middle">
                                                         <td>&nbsp;</td>
                                                         <td>
-                                                            <input type="radio" class="btn btn-warning package" name="package" value="5" id="package1">
-                                                            <label class="btn btn-warning" for="package1">Select</label>
+                                                            <form action="{{route('ins_insurance_submit_2',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
+                                                                {{ csrf_field() }}
+                                                                <input type="hidden" name="package" value="5" id="package1">
+                                                            <button class="btn btn-warning" type="submit">Buy Now</button>
+                                                            </form>
                                                         </td>
                                                         <td>
-                                                            <input type="radio" class="btn btn-warning package" name="package" value="10" id="package2">
-                                                            <label class="btn btn-warning" for="package2">Select</label>
+                                                            <form action="{{route('ins_insurance_submit_2',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
+                                                                {{ csrf_field() }}
+                                                                <input type="hidden" name="package" value="10" id="package2">
+                                                                <button class="btn btn-warning" type="submit">Buy Now</button>
+                                                            </form>
                                                         </td>
                                                         <td>
-                                                            <input type="radio" class="btn btn-warning package" name="package" value="15" id="package3">
-                                                            <label class="btn btn-warning" for="package3">Select</label>
+                                                            <form action="{{route('ins_insurance_submit_2',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
+                                                                {{ csrf_field() }}
+                                                                <input type="hidden" name="package" value="15" id="package3">
+                                                                <button class="btn btn-warning" type="submit">Buy Now</button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                     </tfoot>
@@ -282,88 +494,17 @@
                                             </div>
                                             <div class="col-lg-1"></div>
                                         </div>
-                                    </div>
 
-
-                                    <div class="row">
-                                        <div class="col-lg-1"></div>
-                                        <div class="col-lg-10">
-                                        </div>
-                                        <div class="col-lg-1">
-                                            <button class="btn btn-success step-2-submit" type="submit">Next</button>
+                                        <div class="row">
+                                            <div class="col-lg-1"></div>
+                                            <div class="col-lg-10">
+                                                <p style="cursor: pointer;width: 100px" class="nav-link btn-register btn py-2 text-nowrap step-2-submit" id="reverse">Back</p>
+                                            </div>
+                                            <div class="col-lg-1">
+                                            </div>
                                         </div>
                                     </div>
                                 </section>
-
-
-
-                                {{--<h6>Warning</h6>
-                                <section>
-                                    <div class="row">
-                                        <div class="col-sm-2"></div>
-                                        <div class="col-sm-8">
-                                            <div class="form-group">
-                                                <label>This is the question that is being asked to the user?</label>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-                                                        Option one is this and that&mdash;be sure to include why it's great
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" >
-                                                        Option two can be something else and selecting it will deselect option one
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" >
-                                                        Option three. This is just a demo.
-                                                    </label>
-                                                </div>
-                                            </div></div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-sm-2"></div>
-                                        <div class="col-sm-4">
-
-                                            <div class="form-group">
-                                                <label for="name-2">First name</label>
-                                                <input id="name-2" name="name" type="text" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="surname-2">Last name</label>
-                                                <input id="surname-2" name="surname" type="text" class="form-control">
-
-                                            </div>
-
-
-                                        </div>
-                                        <div class="col-sm-4">
-
-                                            <div class="form-group">
-                                                <label for="age-2">Age</label>
-                                                <input id="age-2" name="age" type="text" class="form-control number">
-
-                                            </div>
-                                            <div class="form-group">
-
-                                                <label for="email-2">Email</label>
-                                                <input id="email-2" name="email" type="text" class="form-control email">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>--}}
-
-                                {{--<h6>Finish</h6>
-                                <section>
-
-                                    <input id="acceptTerms-2" name="acceptTerms" type="checkbox" class=""> <label for="acceptTerms-2">I agree with the Terms and Conditions.</label>
-                                </section>--}}
-
-                            </form>
                         </div>
                     </div>
                 </div>

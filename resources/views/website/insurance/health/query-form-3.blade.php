@@ -51,9 +51,7 @@
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
                                             <h4>
-{{--                                                <img src="{{asset('public/website/assets/icons/step-1.png') }}" alt="" style="width: 60px;--}}
-{{--    margin-left: -16px;">--}}
-                                                <b> Member Details</b></h4>
+                                                <b>3. Member Details</b></h4>
                                         </div>
                                         <div class="col-lg-1"></div>
                                     </div>
@@ -162,18 +160,14 @@
                                         </div>
                                         <div class="col-lg-1"></div>
                                     </div>
-
-
-
+                                    <br>
                                     <div class="row">
                                         <div class="col-lg-1"></div>
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-10">
+                                            <button class="btn btn-success step-2-submit nav-link btn-register py-2 text-nowrap" type="submit">Next</button>
                                         </div>
+
                                         <div class="col-lg-1">
-{{--                                            <a href="{{route('ins_insurance_submit_1',[$page->slug,$sessionUser->code])}}" class="btn btn-success">Previous</a>--}}
-                                        </div>
-                                        <div class="col-lg-1">
-                                            <button class="btn btn-success step-2-submit" type="submit">Next</button>
                                         </div>
                                     </div>
                                 </section>

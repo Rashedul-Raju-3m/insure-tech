@@ -54,10 +54,11 @@
                             <form action="{{route('ins_insurance_submit_4',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
                                 {{ csrf_field() }}
                                 <section>
+
                                     <br/>
                                     <div class="row">
                                         <div class="col-lg-10">
-                                            <h4><b> Payment Form</b></h4>
+                                            <h4><b>4. Payment Form</b></h4>
                                         </div>
                                     </div>
 

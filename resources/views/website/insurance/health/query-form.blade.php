@@ -53,8 +53,7 @@
                                     <div class="row">
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
-                                            <h4><img src="{{asset('public/website/assets/icons/step-1.png') }}" alt="" style="width: 60px;
-    margin-left: -16px;"><b> Basic Details</b></h4>
+                                            <h4><b>1. Basic Details</b></h4>
                                         </div>
                                         <div class="col-lg-1"></div>
                                     </div>
@@ -123,12 +122,12 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-1">
+                                        </div>
                                         <div class="col-lg-10">
-                                            {{--                                            <h6><b>Who would you like to insure today?</b></h6>--}}
+                                            <button class="nav-link btn-register py-2 text-nowrap step-1-submit" type="submit">Next</button>
                                         </div>
                                         <div class="col-lg-1">
-                                            <button class="btn btn-success step-1-submit" type="submit">Next</button>
                                         </div>
                                     </div>
                                 </section>
