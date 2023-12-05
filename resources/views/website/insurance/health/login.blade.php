@@ -43,25 +43,21 @@
 
                         <div class="panel-body wizard-content">
 
-                            <form action="{{route('ins_insurance_submit_3',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
+                            <form action="{{route('login')}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
                                 {{ csrf_field() }}
                                 <section>
                                     <br/>
                                     <div class="row">
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
-                                            <h4>
-                                                <b>3. Member Details</b></h4>
+{{--                                            <h4><b>Login</b></h4>--}}
                                         </div>
                                         <div class="col-lg-1"></div>
                                     </div>
 
-                                    @php
-                                        $basicInfo = Session::get('healthBasicInfo');
-                                    @endphp
                                     <div class="row">
                                         <div class="col-lg-1"></div>
-                                        <div class="col-lg-10"><h6><b>Tell us about your family members </b></h6></div>
+                                        <div class="col-lg-10"><h6><b>Login to your account</b></h6></div>
                                         <div class="col-lg-1"></div>
                                     </div>
 
@@ -70,91 +66,26 @@
                                         <div class="col-lg-10">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    @if(sizeof($basicInfo['insurance-holder'])>0)
-                                                        @foreach($basicInfo['insurance-holder'] as $value)
-                                                            @php
-                                                                $label = '';
-                                                                $name = '';
-                                                                if ($value == 'Self'){
-                                                                    $label = 'Your Details';
-                                                                    $name = 'self';
-                                                                }elseif ($value == 'Spouse'){
-                                                                    $label = 'Spouse Details';
-                                                                    $name = 'spouse';
-                                                                }elseif ($value == 'Son'){
-                                                                    $label = 'Son Details';
-                                                                    $name = 'son';
-                                                                }elseif ($value == 'Daughter'){
-                                                                    $label = 'Daughter Details';
-                                                                    $name = 'daughter';
-                                                                }elseif ($value == 'Father'){
-                                                                    $label = 'Father Details';
-                                                                    $name = 'father';
-                                                                }elseif ($value == 'Mother'){
-                                                                    $label = 'Mother Details';
-                                                                    $name = 'mother';
-                                                                }elseif ($value == 'Father In Law'){
-                                                                    $label = 'Father In Law Details';
-                                                                    $name = 'father_in_law';
-                                                                }elseif ($value == 'Mother In Law'){
-                                                                    $label = 'Mother In Law Details';
-                                                                    $name = 'mother_in_law';
-                                                                }
-                                                            @endphp
-                        <div class="row">
-                            <h6><b><u>{{$label}}</u></b></h6>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Full Name">Full Name</label>
-                                    <input type="text" name="{{$name}}_name" class="form-control" placeholder="Full Name" required>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="Email">Email</label>
+                                                                <input type="text" name="email" class="form-control" placeholder="Email" required>
 
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Date of birth">Date of birth</label>
-                                    <input type="date" name="{{$name}}_dob" class="form-control" placeholder="Date of birth" required>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="Weight">Weight</label>
-                                    <input type="text" name="{{$name}}_weight" class="form-control" placeholder="Weight" required>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="Height">Height</label>
-                                    <select name="{{$name}}_height_ft" class="form-select" required>
-                                        <option value="4">4 ft </option>
-                                        <option value="5">5 ft </option>
-                                        <option value="6">6 ft </option>
-                                        <option value="7">7 ft </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="Height"></label>
-                                    <select name="{{$name}}_height_in" class="form-select" required>
-                                        <option value="0">0 In </option>
-                                        <option value="1">1 In </option>
-                                        <option value="2">2 In </option>
-                                        <option value="3">3 In </option>
-                                        <option value="4">4 In </option>
-                                        <option value="5">5 In </option>
-                                        <option value="6">6 In </option>
-                                        <option value="7">7 In </option>
-                                        <option value="8">8 In </option>
-                                        <option value="9">9 In </option>
-                                        <option value="10">10 In </option>
-                                        <option value="11">11 In </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                                                        @endforeach
-                                                    @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="Date of birth">Password</label>
+                                                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                                                <input type="hidden" name="ins-login" value="1">
+                                                                <input type="hidden" name="slug" value="{{$sessionUser->ins_slug}}">
+                                                                <input type="hidden" name="code" value="{{$sessionUser->code}}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +95,7 @@
                                     <div class="row">
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-10">
-                                            <button class="btn btn-success step-2-submit nav-link btn-register py-2 text-nowrap" type="submit">Next</button>
+                                            <button class="btn btn-success step-2-submit nav-link btn-register py-2 text-nowrap" type="submit">Login</button>
                                         </div>
 
                                         <div class="col-lg-1">

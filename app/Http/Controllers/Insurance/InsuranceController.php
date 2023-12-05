@@ -16,6 +16,7 @@ use App\Models\Testimonial;
 use App\Models\Upazila;
 use App\Utilities\Overrider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -88,6 +89,15 @@ class InsuranceController extends Controller {
             if (!$page){
                 abort(404);
             }
+            if (Auth::user()){
+                $code = bin2hex(openssl_random_pseudo_bytes(5));
+                $sessionUser = InsUserSession::create([
+                    'mobile'=> Auth::user()->phone?Auth::user()->phone:Auth::user()->email,
+                    'ins_slug'=> $slug,
+                    'code'=> $code
+                ]);
+                return redirect()->route('ins_insurance_query',[$slug,$code]);
+            }
             return view('website.insurance.ins-start', compact('page'));
         }
     }
@@ -101,7 +111,8 @@ class InsuranceController extends Controller {
         $sessionUser = InsUserSession::create([
            'mobile'=> $request->input('phone'),
            'ins_slug'=> $request->input('slug'),
-           'otp'=> rand(1000, 9999)
+//           'otp'=> rand(1000, 9999)
+           'otp'=> '1111'
         ]);
         return view('website.insurance.ins-otp-check', compact('page','sessionUser'));
     }
@@ -168,12 +179,29 @@ class InsuranceController extends Controller {
             abort(404);
         }
 
+//        dd($slug,$session,Auth::user());
+
         Session::put('healthMemberInfo', $request->all());
         $basicInfo = Session::get('healthBasicInfo');
         $planInfo = Session::get('healthPlanInfo');
         $memberInfo = Session::get('healthMemberInfo');
+        if (Auth::user()){
+            return view('website.insurance.health.query-form-4', compact('page','sessionUser'));
+        }else{
+            return view('website.insurance.health.login', compact('page','sessionUser'));
+        }
+    }
 
-//        dd($basicInfo,$planInfo,$memberInfo);
+    public function getQueryForm4(){
+        $slug = Session::get('slug');
+        $code = Session::get('code');
+        $page = InsCategory::where('slug',$slug)->where('is_active', 1)->first();
+        $sessionUser = InsUserSession::where('code',$code)->first();
+        if (!$page || !$sessionUser){
+            abort(404);
+        }
+        Session::remove('slug');
+        Session::remove('code');
         return view('website.insurance.health.query-form-4', compact('page','sessionUser'));
     }
 

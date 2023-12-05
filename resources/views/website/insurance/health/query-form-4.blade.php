@@ -49,6 +49,8 @@
                             <p>Buy Health Insurance Policy Online in Bangladesh.</p>
                         </div>
 
+
+
                         <div class="panel-body wizard-content">
 
                             <form action="{{route('ins_insurance_submit_4',[$page->slug,$sessionUser->code])}}" method="post" class="tab-wizard wizard-circle wizard clearfix">
@@ -79,6 +81,48 @@
                                     @endphp
 
                                     <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                                        <div class="card">
+                                            <div class="row">
+                                                <div class="col-md-12 cart">
+
+                                                    <div class="row  ">
+                                                        <div class="row main align-items-center text-center">
+                                                            <div class="col-md-4"><img width="80px" class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
+                                                            <div class="col-md-4">
+                                                                <div class="row text-muted">Shirt</div>
+                                                                <div class="row">Cotton T-shirt</div>
+                                                            </div>
+
+                                                            <div class="col-md-4">&euro; 44.00 <span class="close">&#10005;</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="row main align-items-center text-center">
+                                                            <div class="col-md-4"><img width="80px" class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                                                            <div class="col-md-4">
+                                                                <div class="row text-muted">Shirt</div>
+                                                                <div class="row">Cotton T-shirt</div>
+                                                            </div>
+
+                                                            <div class="col-md-4">&euro; 44.00 <span class="close">&#10005;</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row  ">
+                                                        <div class="row main align-items-center text-center">
+                                                            <div class="col-md-4"><img width="80px" class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                                                            <div class="col-md-4">
+                                                                <div class="row text-muted">Shirt</div>
+                                                                <div class="row">Cotton T-shirt</div>
+                                                            </div>
+
+                                                            <div class="col-md-4">&euro; 44.00 <span class="close">&#10005;</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
                                         <div class="card-body p-0">
                                             <div class="row g-0">
                                                 <div class="col-lg-8">

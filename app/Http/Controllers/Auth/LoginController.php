@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\InsCategory;
+use App\Models\InsUserSession;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -28,7 +31,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+
+    /*protected $redirectTo = RouteServiceProvider::HOME;*/
+    protected function redirectTo(){
+        $check = Session::get('ins-login');
+
+        if($check == 1){
+            Session::remove('ins-login');
+            return '/insurance-query-form-4';
+        }else{
+            return '/dashboard';
+        }
+
+    }
 
     /**
      * Create a new controller instance.
@@ -39,9 +54,17 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-	
+
 	protected function credentials(Request $request){
-		return [
+        if (null !== $request->input('ins-login')){
+            Session::put('ins-login', $request->input('ins-login'));
+            Session::put('slug', $request->input('slug'));
+            Session::put('code', $request->input('code'));
+        }
+//        dd($request->all());
+
+
+        return [
 			'email' => $request->{$this->username()},
 			'password' => $request->password,
 			'status' => 1,
@@ -69,7 +92,7 @@ class LoginController extends Controller
             'g-recaptcha-response.recaptchav3' => _lang('Recaptcha error!'),
         ]);
     }
-	
+
 	protected function authenticated(Request $request, $user)
 	{
 		if ($user->status != 1) {
@@ -77,10 +100,10 @@ class LoginController extends Controller
 			Auth::logout();
 			return back()->withInput($request->only($this->username(), 'remember'))
 						 ->withErrors($errors);
-		}	
-		
+		}
+
 	}
-	
+
 	/**
      * Get the failed login response instance.
      *
@@ -95,7 +118,7 @@ class LoginController extends Controller
 		if ($user && \Hash::check($request->password, $user->password) && $user->status != 1) {
 			$errors = [$this->username() => _lang('Your account is not active !')];
 		}
-		
+
         if ($request->expectsJson()) {
             return response()->json($errors, 422);
         }

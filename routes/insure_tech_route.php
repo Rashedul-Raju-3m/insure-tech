@@ -24,5 +24,6 @@ Route::post('/ins/{slug}/step2/{session}', [InsuranceController::class, 'Insuran
 Route::post('/ins/{slug}/step3/{session}', [InsuranceController::class, 'InsuranceSubmit3'])->name('ins_insurance_submit_3');
 Route::post('/ins/{slug}/step4/{session}', [InsuranceController::class, 'InsuranceSubmit4'])->name('ins_insurance_submit_4');
 Route::get('/division/wise/district/user', [InsuranceController::class, 'getDivisionWiseDistrictDropdown'])->name('get_division_wise_district_user');
+Route::get('/insurance-query-form-4', [InsuranceController::class, 'getQueryForm4'])->name('get_query_form_4');
 Route::get('/district/wise/upazila/user', [InsuranceController::class, 'getDistrictWiseUpazilaDropdown'])->name('get_district_wise_upazila_user');
 

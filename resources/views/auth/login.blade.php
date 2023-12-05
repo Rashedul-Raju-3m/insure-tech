@@ -7,15 +7,15 @@
             <div class="card card-signin p-3 my-5">
                 <div class="card-body">
 					<img class="logo" src="{{ get_logo() }}">
-					
-					<h5 class="text-center py-4">{{ _lang('Login To Your Account') }}</h4> 
-					
+
+					<h5 class="text-center py-4">{{ _lang('Login To Your Account') }}</h4>
+
                     @if(Session::has('error'))
                         <div class="alert alert-danger text-center">
                             <strong>{{ session('error') }}</strong>
                         </div>
                     @endif
-					
+
 					@if(Session::has('registration_success'))
                         <div class="alert alert-success text-center">
                             <strong>{{ session('registration_success') }}</strong>
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group row">
-						    <div class="col-md-12">	
+						    <div class="col-md-12">
 
 								<input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ _lang('Password') }}" required>
 
@@ -60,7 +60,7 @@
                                 @endif
                             </div>
                         </div>
-						
+
 						<div class="text-center">
 							<div class="custom-control custom-checkbox mb-3">
 								<input type="checkbox" name="remember" class="custom-control-input" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -76,11 +76,11 @@
 
                                 @if(get_option('member_signup') == 1)
                                     <a href="{{ route('register') }}" class="btn btn-link btn-register">{{ _lang('Create Account') }}</a>
-								@endif							
+								@endif
                             </div>
                         </div>
-						
-						
+
+
 						<div class="form-group row mt-3">
                             <div class="col-md-12">
 								<a class="btn-link" href="{{ route('password.request') }}">
