@@ -293,6 +293,12 @@
                 });
             });
 
+
+            $(document).delegate('.select-ins','click',function () {
+                let slug = $(this).attr("val");
+                $('.slug').val(slug)
+            });
+
         </script>
 
         <!-- Core theme JS-->

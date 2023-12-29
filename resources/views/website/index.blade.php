@@ -44,6 +44,107 @@
                         <!-- Third Row with 7 columns -->
 
                         <div class="row mt-3">
+
+                                <form action="{{route('insurance_submit')}}" method="POST">
+                                    @csrf
+                                    <div class="row">
+                                <div class="col-md-2 select-ins" val="car-insurance">
+                                        <img class="custom-hover shadow-sm mb-1" width="100px" src="{{ isset($pageMedia->hero_image) ? asset('public/uploads/media/'.$pageMedia->hero_image) : asset('public/website/assets/icons/car.png') }}" alt="Header Background" />
+                                    <h5 class="text-center">Car</h5>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <img class="custom-hover shadow-sm mb-1" width="100px" src="{{ isset($pageMedia->hero_image) ? asset('public/uploads/media/'.$pageMedia->hero_image) : asset('public/website/assets/icons/bike.png') }}" alt="Header Background" />
+                                    <h5 class="text-center">Bike</h5>
+                                </div>
+
+                                <div class="col-md-2 select-ins" val="health-insurance">
+                                        <img class="custom-hover shadow-sm mb-1" width="100px" src="{{ isset($pageMedia->hero_image) ? asset('public/uploads/media/'.$pageMedia->hero_image) : asset('public/website/assets/icons/health.png') }}" alt="Header Background" />
+                                    <h5 class="text-center">Health</h5>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <img class="custom-hover shadow-sm mb-1" width="100px" src="{{ isset($pageMedia->hero_image) ? asset('public/uploads/media/'.$pageMedia->hero_image) : asset('public/website/assets/icons/edu.png') }}" alt="Header Background" />
+                                    <h5 class="text-center">Education</h5>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <img class="custom-hover shadow-sm mb-1 img-fluid" width="100px" src="{{ isset($pageMedia->hero_image) ? asset('public/uploads/media/'.$pageMedia->hero_image) : asset('public/website/assets/icons/travel.png') }}" alt="Header Background" />
+                                    <h5 class="text-center">Travel</h5>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <img class="custom-hover shadow-sm mb-1" width="100px" src="{{ isset($pageMedia->hero_image) ? asset('public/uploads/media/'.$pageMedia->hero_image) : asset('public/website/assets/icons/more.png') }}" alt="Header Background" />
+                                    <h5 class="text-center">More</h5>
+                                </div>
+                                        <hr>
+
+                                <div class="col-md-5">
+                                    <input type="text" name="phone" class="form-control" placeholder="Enter mobile" required>
+                                    <input type="hidden" name="slug" class="form-control slug">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <button class="btn btn-success">Submit</button>
+                                </div>
+                                    </div>
+
+                                </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-xxl-3 d-none d-xl-block text-center wow animate__fadeInRight" data-wow-delay="1s">
+                </div>
+
+                <div class="row mx-5">
+                    <div class="col-md-4 link-btn"><a href="">Don’t have Reg num? ></a></div>
+                    <div class="col-md-4 link-btn"> <a href="">It’s a brand new Car ></a></div>
+                    <div class="col-md-4 link-btn"> <a href="">renew digit policy ></a></div>
+                </div>
+
+                <!-- Bootstrap JS and Popper.js -->
+                <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+                <div class="mx-5 text-center text-xl-start hero-content col-xl-8 col-xxl-8">
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+                <!-- <h1 class="wow animate__fadeInUp" data-wow-delay="0.4s">{{ isset($pageData->hero_heading) ? $pageData->hero_heading : '' }}</h1>
+                    <p class="wow animate__fadeInUp" data-wow-delay="0.6s">{{ isset($pageData->hero_sub_heading) ? $pageData->hero_sub_heading : '' }}</p> -->
+
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start mb-3">
+                        <a class="btn btn-primary py-3 px-4 fw-bold border-2 shadow border-radius-10 wow animate__fadeInLeft" data-wow-delay="1s" href="{{ isset($pageData->get_started_link) ? $pageData->get_started_link : '#' }}">{{ isset($pageData->get_started_text) ? $pageData->get_started_text : _lang('Get Started') }} <i class="bi bi-arrow-right ms-2"></i></a>
+                        <a class="btn btn-outline-primary py-3 px-4 fw-bold border-2 border-radius-10 wow animate__fadeInRight" data-wow-delay="1s" href="{{ route('login') }}">{{ _lang('Sign In') }} <i class="bi bi-box-arrow-in-right ms-2"></i></a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </header>
+
+
+    {{--<header class="hero-area">
+        <div class="container px-4">
+            <div class="row gx-5 align-items-center justify-content-between">
+                <div class="col-lg-8 col-xl-9 col-xxl-6">
+
+                    <!-- First Row -->
+
+                    <div class="container">
+                        <div class="row">
+                            <div><h1>Do the Digit Insurance<h1></div>
+                            <div><p>Trusted by 3 Crore+ Indians </p></div>
+
+                        </div>
+
+                        <!-- Third Row with 7 columns -->
+
+                        <div class="row mt-3">
                             <div class="row">
                                 <div class="col-md-2">
                                     <a href="{{route('ins_start','car-insurance')}}">
@@ -115,7 +216,7 @@
             </div>
         </div>
 
-    </header>
+    </header>--}}
 
     <!-- Features section-->
     @if(isset($pageData->features_status) && $pageData->features_status == 1)

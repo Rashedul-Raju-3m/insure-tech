@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/ins/{slug}', [InsuranceController::class, 'InsuranceStart'])->name('ins_start');
+Route::post('/ins/submit', [InsuranceController::class, 'InsuranceStartSubmit'])->name('insurance_submit');
 Route::post('/ins/session-store', [InsuranceController::class, 'InsuranceSessionStore'])->name('ins_session_store');
 Route::post('/ins/otp-check', [InsuranceController::class, 'InsuranceOtpCheck'])->name('ins_opt_check');
 Route::get('/ins/{slug}/{session}', [InsuranceController::class, 'InsuranceQuery'])->name('ins_insurance_query');

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InsureTech</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="py-4">
+      <div class="container mx-auto w-10/12">
+        <div class="flex justify-between">
+          <div class="">
+            <h1 class="text-orange1 uppercase text-4xl font-black">
+              Insurance
+            </h1>
+          </div>
+          <div class="">
+            <ul class="flex font-semibold">
+              <li class="py-2 px-4">
+                <a href="#"
+                  >Insurance Products
+                  <i
+                    class="fa fa-chevron-down text-blue1"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li class="py-2 px-4">
+                <a href="#"
+                  >Renew Your Police
+                  <i
+                    class="fa fa-chevron-down text-blue1"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li class="py-2 px-4">
+                <a href="#"
+                  >Claim
+                  <i
+                    class="fa fa-chevron-down text-blue1"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li class="py-2 px-4">
+                <a href="#"
+                  >Support
+                  <i
+                    class="fa fa-chevron-down text-blue1"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+              <li class="py-2 px-4">
+                <a
+                  class="border border-blue1 py-2 px-4 rounded-lg text-blue1 transition duration-300 hover:bg-blue1 hover:text-white"
+                  href="#"
+                  >Sign in</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero section-->
+    <section class="bg-slate-100 pt-6 pb-10">
+      <div class="container w-10/12 mx-auto">
+        <!---->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-orange1 rounded-3xl">
+            <h1
+              class="text-white font-bold uppercase text-5xl p-5 leading-normal"
+            >
+              Secure your<br />
+              future with<br />
+              <span class="text-black">reliable insurance</span><br />
+              coverage today!
+            </h1>
+            <div class="flex justify-between text-white">
+              <p class="pl-5 flex items-center">
+                <span class="text-5xl text-black font-bold mr-2">2K </span>
+                Insurance sold
+              </p>
+              <p class="pr-5 flex items-center">
+                <span class="text-5xl text-black font-bold mr-2">6K </span>
+                Satisfied and Happy Customers
+              </p>
+            </div>
+          </div>
+          <div class="">
+            <img
+              src="images/hero.png"
+              class="h-96 rounded-3xl"
+              alt="Hero"
+              width="100%"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4 bg-green-100 p-4 my-4 rounded-3xl">
+          <!--Insurance ploicy-->
+          <div class="flex gap-5">
+            <div class="text-center">
+              <div
+                class="bg-green-300 text-green-800 rounded-full h-16 w-16 text-3xl flex justify-center items-center hover:bg-green-800 hover:text-white transition duration-300 cursor-pointer"
+              >
+                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+              </div>
+              <h4>Health</h4>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="bg-green-300 text-green-800 rounded-full h-16 w-16 text-3xl flex justify-center items-center hover:bg-green-800 hover:text-white transition duration-300 cursor-pointer"
+              >
+                <i class="fa fa-car" aria-hidden="true"></i>
+              </div>
+              <h4>Car</h4>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="bg-green-300 text-green-800 rounded-full h-16 w-16 text-3xl flex justify-center items-center hover:bg-green-800 hover:text-white transition duration-300 cursor-pointer"
+              >
+                <i class="fa fa-plane" aria-hidden="true"></i>
+              </div>
+              <h4>Travel</h4>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="bg-green-300 text-green-800 rounded-full h-16 w-16 text-3xl flex justify-center items-center hover:bg-green-800 hover:text-white transition duration-300 cursor-pointer"
+              >
+                <i class="fa fa-life-ring" aria-hidden="true"></i>
+              </div>
+              <h4>Life</h4>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="bg-green-300 text-green-800 rounded-full h-16 w-16 text-3xl flex justify-center items-center hover:bg-green-800 hover:text-white transition duration-300 cursor-pointer"
+              >
+                <i class="fa fa-medkit" aria-hidden="true"></i>
+              </div>
+              <h4>Dental</h4>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="bg-green-300 text-green-800 rounded-full h-16 w-16 text-3xl flex justify-center items-center hover:bg-green-800 hover:text-white transition duration-300 cursor-pointer"
+              >
+                <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+              </div>
+              <h4>More</h4>
+            </div>
+          </div>
+          <!--Form -->
+          <div class="flex justify-end items-center">
+            <div class="">
+              <label class="mx-4 font-semibold" for="phone">Mobile No</label>
+              <input
+                id="phone"
+                class="p-4 mx-4 font-semibold rounded-full"
+                type="text"
+                placeholder="Enter Mobile no"
+              />
+            </div>
+            <button
+              class="mx-4 py-3 px-6 bg-green-800 text-white rounded-full font-semibold"
+            >
+              Get Price
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Explore categories-->
+    <section class="bg-orange-50 mt-2 py-5 pb-8">
+      <div class="container w-10/12 mx-auto">
+        <div class="grid grid-cols-12 justify-center items-center gap-4">
+          <div class="col-span-11">
+            <div class="flex justify-between items-center">
+              <h2 class="text-3xl font-semibold">Explore categories</h2>
+              <button
+                class="py-3 px-6 bg-blue-200 text-blue-600 rounded-full font-medium hover:bg-blue-600 hover:text-white transition duration-300 cursor-pointer"
+              >
+                View all
+              </button>
+            </div>
+            <div class="grid grid-cols-4 gap-4 mt-5">
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-university" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Bank</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-plane" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Travel Insurance Company</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-car" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Car Dealer</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-bed" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Furniture Store</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-diamond" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Jewelry Store</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-shirtsinbulk" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Clothing Store</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-laptop" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Electronics & Technology</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-male" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Fitness and Nutrtion Services</h4>
+              </div>
+
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-paw" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Pet Store</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-bolt" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Enerygy Supplier</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-home" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Real Estate Agents</h4>
+              </div>
+              <div class="flex bg-white p-6 rounded-xl items-center">
+                <i class="fa fa-umbrella" aria-hidden="true"></i>
+
+                <h4 class="ml-4 font-medium">Agency</h4>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div
+              class="bg-blue-200 text-blue-600 rounded-full h-10 w-10 text-xl flex justify-center items-center hover:bg-blue-600 hover:text-white transition duration-300 cursor-pointer"
+            >
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get app -->
+    <section class="bg-blue-50 pt-6 pb-10">
+      <div class="container mx-auto w-10/12">
+        <div class="grid grid-cols-2 gap-10">
+          <div class="">
+            <h1 class="text-2xl font-bold mb-4">Get The App</h1>
+            <div class="w-16 h-1 bg-blue-700"></div>
+            <p class="text-lg text-gray-600 mt-5 mb-8">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+            <div>
+              <p class="mb-5">
+                <i
+                  class="fa fa-star-o mr-4 text-gray-500"
+                  aria-hidden="true"
+                ></i>
+                Lorem ipsum dolor sit amet consectetur
+              </p>
+              <p class="mb-5">
+                <i
+                  class="fa fa-star-o mr-4 text-gray-500"
+                  aria-hidden="true"
+                ></i>
+                Lorem ipsum dolor sit amet consectetur
+              </p>
+              <p class="mb-5">
+                <i
+                  class="fa fa-star-o mr-4 text-gray-500"
+                  aria-hidden="true"
+                ></i>
+                Lorem ipsum dolor sit amet consectetur
+              </p>
+              <p class="mb-5">
+                <i
+                  class="fa fa-star-o mr-4 text-gray-500"
+                  aria-hidden="true"
+                ></i>
+                Lorem ipsum dolor sit amet consectetur
+              </p>
+            </div>
+            <div>
+              <p class="text-gray-500 mb-6">Download out app from</p>
+              <div class="flex">
+                <img src="images/play2.png" alt="play" />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-10">
+            <div class="">
+              <div
+                class="text-center bg-white rounded-lg p-4 shadow-lg mr-0 ml-28"
+              >
+                <i class="fa fa-flag-o text-purple-400" aria-hidden="true"></i>
+                <br />
+                <p>
+                  Get Claims <br />
+                  Assistance
+                </p>
+              </div>
+              <div
+                class="text-center bg-white rounded-lg p-4 shadow-lg mr-28 ml-0"
+              >
+                <i class="fa fa-puzzle-piece" aria-hidden="true"></i>
+                <br />
+                <p>
+                  Tax <br />
+                  Investment
+                </p>
+              </div>
+
+              <div
+                class="text-center bg-white rounded-lg p-4 shadow-lg mr-0 ml-28"
+              >
+                <i
+                  class="fa fa-umbrella text-purple-400"
+                  aria-hidden="true"
+                ></i>
+                <br />
+                <p>
+                  Team life <br />
+                  Insurance
+                </p>
+              </div>
+              <div
+                class="text-center bg-white rounded-lg p-4 shadow-lg mr-28 ml-0"
+              >
+                <i
+                  class="fa fa-heartbeat text-orange-400"
+                  aria-hidden="true"
+                ></i>
+                <br />
+                <p>
+                  Health <br />
+                  Insurance
+                </p>
+              </div>
+            </div>
+            <div class="">
+              <img src="images/phone.png" alt="Phone" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Testimonial-->
+    <section class="bg-yellow-50 py-5 pb-14">
+      <div class="container mx-auto w-10/12">
+        <div class="text-center my-10">
+          <h1 class="capitalize font-bold text-3xl">
+            Real Customers With
+            <span class="text-orange-400">Unbiased feedback,</span> <br />
+            and the are covered.
+          </h1>
+        </div>
+        <div class="grid grid-cols-4 gap-5">
+          <div class="p-8 rounded-3xl bg-white shadow-xl">
+            <div class="flex gap-8 items-center">
+              <img
+                src="images/client.png"
+                class="w-24 rounded-full"
+                width="100"
+                alt="client"
+              />
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Sara williams</h3>
+                <p class="text-gray-700">Recruiter</p>
+              </div>
+            </div>
+            <p class="my-8">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+              dolorum quisquam rerum dolores! Iure, dolore. Ullam, inventore.
+            </p>
+            <div class="text-orange-400 text-xl">
+              <i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i>
+              <i class="fa fa-star mx-1 text-gray-500" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="p-8 rounded-3xl bg-white shadow-xl">
+            <div class="flex gap-8 items-center">
+              <img
+                src="images/client.png"
+                class="w-24 rounded-full"
+                width="100"
+                alt="client"
+              />
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Sara williams</h3>
+                <p class="text-gray-700">Recruiter</p>
+              </div>
+            </div>
+            <p class="my-8">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+              dolorum quisquam rerum dolores! Iure, dolore. Ullam, inventore.
+            </p>
+            <div class="text-orange-400 text-xl">
+              <i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i>
+              <i class="fa fa-star mx-1 text-gray-500" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white shadow-xl">
+            <div class="flex gap-8 items-center">
+              <img
+                src="images/client.png"
+                class="w-24 rounded-full"
+                width="100"
+                alt="client"
+              />
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Sara williams</h3>
+                <p class="text-gray-700">Recruiter</p>
+              </div>
+            </div>
+            <p class="my-8">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+              dolorum quisquam rerum dolores! Iure, dolore. Ullam, inventore.
+            </p>
+            <div class="text-orange-400 text-xl">
+              <i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i>
+              <i class="fa fa-star mx-1 text-gray-500" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="p-8 rounded-3xl bg-white shadow-xl">
+            <div class="flex gap-8 items-center">
+              <img
+                src="images/client.png"
+                class="w-24 rounded-full"
+                width="100"
+                alt="client"
+              />
+              <div>
+                <h3 class="text-lg font-semibold mb-4">Sara williams</h3>
+                <p class="text-gray-700">Recruiter</p>
+              </div>
+            </div>
+            <p class="my-8">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+              dolorum quisquam rerum dolores! Iure, dolore. Ullam, inventore.
+            </p>
+            <div class="text-orange-400 text-xl">
+              <i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i
+              ><i class="fa fa-star mx-1" aria-hidden="true"></i>
+              <i class="fa fa-star mx-1 text-gray-500" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Partnar -->
+    <section class="my-4">
+      <div class="container mx-auto w-10/12">
+        <!--Our partnar title-->
+        <div class="text-center pb-4">
+          <h1 class="font-semibold text-3xl">Our partner</h1>
+        </div>
+        <div class="grid grid-cols-4 items-center my-4">
+          <img src="images/delta.png" alt="Delta" />
+          <img src="images/gardian.png" alt="gardian" />
+          <img src="images/pragatiLife.png" alt="Pragati Life" />
+          <img src="images/eastland.png" alt="Eastland" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 pt-14 pb-7">
+      <div class="container mx-auto w-10/12">
+        <div class="grid grid-cols-4 text-white gap-5">
+          <!--Compnay info-->
+          <div class="">
+            <h1 class="text-3xl font-medium mb-4">Insurance</h1>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error
+              itaque rem eos dolore enim architecto praesentium.
+            </p>
+            <ul class="flex gap-3 my-8">
+              <li>
+                <a
+                  href="#"
+                  class="text-xl text-white py-2 px-4 border border-white rounded-xl"
+                  ><i class="fa fa-twitter" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-xl text-white py-2 px-4 border border-white rounded-xl"
+                  ><i class="fa fa-facebook-square" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-xl text-white py-2 px-4 border border-white rounded-xl"
+                  ><i class="fa fa-pinterest-p" aria-hidden="true"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-xl text-white py-2 px-4 border border-white rounded-xl"
+                  ><i class="fa fa-instagram" aria-hidden="true"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <!--Company address-->
+          <div>
+            <h3 class="text-xl font-medium mb-4">Contact</h3>
+            <p class="mb-4">
+              <i class="fa fa-envelope mr-4" aria-hidden="true"></i>
+              needhlep@company.com
+            </p>
+            <p class="mb-4">
+              <i class="fa fa-map-marker mr-4" aria-hidden="true"></i> 30
+              company road, Dhaka, Bangladesh
+            </p>
+            <h3 class="text-xl font-medium mb-4">Open Hours</h3>
+            <p>Mon - Sat. 8:00am to 9:00pm sunday. Closed</p>
+          </div>
+
+          <!-- Gallery -->
+          <div>
+            <h3 class="text-xl font-medium mb-4">Gallery</h3>
+            <div class="grid grid-cols-3 gap-4">
+              <img class="rounded-xl" src="images/office.png" alt="" />
+              <img class="rounded-xl" src="images/office.png" alt="" />
+              <img class="rounded-xl" src="images/office.png" alt="" />
+
+              <img class="rounded-xl" src="images/office.png" alt="" />
+              <img class="rounded-xl" src="images/office.png" alt="" />
+              <img class="rounded-xl" src="images/office.png" alt="" />
+            </div>
+          </div>
+
+          <!--Newsletter-->
+          <div>
+            <h3 class="text-xl font-medium mb-4">Newsletter</h3>
+            <p class="pb-4">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem
+              pariatur vel voluptates dicta aliquam libero quas cupiditate
+            </p>
+            <div
+              class="bg-blue-950 p-4 text-white flex justify-between items-center rounded-xl"
+            >
+              <input
+                class="bg-transparent"
+                type="text"
+                placeholder="Email address"
+              />
+              <i class="fa fa-paper-plane-o px-5" aria-hidden="true"></i>
+            </div>
+            <p class="text-lg my-4">
+              <i class="fa fa-phone mr-2" aria-hidden="true"></i> +8801780000000
+            </p>
+          </div>
+        </div>
+        <div class="text-white text-center">
+          <div class="h-[1px] bg-blue-950 my-4"></div>
+          <p>All copyright 2023</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

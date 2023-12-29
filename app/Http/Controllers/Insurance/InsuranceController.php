@@ -102,6 +102,21 @@ class InsuranceController extends Controller {
         }
     }
 
+    public function InsuranceStartSubmit(Request $request){
+        $page = InsCategory::where('slug', $request->input('slug'))->where('is_active', 1)->first();
+        if (!$page){
+            abort(404);
+        }
+
+        $sessionUser = InsUserSession::create([
+            'mobile'=> $request->input('phone'),
+            'ins_slug'=> $request->input('slug'),
+//           'otp'=> rand(1000, 9999)
+            'otp'=> '1111'
+        ]);
+        return view('website.insurance.ins-otp-check', compact('page','sessionUser'));
+    }
+
     public function InsuranceSessionStore(Request $request){
         $this->validate($request, [
             'phone'    => 'required|min:11|numeric'
