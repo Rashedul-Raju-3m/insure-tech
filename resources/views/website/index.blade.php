@@ -46,7 +46,9 @@
                         <div class="row mt-3">
                             <div class="row">
                                 <div class="col-md-2">
+                                    <a href="{{route('ins_start','car-insurance')}}">
                                     <img class="custom-hover shadow-sm mb-1" width="100px" src="{{ isset($pageMedia->hero_image) ? asset('public/uploads/media/'.$pageMedia->hero_image) : asset('public/website/assets/icons/car.png') }}" alt="Header Background" />
+                                    </a>
                                     <h5 class="text-center">Car</h5>
                                 </div>
 

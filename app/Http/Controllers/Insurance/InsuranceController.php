@@ -139,6 +139,9 @@ class InsuranceController extends Controller {
         if ('health-insurance' == $slug){
             return view('website.insurance.health.query-form', compact('page','sessionUser'));
         }
+        if ('car-insurance' == $slug){
+            return view('website.insurance.car.query-form', compact('page','sessionUser'));
+        }
     }
 
     public function InsuranceQueryDetails($slug,$session){
