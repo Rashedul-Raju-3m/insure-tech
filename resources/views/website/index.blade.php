@@ -42,8 +42,6 @@
         .pastel-dark input{
             width: 300px;
         }
-
-
     </style>
 
     <!-- Font Awesome -->
@@ -90,45 +88,42 @@
                 <div class="row">
                     <div class="col-7  ">
                         <div class="container bg-pastel-light p-4 radius">
-                            <div class="row row-cols-2 row-cols-lg-6 g-lg-3 radius">
-                                <div class="col align-items-center">
 
-                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center">
+                            <form action="{{route('insurance_submit')}}" method="POST">
+                            <div class="row row-cols-2 row-cols-lg-6 g-lg-3 radius">
+
+
+                                    @csrf
+
+                                <div class="col align-items-center">
+                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center select-ins" val="health-insurance" style="cursor: pointer">
                                         <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
                                     </div>
                                     <p class="text-center">Health</p>
                                 </div>
                                 <div class="col">
-                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center">
+                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center select-ins" val="car-insurance"style="cursor: pointer">
                                         <i class="fa fa-car fa-2x" aria-hidden="true"></i>
-
-{{--                                                                                <i class="fa-solid fa-car fa-2xl"></i>--}}
                                     </div>
                                     <p class="text-center">Car</p>
                                 </div>
                                 <div class="col">
-                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center">
+                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center select-ins" val="travel-insurance"style="cursor: pointer">
                                         <i class="fa fa-plane fa-2x" aria-hidden="true"></i>
-
-{{--                                                                                <i class="fa-solid fa-plane-departure fa-2xl"></i>--}}
                                     </div>
                                     <p class="text-center">Travel</p>
                                 </div>
                                 <div class="col">
-                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center">
-{{--                                        <i class="fa-solid fa-heart-pulse fa-2xl"></i>--}}
+                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center select-ins" val="life-insurance"style="cursor: pointer">
                                         <i class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
-
                                     </div>
                                     <p class="text-center">Life</p>
                                 </div>
                                 <div class="col">
-                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center">
-{{--                                        <i class="fa-solid fa-tooth fa-2xl"></i>--}}
+                                    <div class="p-4 border-0 rounded-circle bg-success text-white text-center select-ins" val="accident-insurance"style="cursor: pointer">
                                         <i class="fa fa-medkit fa-2x" aria-hidden="true"></i>
-
                                     </div>
-                                    <p class="text-center">Dental</p>
+                                    <p class="text-center">Accident</p>
                                 </div>
                                 <div class="col">
                                     <div class="p-4 border-0 rounded-circle bg-success text-white text-center">
@@ -137,14 +132,19 @@
                                     </div>
                                     <p class="text-center">More</p>
                                 </div>
+
+
                             </div>
 
                             <div class="flex-nowrap">
-                                <input type="text" placeholder="Enter Mobile no."  class=" border-0 rounded-pill p-2" aria-label="Enter Mobile no.">
-                                <button class="mx-4 px-6 text-white rounded-pill fw-bold">
+                                <input type="text" name="phone" placeholder="Enter Mobile no."  class=" border-0 rounded-pill p-3" aria-label="Enter Mobile no.">
+                                <input type="hidden" name="slug" class="form-control slug">
+                                <button class="mx-4 px-6 text-white rounded-pill fw-bold btn btn-success">
                                     Get Price
                                 </button>
                             </div>
+                            </form>
+
                         </div>
                     </div>
 

@@ -135,19 +135,22 @@
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-5">
                                             <div class="form-group">
-                                                <label for="MaritalStatus"><b>Engine Capacity CC</b></label>
+                                                <label for="MaritalStatus"><b>Purpose of your travel</b></label>
                                                 <select name="MaritalStatus" id="MaritalStatus" class="wow animate__zoomIn form-select" data-wow-delay=".4s" required>
                                                     <option value="">Select</option>
-                                                    <option value="1">Lower 1300 cc</option>
-                                                    <option value="2">1301 cc - 1800 cc</option>
-                                                    <option value="3">1801cc - 3000 cc</option>
-                                                    <option value="4">Over 3000 cc </option>
+                                                    <option value="1">Business/Holiday</option>
+                                                    <option value="2">Study</option>
+                                                    <option value="3">Employment</option>
+                                                    <option value="4">Frequent Traveling</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
 
                                         </div>
+                                            
+                                            
+                                            
                                     </div>
 
 <!-- //22222222 -->
@@ -157,21 +160,22 @@
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-5">
                                             <div class="form-group">
-                                           
+                                        
 
 
 <div class="row g-3 align-items-center">
-     <label for="MaritalStatus"><b>Full Insured Value or FIV (as per purchase invoice)</b></label>
-              <div class="col-auto">
-                1 Driver +
-              </div>
-              <div class="col-auto">
+     <label for="MaritalStatus"><b>Country/Countries (You can select multiple Countries)</b></label>
+               
+            
 
-                <input style="width: 65px" wire:model="no_of_passenger" type="number" class="form-control" min="3" max="45">
-              </div>
-              <div class="col-auto">
-                Passengers = Total <b>5</b> seats
-              </div>
+                <select name="MaritalStatus" id="MaritalStatus" class="wow animate__zoomIn form-select" data-wow-delay=".4s" required>
+                <option value="">Select</option>
+                <option value="1">India</option>
+                <option value="2">Canada</option>
+                <option value="3">USA</option>
+                <option value="4">UK</option>
+            </select>
+            
             </div>
  
                                             </div>
@@ -187,8 +191,8 @@
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-5">
                                             <div class="form-group">
-                                                <label for="MaritalStatus"><b>Full Insured Value or FIV (as per purchase invoice)</b></label>
-                                              <input wire:model="motor_price" value="Price" name="motor_price" id="motor_price" class="form-control" type="number" placeholder="Price">
+                                                <label for="MaritalStatus"><b>Date of Birth</b></label>
+                                              <input wire:model="motor_price" value="Price" name="motor_price" id="motor_price" class="form-control" type="date" placeholder="Price">
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
@@ -197,122 +201,54 @@
                                     </div>
 <!-- ///////4444444444444 -->
 
-                                    <div class="row">
+                                     <div class="row">
                                         <div class="col-lg-1"></div>
                                         <div class="col-lg-5">
                                             <div class="form-group">
-                                                <label for="MaritalStatus"><b>Comprehensive (first-party) Insurance </b></label>
-                                                 <br>
-                     <label class="radio">
-              <input wire:change="has_ncb_year_change($event.target.value)" wire:model="has_ncb_year" value="yes" type="radio" name="answer">
-              yes
-            </label>
-            
-            <label class="radio">
-              <input wire:change="has_ncb_year_change($event.target.value)" wire:model="has_ncb_year" value="no" type="radio" name="answer">
-              no
-            </label>
+                                                <label for="MaritalStatus"><b>Date of Travel</b></label>
+                                              <input wire:model="motor_price" value="Price" name="motor_price" id="motor_price" class="form-control" type="date" placeholder="Price">
                                             </div>
                                         </div>
                                         <div class="col-lg-5">
 
                                         </div>
                                     </div>
+<!-- ////55555555555555 -->
 
+                                    <div class="row">
+                                        <div class="col-lg-1"></div>
+                                        <div class="col-lg-5">
+                                            <div class="form-group">
+                                                <label for="MaritalStatus"><b>Policy Duration (Days) </b></label>
+                                              <input wire:model="motor_price" value="Price" name="motor_price" id="motor_price" class="form-control" type="text" placeholder="day">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5">
 
+                                        </div>
+                                    </div>
 <!-- ////55555555555555 -->
 
                                    
-                                    <div class="row">
-                                        <div class="col-lg-1"></div>
-                                        <div class="col-lg-5">
-                                            <div class="form-group">
-                                                <label for="MaritalStatus"><b>Have any Tracking System?</b></label>
-                                                 <br>
-                     <label class="radio">
-              <input wire:change="has_ncb_year_change($event.target.value)" wire:model="has_ncb_year" value="yes" type="radio" name="answer">
-              yes
-            </label>
-            
-            <label class="radio">
-              <input wire:change="has_ncb_year_change($event.target.value)" wire:model="has_ncb_year" value="no" type="radio" name="answer">
-              no
-            </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
+                                
+ 
 
-                                        </div>
-                                    </div>
+ 
 
-<div class="row">
-        <div class="col-lg-1"></div>
-                                        <div class="col-lg-10">
-                                         <h5><b>Covered Risks</b></h5>
-                                        </div>
-                                        <div class="col-lg-1">
-                                        </div>
-                                    </div>
+ 
 
-<div class="row">
-        <div class="col-lg-1"> </div>
-                                        <div class="col-lg-10">
-                                           The Comprehensive Vehicle Insurance policy will cover following selected Risks. You can select or de-select Risk Coverages at your preference. Please note that, by excluding any of the below coverages, you undertake the liability for loss in such incident be borne by you, not the insurance company. 
-                                        </div>
-                                        <div class="col-lg-1">
-                                        </div>
-                                    </div>
-
-
-      <br/>
-                                    <div class="row">
-                                        <div class="col-lg-1"></div>
-                                        <div class="col-lg-10">
-                           <h4><b>2. Additional Coverages</b></h4>
-                                        </div>
-                                        <div class="col-lg-1"></div>
-                                    </div>
-
-
-<div class="row">
-        <div class="col-lg-1"></div>
-                                        <div class="col-lg-10">
-                                       
-                                        </div>
-                                        <div class="col-lg-1">
-                                        </div>
-                                    </div>
-
+ 
 <div class="row">
         <div class="col-lg-1"> </div>
                                         <div class="col-lg-10">
 
 
 <label class="checkbox">
-                                                    <input type="checkbox" checked readonly disabled name="included" value="own_damage">
-                                                    <span class="checkmark" style="background-color: #979899;border: 2px solid #979899;"></span>
-                                                    Own Damage <p>Accidental Damage from external sources</p>
-                                                </label>
-                                                <label class="checkbox">
-                                                    <input type="checkbox" checked readonly disabled name="included" value="theft">
-                                                    <span class="checkmark" style="background-color: #979899;border: 2px solid #979899;"></span>
-                                                    Theft <p>Burglary, theft or house breaking</p>
-                                                </label>
-                                                <label class="checkbox">
-                                                    <input type="checkbox" checked name="include[]" value="cyclone_flood">
-                                                    <span class="checkmark"></span>
-                                                    Cyclone & Flood <p>Damage by Flood, Typhoon, Hurricane, Storm, Tempest, Inundation, Cyclone, Hailstorm and Frost</p>
-                                                </label>
-                                                <label class="checkbox">
-                                                    <input type="checkbox" checked name="include[]" value="earthquake">
-                                                    <span class="checkmark"></span>
-                                                    Earthquake <p>Damage by earthquake or, fire and shock arising from such incident</p>
-                                                </label>
-                                                <label class="checkbox">
-                                                    <input type="checkbox" checked name="include[]" value="riot_strike">
-                                                    <span class="checkmark"></span>
-                                                    Riot & Strike <p>Damage by Riot and Strike including Malicious & Terrorist</p>
-                                                </label>
+            <input type="checkbox" name="included" value="own_damage">
+            
+          I agree with the Terms of Service 
+        </label>
+                                                
 
 
 
@@ -323,6 +259,7 @@
                                         </div>
                                     </div>
 
+
                                     <div class="row">
                                         <div class="col-lg-1">
                                         </div>
@@ -332,6 +269,7 @@
                                         <div class="col-lg-1">
                                         </div>
                                     </div>
+                               
                                 </section>
  
                           

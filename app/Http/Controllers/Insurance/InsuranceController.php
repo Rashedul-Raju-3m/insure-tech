@@ -151,11 +151,25 @@ class InsuranceController extends Controller {
     public function InsuranceQuery($slug,$session){
         $sessionUser = InsUserSession::where('code',$session)->first();
         $page = InsCategory::where('slug', $slug)->where('is_active', 1)->first();
+
         if ('health-insurance' == $slug){
             return view('website.insurance.health.query-form', compact('page','sessionUser'));
         }
+
         if ('car-insurance' == $slug){
             return view('website.insurance.car.query-form', compact('page','sessionUser'));
+        }
+
+        if ('travel-insurance' == $slug){
+            return view('website.insurance.travel.query-form', compact('page','sessionUser'));
+        }
+
+        if ('life-insurance' == $slug){
+            return view('website.insurance.life.query-form', compact('page','sessionUser'));
+        }
+
+        if ('accident-insurance' == $slug){
+            return view('website.insurance.accident.query-form', compact('page','sessionUser'));
         }
     }
 

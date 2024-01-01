@@ -297,6 +297,8 @@
             $(document).delegate('.select-ins','click',function () {
                 let slug = $(this).attr("val");
                 $('.slug').val(slug)
+                $(this).removeClass("bg-success");
+                $(this).attr("style", "background-color:#283f34 !important;");
             });
 
         </script>
